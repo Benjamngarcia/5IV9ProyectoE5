@@ -1,0 +1,148 @@
+/* ----------------------HEADER----------------- */
+.content{
+    max-width: 1250px;
+    margin: 0;
+    padding: 0px 30px;
+}
+.navbar{
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    padding: 25px 0;
+    transition: all 0.3s ease;
+}
+.navbar .content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar .logo a{
+    color: var(--whiteCEG);
+    font-size: 30px;
+    font-weight: 300;
+    font-family: var(--titleCEG);
+    text-decoration: none;
+}
+.navbar .menu-list{
+    display: inline-flex;
+}
+.menu-list li{
+    list-style: none;
+}
+.menu-list li a{
+    color: var(--whiteCEG);
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.menu-list li a:hover{
+    color: var(--grayCEG);
+}
+/* -------------------LOG IN FORM-------------- */
+.login-container{
+    background-image: url('../img/loginimg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+    font-family: var(--textCEG);
+}
+.login-body{
+    background-color:rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 100%;
+    padding: 3%;
+}
+.form-center{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-container{
+    width: 50%;
+    text-align: center;
+}
+form input{
+    width: 50%;
+    padding: 1em;
+    margin-bottom: .5em;
+    margin-top: .5em;
+    border: none;
+    background: rgba(255, 255, 255, .3);
+    outline: none;
+    color:var(--whiteCEG);
+    font-family: var(--text);
+    border-radius: 20px;
+}
+form button{
+    width: 50%;
+    padding: 1em;
+    margin: 1em auto;
+    border: none;
+    background: var(--redCEG);
+    color: var(--whiteCEG);
+    text-transform: uppercase;
+    border-radius: 60px;
+}
+::placeholder{
+    color: var(--white);
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f007";
+}
+form button:hover,
+form button:focus{
+    cursor:pointer;
+}
+.needhelp{
+    color: var(--whiteCEG);
+}
+.needhelp a{
+    text-decoration: none;
+    color: var(--whiteCEG);
+    font-weight: bold;
+}
+/* ----------FOOTER LOGIN--------- */
+.footer-bottom{
+    padding-bottom: 40px;
+    text-align: center;
+    color: var(--whiteCEG);
+}
+.footer-bottom p{
+    float: left;
+    font-size: 14px;
+    word-spacing: 2px;
+}
+.footer-bottom p a{
+    color: var(--whiteCEG);
+    text-decoration: none;
+    font-weight: 400;
+}
+.footer-menu{
+    float: right;
+}
+/* -------MEDIA QUERIES------- */
+/* LOG IN FORM */
+@media screen and (max-width: 768px){
+    .navbar .logo a{
+        font-size: 18px;
+    }
+    /* FORM */
+    .form-container{
+        width: 100%;
+    }
+    form input{
+        width: 90%;
+    }
+    /* FOOTER */
+    .footer-bottom{
+        padding-bottom: 0;
+    }
+    .footer-bottom p{
+        font-size: 10px;
+    }
+}

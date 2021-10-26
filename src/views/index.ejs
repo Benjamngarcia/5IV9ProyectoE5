@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Centro Educativo Gandhi</title>
+    <!-- ÍCONO -->
+    <link rel="icon" href="/img/icon.png">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/navfoot.css">
+    <link rel="stylesheet" href="/css/landingpage.css">
+    <!-- BOOTSTRAP 5 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar navbar-dark fixed-top navbar-color p-2" id="menu">
+        <a class="navbar-brand" href="#">Centro Educativo Gandhi</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">Sobre nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#teachers">Docentes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contacto</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Iniciar sesión
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="./loginuser.html">Alumno</a>
+                        <a class="dropdown-item" href="./registroteach.html">Profesor</a>
+                        <a class="dropdown-item" href="./logindirector.html">Director</a>
+                        <a class="dropdown-item" href="./loginadmin.html">Administrador</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- CONTAINER -->
+    <div class="container-xxl">
+        <!-- CAROUSEL IMG -->
+        <div class="banner" id="home">
+            <div class="carousel-container" id="home">
+                <div class="mySlides">
+                    <img src="/img/cr1.jpeg" alt="imagen-1">
+                    <div class="mySlides-center1">
+                        <p class="carousel-title">El mejor regalo que le puedes dar a tus hijos es una buena eduación.
+                        </p>
+                        <a href="#contact" class="carousel-calltoaction">CONTÁCTANOS</a>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <img src="/img/cr2.jpg" alt="">
+                    <div class="mySlides-center2">
+                        CENTRO EDUCATIVO <b>&nbsp;GANDHI</b>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <img src="/img/cr3.jpg" alt="">
+                    <div class="mySlides-center2">El arma más poderosa para cambiar el mundo es la educación.</div>
+                </div>
+                <div class="elements justify-content-center">
+                    <a class="quadrate-click" onclick="plusSlides(-1)" id="flechaizquierda"><i
+                            class="fas fa-chevron-left"></i></a>
+                    <span class="quadrate" onclick="currentSlide(1)"></span>
+                    <span class="quadrate" onclick="currentSlide(2)"></span>
+                    <span class="quadrate" onclick="currentSlide(3)"></span>
+                    <a class="quadrate-click" onclick="plusSlides(1)" id="flechaderecha"><i
+                            class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+            <!-- ABOUT US -->
+            <div class="ancla1 p-3" id="about"></div>
+            <div class="about-container m-3 pt-2">
+                <div class="about1 text-center">
+                    <h3 class="title-aboutus"><b>SOBRE NOSOTROS</b></h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos qui fugiat expedita numquam
+                        sequi
+                        itaque aperiam maiores nostrum accusamus, aspernatur, ipsam commodi nemo rerum architecto esse
+                        reprehenderit nisi nihil quis?</p>
+                </div>
+                <div class="row m-auto about-wrapper text-center justify-content-center">
+                    <div class="about-card col-12 col-lg-3 m-4">
+                        <div class="about-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="about-text">
+                            <h4>MISIÓN</h4>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eligendi excepturi quo
+                                voluptatum quaerat corporis repellat unde ad sed earum?</p>
+                        </div>
+                    </div>
+                    <div class="about-card col-12 col-lg-3 m-4">
+                        <div class="about-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <div class="about-text">
+                            <h4>VISIÓN</h4>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eligendi excepturi quo
+                                voluptatum quaerat corporis repellat unde ad sed earum?</p>
+                        </div>
+                    </div>
+                    <div class="about-card col-12 col-lg-3 m-4">
+                        <div class="about-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="about-text">
+                            <h4>FILOSOFÍA</h4>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem eligendi excepturi quo
+                                voluptatum quaerat corporis repellat unde ad sed earum?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- TEACHERS -->
+            <div class="ancla1 p-3" id="teachers"></div>
+            <div class="teachers-container pt-1">
+                <h3 class="title-teachers principal-teachers"><b>NUESTROS PROFESORES</b></h3>
+                <p class="principal-teachers">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla provident
+                    tenetur
+                    aliquid fugit consequuntur iusto voluptatem numquam asperiores dolores. Sed voluptate culpa ut, enim
+                    tempore
+                    tempora sit. Aliquam, facere illo.</p>
+                <section class="slider">
+                    <div class="slider-container contenedor">
+                        <i class="fas fa-chevron-left slider-arrow" id="before"></i>
+                        <section class="slider-body slider-body--show" data-id="1">
+                            <div class="slider-texts">
+                                <h4 class="subtitle">Ángel Hernández</h4>
+                                <p class="teacher-review">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Mollitia
+                                    adipisci illum quia explicabo provident repudiandae?</p>
+                            </div>
+                            <figure class="slider-picture">
+                                <img src="/img/teacher1.jpg" alt="maestro1" class="slider-img">
+                            </figure>
+                        </section>
+                        <section class="slider-body" data-id="2">
+                            <div class="slider-texts">
+                                <h4 class="subtitle">Rosario Lira</h4>
+                                <p class="teacher-review">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Mollitia
+                                    adipisci illum quia explicabo provident repudiandae?</p>
+                            </div>
+                            <figure class="slider-picture">
+                                <img src="/img/teacher2.jpg" alt="maestro1" class="slider-img">
+                            </figure>
+                        </section>
+                        <section class="slider-body" data-id="3">
+                            <div class="slider-texts">
+                                <h4 class="subtitle">Félix Ramírez</h4>
+                                <p class="teacher-review">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Mollitia
+                                    adipisci illum quia explicabo provident repudiandae?</p>
+                            </div>
+                            <figure class="slider-picture">
+                                <img src="/img/teacher3.jpg" alt="maestro1" class="slider-img">
+                            </figure>
+                        </section>
+                        <i class="fas fa-chevron-right slider-arrow" id="after"></i>
+                    </div>
+                </section>
+            </div>
+            <!-- CONTACT -->
+            <div class="col-md-12 picture-contact-container" id="contact">
+                <div class="contact-container row justify-content-center align-items-center">
+                    <h3><b>CONTACTO</b></h3>
+                    <form class="col-md-12">
+                        <div class="form-row justify-content-center">
+                            <div class="form-group col-md-6 col-sm-12">
+                                <input type="email" class="forma-control" id="inputEmail4" placeholder="Email">
+                            </div>
+                            <div class="form-group col-md-6 col-sm-12">
+                                <input type="password" class="forma-control" id="inputPassword4" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-row justify-content-center">
+                            <div class="form-group col-md-12">
+                                <textarea name="mensaje" id="mensaje" placeholder="Mensaje"
+                                    class="forma-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row justify-content-center">
+                            <div class="form-group col-md-4 col-sm-6">
+                                <button type="submit" class="btn btn-block">ENVIAR</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- SPONSORS -->
+            <div class="sponsors-container col-12">
+                <div class="row text-center">
+                    <div class="col-12 col-sm-4">
+                        <img src="/img/pat1.png" alt="Escuela" class="sponsor">
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <img src="/img/pat2.png" alt="Gobierno CDMX" class="sponsor">
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <img src="/img/pat3.png" alt="SEP" class="sponsor">
+                    </div>
+                </div>
+            </div>
+            <!-- FOOTER -->
+            <footer class="text-center text-lg-start footer-color text-white" style="background-color: #072f4e;">
+                <!-- Grid container -->
+                <div class="container p-4">
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                            <h4 class="text-uppercase">No olvides</h4>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt placeat voluptatibus
+                            necessitatibus ipsam numquam. At non omnis dolore, distinctio, animi tenetur quidem, placeat
+                            possimus molestiae cumque blanditiis accusamus impedit ab?
+                        </div>
+                        <!--Grid column-->
+                        <!--Grid column-->
+                        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                            <h5 class="text-uppercase">Contacto</h5>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i><label>  Avenida Revolución Sector 54 Los Héroes Tecamac</label>
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope"></i><label>  centroeducativogandhi1@gmail.com</label>
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone"></i><label>  +52 55-1313-1719</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--Grid column-->
+                        <!--Grid column-->
+                        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                            <h5 class="text-uppercase">Links</h5>
+                            <ul class="list-unstyled list-group list-group-horizontal mb-2 justify-content-center">
+                                <li><a href="https://www.facebook.com/centro.educativo.gandhi.preescolar" class="text-light mr-4"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="https://instagram.com/centro_educativo_gandhi?utm_medium=copy_link" class="text-light mr-4"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="" class="text-light mr-4"><i class="fab fa-twitter"></i></a></li>
+                            </ul>
+                            <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7515.695512104762!2d-99.0223707!3d19.6338055!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f20681635ccb%3A0x27968896e9f605a9!2sJard%C3%ADn%20de%20Ni%C3%B1os%20Gandhi!5e0!3m2!1ses!2smx!4v1633543531029!5m2!1ses!2smx"
+                            width="100%" height="70%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                </div>
+                <!-- Grid container -->
+                <!-- Copyright -->
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    Copyright © 2021:
+                    <a class="text-light" href="https://benjamngarcia.github.io/DICTAMIGOS/">DICTAMIAMGOS</a>
+                </div>
+                <!-- Copyright -->
+            </footer>
+        </div>
+    </div>
+    <!-- SCRIPTS -->
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- SCROLL REVEAL -->
+    <script src="https://unpkg.com/scrollreveal"></script> 
+    <!-- SWEET ALERT -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- LANDING PAGE JS -->
+    <script src="/js/landingp.js"></script>
+</body>
+
+</html>

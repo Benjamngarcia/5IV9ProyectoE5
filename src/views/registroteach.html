@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/img/icon.png">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/registro.css">
+    <link rel="icon" href="../img/icon.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Log In</title>
+</head>
+
+<body>
+    <div class="login-container-teach" id="contact">
+        <div class="login-body">
+            <nav class="navbar">
+                <div class="content">
+                    <div class="logo"><a href="vistadirector.html">Centro Educativo Gandhi</a></div>
+                    <ul class="menu-list">
+                        <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                        <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                        <li><a href=""><i class="fab fa-whatsapp"></i></a></li>
+                        <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="form-center">
+                <div class="form-container">
+                    <form onsubmit="return validarRegistroTeach();">
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Nombre" onkeypress="return SoloLetras(event);"
+                                name="nombre_prof" id="nombre" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Apellido Paterno" onkeypress="return SoloLetras(event);" name="appat_prof" id="appat"
+                                required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Apellido Materno" onkeypress="return SoloLetras(event);"
+                                name="apmat_prof" id="apmat" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Dirección" name="direccion_prof" id="direccion" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Telefono" onkeypress="return SoloNumeros(event);" name="telefono_direc" id="telefono" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="RFC" name="rfc_prof" id="rfc" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="NSS" onkeypress="return SoloNumeros(event);" name="nss_prof" id="nss" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="email" placeholder="Correo" name="email_prof" id="email" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="password" placeholder="Password" name="pass_prof" id="constraseña" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="date" placeholder="Fecha de contratación" name="contratacion_prof"
+                                id="contratacion" required>
+                        </p>
+                        <p class="buttonsubmit">
+                            <button type="submit" class="enviar">
+                                REGISTRAR PROFESOR
+                            </button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <footer>
+                <div class="footer-bottom">
+                    <p><a href="#">AVISO DE PRIVACIDAD</a></p>
+                    <div class="footer-menu">
+                        <p>Copyright &copy;2021 <a href="https://benjamngarcia.github.io/DICTAMIGOS/">DICTAMIGOS &
+                                ASOCS</a> </p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="../js/validaciones.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widtr=device-widtr, initial-scale=1.0">
+    <title>Centro Educativo Gandhi</title>
+    <link rel="icon" href="../img/icon.png">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+    <!-- HEADER / NAVBAR -->
+    <nav class="navbar">
+        <div class="content">
+            <div class="logo"><a href="vistaadmin.html">Centro Educativo Gandhi</a></div>
+            <ul class="menu-list">
+                <div class="icon cancel-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+                <li><a href=""><i class="fas fa-user"></i> Administrador</a></li>
+                <li><a href="#editar">Registrar director</a></li>
+                <li><a href="#viewdirec">Ver director</a></li>
+                <li><a href="#oilChart">Gráficas</a></li>
+                <li><a href="/index.html">Cerrar sesión</a></li>
+            </ul>
+            <div class="icon menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    <!-- BODY -->
+    <div class="body-page">
+        <div class="body-page-edittut">
+            <div class="contact-container" id="contact">
+                <!-- EDITAR PERFIL -->
+                <div class="contact-body" id="editar">
+                    <h3 class="contact-title"><b>REGISTRAR DIRECTOR</b></h3>
+                    <div class="profile-pic">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <form onsubmit="return validarRegistro();">
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Nombre" onkeypress="return SoloLetras(event);"
+                                name="nombre_direc" id="nombre" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Apellido Paterno"  onkeypress="return SoloLetras(event);" name="appat_alumno" id="appat"
+                                required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Apellido Materno" onkeypress="return SoloLetras(event);"
+                                name="apmat_direc" id="apmat_alumno" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Dirección" name="direccion_direc" id="direccion" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Telefono" onkeypress="return SoloNumeros(event);" name="telefono_direc" id="telefono" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="RFC" name="rfc_direc" id="rfc" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="NSS" onkeypress="return SoloNumeros(event);" name="nss_direc" id="nss" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="email" placeholder="Correo" name="email_direc" id="email" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="password" placeholder="Password" name="pass_direc" id="contraseña" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="date" placeholder="Fecha de contratación" name="contratacion"
+                                id="contratacion_direc" required>
+                        </p>
+                        <p class="buttonsubmit">
+                            <button type="submit" class="enviar" onclick="enviar();">
+                                AGREGAR DIRECTOR
+                            </button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- VISUALIZAR PROFESORES -->
+        <div class="view-group" id="viewdirec">
+            <h3>VISUALIZAR DIRECTOR</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>RFC</th>
+                        <th>Correo</th>
+                        <th>Nombre</th>
+                        <th>Apellido Paterno</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>si</td>
+                        <td>si</td>
+                        <td>si</td>
+                        <td>si</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <canvas id="oilChart" width="80%" height="20%"></canvas>
+    </div>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-bottom">
+            <p><a href="#">AVISO DE PRIVACIDAD</a></p>
+            <div class="footer-menu">
+                <p>Copyright &copy;2021 <a href="https://benjamngarcia.github.io/DICTAMIGOS/">DICTAMIGOS & ASOCS</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/graphs.js"></script>
+    <script src="../js/validaciones.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/img/icon.png">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="icon" href="../img/icon.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Log In</title>
+</head>
+
+<body>
+    <div class="login-container" id="contact">
+        <div class="login-body">
+            <nav class="navbar">
+                <div class="content">
+                    <div class="logo"><a href="/index.html">Centro Educativo Gandhi</a></div>
+                    <ul class="menu-list">
+                        <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                        <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                        <li><a href=""><i class="fab fa-whatsapp"></i></a></li>
+                        <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="form-center">
+                <div class="form-container">
+                    <form onsubmit="return validarLogin();">
+                        <p class="input-format-contact">
+                            <input type="email" placeholder="  Correo" name="email_admin" id="email" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="password" placeholder="  Password" name="password_admin" id="password" required>
+                        </p>
+                        <p class="buttonsubmit">
+                            <button type="submit" class="ingresar" onclick="window.location = 'vistaadmin.html';">
+                                Ingresar
+                            </button>
+                        </p>
+                    </form>
+                    <p class="needhelp">¿Necesitas ayuda? <a href="/index.html/#contact">Contáctanos</a></p>
+                </div>
+            </div>
+            <footer>
+                <div class="footer-bottom">
+                    <p><a href="#">AVISO DE PRIVACIDAD</a></p>
+                    <div class="footer-menu">
+                        <p>Copyright &copy;2021 <a href="https://benjamngarcia.github.io/DICTAMIGOS/">DICTAMIGOS &
+                                ASOCS</a> </p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="../js/validaciones.js"></script>
+</body>
+</html>

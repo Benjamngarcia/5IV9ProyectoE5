@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/img/icon.png">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/registro.css">
+    <link rel="icon" href="../img/icon.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Log In</title>
+</head>
+
+<body>
+    <div class="login-container" id="contact">
+        <div class="login-body">
+            <nav class="navbar">
+                <div class="content">
+                    <div class="logo"><a href="vistadirector.html">Centro Educativo Gandhi</a></div>
+                    <ul class="menu-list">
+                        <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                        <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                        <li><a href=""><i class="fab fa-whatsapp"></i></a></li>
+                        <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="form-center">
+                <div class="form-container">
+                    <form onsubmit="return validarRegistro();">
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Nombre" onkeypress="return SoloLetras(event);"
+                                name="nombre_tutor" id="nombre" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Apellido Paterno" name="appat_tutor" id="appat" onkeypress="return SoloLetras(event);"
+                                required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Apellido Materno" onkeypress="return SoloLetras(event);"
+                                name="apmat_tutor" id="apmat" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="email" placeholder="Email" name="email_alum" id="email" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="date" placeholder="Inscripción" name="ins_alum" id="inscripcion" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Telefono" onkeypress="return SoloLetras(event);"
+                                name="telefono_alum" id="telefono" required>
+                        </p>
+                        <p class="block block-input">
+                            <input type="text" placeholder="Grupo" name="grupo_alum" id="grupo" required>
+                        </p>
+                        <p class="buttonsubmit">
+                            <button type="submit" class="enviar" onclick="enviar();">
+                                GENERAR DATOS
+                            </button>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Matricula"
+                                name="matricula_alum" id="matricula" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="password" placeholder="Contraseña" name="contaseña_alum" id="contraseña"
+                                required>
+                        </p>
+                        <p class="buttonsubmit">
+                            <button type="submit" class="enviar" onclick="enviar();">
+                                REGISTRAR ALUMNO
+                            </button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <footer>
+                <div class="footer-bottom">
+                    <p><a href="#">AVISO DE PRIVACIDAD</a></p>
+                    <div class="footer-menu">
+                        <p>Copyright &copy;2021 <a href="https://benjamngarcia.github.io/DICTAMIGOS/">DICTAMIGOS &
+                                ASOCS</a> </p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="../js/validaciones.js"></script>
+</body>
+</html>

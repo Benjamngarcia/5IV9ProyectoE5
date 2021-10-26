@@ -1,0 +1,26 @@
+/*----------- IMPORT--------------- */
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap');
+/* ---------STYLES---------- */
+:root{
+    /* FONTS */
+    --text: 'Mukta', sans-serif;
+    /* COLORS */
+    --blueCEG: #072f4e;
+    --redCEG: #F52A31;
+    --whiteCEG: #F5F2F3;
+    --blackCEG: #000000;
+    --grayCEG: #A0A0A0;
+}
+h3{
+    font-family: var(--title);
+    color: var(--blueCEG);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--text);
+}
+body{
+    background-color: var(--whiteCEG);
+}

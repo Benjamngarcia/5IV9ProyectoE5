@@ -1,0 +1,16 @@
+/* ---------NAVBAR---------- */
+.navbar{
+    color: var(--whiteCEG);
+}
+.navbar-color{
+    background-color: transparent;
+}
+.color-scroll{
+    background-color: var(--blueCEG);
+}
+.nav-link{
+    color: var(--whiteCEG);
+}
+.navbar-brand{
+    font-weight: 600;
+}

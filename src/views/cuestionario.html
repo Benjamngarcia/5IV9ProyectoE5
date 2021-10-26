@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro Educativo Gandhi</title>
+    <link rel="icon" href="../img/icon.png">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/vistas.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+</head>
+
+<body>
+    <!-- HEADER/NAVBAR -->
+    <nav class="navbar">
+        <div class="content">
+            <div class="logo"><a href="vistauser.html">Centro Educativo Gandhi</a></div>
+            <ul class="menu-list">
+                <div class="icon cancel-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+                <li><a href="vistauser_editarusuario.html"><i class="fas fa-user"></i> Pedro Parra</a></li>
+                <li><a href="vistauser_editartutor.html">Editar tutor</a></li>
+                <li><a href="cuestionario.html">Responder cuestionario</a></li>
+                <li><a href="/index.html">Cerrar sesión</a></li>
+            </ul>
+            <div class="icon menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    <!-- CUESTIONARIO COVI -->
+    <div class="cuestionario-page">
+        <div class="quiz-container">
+            <div class="quiz-instrucciones">
+                <h5>Instrucciones:</h5>
+                <p>Marca las opciones correctas de acuerdo a tu caso.</p>
+                <p>Verifica las respuestas, estas no podrán ser enviadas de nuevo el día de hoy.</p>
+            </div>
+            <div class="quiz-preguntas">
+                <div class="pregunta1">
+                    <p>¿Tú o tu hijo han estado en contacto con algún paciente confirmado de COVID-19 en los últimos 15
+                        días?</p>
+                    <p>
+                        <input type="checkbox" id="si" name="si" value="si">
+                        <label for="si"> Sí</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="no" name="no" value="no">
+                        <label for="no">No</label><br><br>
+                    </p>
+                </div>
+
+                <div class="pregunta2">
+                    <p>¿Tú o tu hijo han presentado alguno de los siguientes síntomas?</p>
+                    <p>
+                        <input type="checkbox" id="dolordecabeza" name="dolordecabeza" value="dolordecabeza">
+                        <label for="dolordecabeza"> Dolor de cabeza.</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="tos" name="tos" value="tos">
+                        <label for="tos">Tos</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="fiebre" name="fiebre" value="fiebre">
+                        <label for="fiebre"> FIebre</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="difrespirar" name="difrespirar" value="difrespirar">
+                        <label for="difrespirar">Dificultad para respirar</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="nosentidos" name="nosentidos" value="nosentidos">
+                        <label for="nosentidos"> Pérdida del sentido del olfato o del gusto</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="escurrinasal" name="escurrinasal" value="escurrinasal">
+                        <label for="escurrinasal">Escurrimiento nasal</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="diarrea" name="diarrea" value="diarrea">
+                        <label for="diarrea"> Diarrea.</label>
+                    </p>
+                </div>
+                <div class="div-boton">
+                    <button type="submit" class="respuestaquiz" onclick="window.location = 'showqr.html';">
+                        Enviar respuesta
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- SPONSORS -->
+        <div class="sponsor-container" id="about">
+            <div class="sponsor-wrapper">
+                <div class="sponsor2"><img src="../img/pat1.png" alt="Escuela" class="sponsor"></div>
+                <div class="sponsor3"><img src="../img/pat2.png" alt="Gobierno CDMX" class="sponsor imgsep"></div>
+                <div class="sponsor4"><img src="../img/pat3.png" alt="SEP" class="sponsor imgsep"></div>
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER -->
+    <footer>
+        <div class="container-footer-all">
+            <div class="container-body">
+                <div class="colum1">
+                    <h3 id="titlefooter">No olvides</h3>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt placeat voluptatibus
+                    necessitatibus ipsam numquam. At non omnis dolore, distinctio, animi tenetur quidem, placeat
+                    possimus molestiae cumque blanditiis accusamus impedit ab?
+                </div>
+                <div class="colum2">
+                    <h3 id="titlefooter">Información de contacto</h3>
+                    <div class="row2">
+                        <i class="fas fa-envelope"></i>
+                        <label>centroeducativogandhi1@gmail.com</label>
+                    </div>
+                    <div class="row2">
+                        <i class="fas fa-phone"></i>
+                        <label>55-1313-1719</label>
+                    </div>
+                    <div class="row2 marker">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <label>Avenida Revolución Sector 54 Mz 168 Los Héroes Tecamac
+                        </label>
+                    </div>
+                </div>
+                <div class="colum3">
+                    <h3 id="titlefooter">Redes Sociales</h3>
+                    <div class="row">
+                        <ul>
+                            <li><a href="https://www.facebook.com/centro.educativo.gandhi.preescolar
+                                " class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="" class="instagram"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                        </ul>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7515.695512104762!2d-99.0223707!3d19.6338055!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f20681635ccb%3A0x27968896e9f605a9!2sJard%C3%ADn%20de%20Ni%C3%B1os%20Gandhi!5e0!3m2!1ses!2smx!4v1633543531029!5m2!1ses!2smx"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p><a href="#">AVISO DE PRIVACIDAD</a></p>
+            <div class="footer-menu">
+                <p>Copyright &copy;2021 <a href="https://benjamngarcia.github.io/DICTAMIGOS/">DICTAMIGOS & ASOCS</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/navbar.js"></script>
+</body>
+
+</html>
