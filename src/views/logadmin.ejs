@@ -1,0 +1,20 @@
+<%- include ('partials/_headerLogin')  %>
+            <div class="form-center">
+                <div class="form-container">
+                    <form onsubmit="return validarLogin();">
+                        <p class="input-format-contact">
+                            <input type="email" placeholder="  Correo" name="email_admin" id="email" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="password" placeholder="  Password" name="password_admin" id="password" required>
+                        </p>
+                        <p class="buttonsubmit">
+                            <button type="submit" class="ingresar" onclick="window.location = 'vistaadmin.html';">
+                                Ingresar
+                            </button>
+                        </p>
+                    </form>
+                    <p class="needhelp">¿Necesitas ayuda? <a href="/index.html/#contact">Contáctanos</a></p>
+                </div>
+            </div>
+<%- include ('partials/_footerLogin')  %>            
