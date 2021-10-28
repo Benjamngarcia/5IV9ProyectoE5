@@ -1,0 +1,96 @@
+/* BOTONES EDITAR PERFIL */
+
+.body-page-edittut{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em 15%;
+}
+.profile-pic i{
+    color: var(--blueCEG);
+    width: 10%;
+    height: 10%;
+    font-size: 500%;
+}
+.contact-container{
+    width: 100%;
+    margin: auto;
+    font-family: var(--text);
+}
+.contact-body{
+    width: 100%;
+    height: 100%;
+}
+.contact-title{
+    color: var(--blueCEG);
+    text-align: center;
+    margin: auto;
+}
+form p{
+    margin: 0;
+    padding: .5em;
+}
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+form .buttonsubmit{
+    grid-column: 1 / 3;
+}
+form input{
+    width: 100%;
+    padding: .8em;
+    margin-bottom: 1px;
+    margin-top: 2px;
+    border: none;
+    background: rgba(170, 169, 169, 0.849);
+    outline: none;
+    color:var(--whiteCEG);
+    font-family: var(--textCEG);
+    border-radius: 60px;
+}
+form button{
+    width: 20%;
+    padding: 1em;
+    margin: auto 40%;
+    border: none;
+    background: var(--redCEG);
+    color: var(--whiteCEG);
+    text-transform: uppercase;
+    border-radius: 60px;
+}
+::placeholder{
+    color: var(--whiteCEG);
+    font-weight: bold;
+}
+form button:hover,
+form button:focus{
+    cursor:pointer;
+    background-color: #ec3e44;
+}
+
+
+
+
+/* ---------MEDIA QUERIES----------- */
+@media (max-width: 768px) {
+    /*---------------- FORMULARIO-------------- */
+    .body-page-edittut{
+        margin: 2em 10%;
+    }
+    .profile-pic i{
+        width: 50%;
+    }
+    .input-format-contact{
+        grid-column: 1;
+    }
+    form{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    form button{
+        width: 50%;
+        margin: auto 20%;
+        padding: .55em;
+    }
+}

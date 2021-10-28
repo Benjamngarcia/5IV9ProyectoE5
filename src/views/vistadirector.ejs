@@ -1,0 +1,227 @@
+<%- include ('partials/_headerVistaDirec') %>
+    <div class="container-xl">
+        <!-- BODY -->
+        <div class="body-page">
+            <div class="welcome-page">
+                <h3>BIENVENIDO DIRECTOR</h3>
+                <a href="" class="button-action">ENVIAR ALERTA</a>
+            </div>
+            <div class="save-buttons">
+                <a href="registroalum.html" class="button-action" data-toggle="modal"
+                    data-target="#exampleModalCenter">REGISTRAR ALUMNO</a>
+                <a href="registroteach.html" class="button-action" data-toggle="modal"
+                data-target="#exampleModalCenter1">REGISTRAR PROFESOR</a>
+            </div>
+            <!-- REGISTRO ALUMNO -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header" style="background-color: #072f4e;">
+                            <h5 class="modal-title" id="exampleModalLongTitle" style="color: #F5F2F3;">REGISTRAR ALUMNO</h5>
+                            <button type="button" class="close" data-dismiss="modal" style="color: #F5F2F3;" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" placeholder="Nombre">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" placeholder="Apellido paterno">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" placeholder="Apellido materno">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="email" class="form-control" id="" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="date" class="form-control" id="">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="phone" class="form-control" id="" placeholder="Teléfono">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="" placeholder="Grupo">
+                                </div>
+                                <div class="form-group">
+                                    <button type="" class="btn-especial">Generar datos</button>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" placeholder="Matrícula">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" placeholder="Contraseña">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn-especial">Registrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- REGISTRO ALUMNO -->
+            <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header" style="background-color: #072f4e;">
+                            <h5 class="modal-title" id="exampleModalLongTitle" style="color: #F5F2F3;">REGISTRAR PROFESOR</h5>
+                            <button type="button" class="close" data-dismiss="modal" style="color: #F5F2F3;" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" placeholder="Nombre">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" placeholder="Apellido paterno">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" placeholder="Apellido materno">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" placeholder="Dirección">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="phone" class="form-control" id="" placeholder="Teléfono">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="email" class="form-control" id="" placeholder="Correo electrónico">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" placeholder="RFC">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" placeholder="NSS">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="date" class="form-control" id="">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="password" class="form-control" id="" placeholder="Contraseña">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn-especial">Registrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- POR GRUPO -->
+            <h3 class="text-center mt-5" id="alumn">BUSCAR POR GRUPO</h3>
+            <p class="input-view-group">
+                <input type="text" placeholder="Grupo" name="grupo" id="grupo" required>
+                <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+            </p>
+            <div class="col-md-10 col-sm-12 m-auto">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <td>Grupo</td>
+                            <td>Matrícula</td>
+                            <td>Nombre</td>
+                            <td>Apellido</td>
+                            <td>Encuesta</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>si</td>
+                            <td>si</td>
+                            <td>si</td>
+                            <td>si</td>
+                            <td>si</td>
+                            <td>si</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- VISUALIZAR PROFESORES -->
+            <h3 class="text-center mt-5" id="teacher">LISTA PROFESORES</h3>
+            <div class="col-md-10 col-sm-12 m-auto">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <td>RFC</td>
+                            <td>Correo</td>
+                            <td>Nombre</td>
+                            <td>Apellido Paterno</td>
+                            <td>Encuesta</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>si</td>
+                            <td>si</td>
+                            <td>si</td>
+                            <td>si</td>
+                            <td>si</td>
+                            <td>si</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- POR TUTOR -->
+            <h3 class="text-center mt-5" id="parent">VER TUTORES</h3>
+            <div class="">
+                <p class="input-view-group">
+                    <input type="text" placeholder="Nombre hijo" name="hijo" id="hijo" required>
+                    <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+                </p>
+                <div class="col-md-10 col-sm-12 m-auto">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <td>Nombre</td>
+                                <td>Apellido</td>
+                                <td>Hijo</td>
+                                <td>Apellido Hijo</td>
+                                <td>Teléfono</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>si</td>
+                                <td>si</td>
+                                <td>si</td>
+                                <td>si</td>
+                                <td>si</td>
+                                <td>si</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include ('partials/_footerCopy') %>

@@ -5,7 +5,7 @@ const pool = require('../database');
 controller.open = (req, res) => {
     res.render('index');
 }
-//Links a dropdown menu
+//Links del dropdown menu
 controller.LogAlumn = (req, res) => {
     res.render('logalumn');
 }
@@ -17,6 +17,10 @@ controller.LogDirec = (req, res) => {
 }
 controller.LogAdmin = (req, res) => {
     res.render('logadmin');
+}
+//Ir a vista director
+controller.VistaDirec = (req, res) => {
+    res.render('vistadirector');
 }
 
 module.exports = controller;

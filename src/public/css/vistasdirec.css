@@ -1,72 +1,8 @@
-/* ---------HEADER---------- */
-.content{
-    max-width: 1250px;
-    margin: auto;
-    padding: 0 30px;
-}
-.navbar{
-    background: var(--blue);
-    position: fixed;
-    width: 100%;
-    z-index: 2;
-    padding: 10px 0;
-    transition: all 0.3s ease;
-}
-.navbar.sticky{
-    background: var(--blue);
-    padding: 5px 0;
-    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
-}
-.navbar .content{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.navbar .logo a{
-    color: var(--white);
-    font-size: 30px;
-    font-weight: 600;
-    text-decoration: none;
-}
-.navbar .menu-list{
-    display: inline-flex;
-}
-.menu-list li{
-    list-style: none;
-}
-.menu-list li a{
-    color: var(--white);
-    font-size: 18px;
-    font-weight: 500;
-    margin-left: 25px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-.menu-list li a:hover{
-    color: var(--gray);
-}
-.icon{
-    color: var(--white);
-    font-size: 20px;
-    cursor: pointer;
-    display: none;
-}
-.menu-list .cancel-btn{
-    position: absolute;
-    right: 30px;
-    top: 20px;
-}
 /* ---------PÁGINA----------- */
 .body-page{
-    padding-top: 4.5em;
+    padding-top: 2em;
     width: 100%;
     height: 100%;
-    text-align: center;
-}
-.body-page-teach{
-    padding-top: 4.5em;
-    width: 100%;
-    height: 93.4vh;
     text-align: center;
 }
 /* BOTONES PRINCIPIO */
@@ -84,87 +20,29 @@
     padding: 1em;
     margin: auto  3%;
     border: none;
-    background: var(--red);
-    color: var(--white);
+    background: var(--redCEG);
+    color: var(--whiteCEG);
     text-transform: uppercase;
     border-radius: 60px;
     text-decoration: none ;
 }
+.btn-especial{
+    background: var(--redCEG);
+    color: var(--whiteCEG);
+    border-radius: 60px;
+    border: none;
+    padding: .3em;
+}
 .button-action:hover,
-.button-action:focus{
+.button-action:focus,
+.btn-especial:hover{
     cursor:pointer;
     background-color: #ec3e44;
+    color: var(--whiteCEG);
+    text-decoration: none;
 }
-/* BOTONES EDITAR PERFIL */
-.body-page-edittut{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2em 15%;
-}
-.profile-pic i{
-    color: var(--blue);
-    width: 10%;
-    height: 10%;
-    font-size: 500%;
-}
-.contact-container{
-    width: 100%;
-    margin: auto;
-    font-family: var(--text);
-}
-.contact-body{
-    width: 100%;
-    height: 100%;
-}
-.contact-title{
-    color: var(--blue);
-    text-align: center;
-    margin: auto;
-}
-form p{
-    margin: 0;
-    padding: .5em;
-}
-form{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-form .buttonsubmit{
-    grid-column: 1 / 3;
-}
-form input{
-    width: 100%;
-    padding: .8em;
-    margin-bottom: 1px;
-    margin-top: 2px;
-    border: none;
-    background: rgba(170, 169, 169, 0.849);
-    outline: none;
-    color:var(--white);
-    border-bottom: 1px solid var(--blanquito);
-    font-family: var(--text);
-    border-radius: 60px;
-}
-form button{
-    width: 20%;
-    padding: 1em;
-    margin: auto 40%;
-    border: none;
-    background: var(--red);
-    color: var(--white);
-    text-transform: uppercase;
-    border-radius: 60px;
-}
-::placeholder{
-    color: var(--white);
-    font-weight: bold;
-}
-form button:hover,
-form button:focus{
-    cursor:pointer;
-    background-color: #ec3e44;
-}
+
+
 /* TABLA */
 .view-group{
     margin-top: 2em;
@@ -173,197 +51,28 @@ form button:focus{
 .input-view-group{
     margin-bottom: 1em;
 }
-table{
-    width: 80%;
-}
 .input-view-group input{
-    background-color: #0d4a7998;
+    background-color: #3d7baa98;
     border-radius: 60px;
     padding: .5em;
     border: none;
     outline: none;
+    color: var(--whiteCEG);
 }
 .search-button{
-    background-color: var(--red);
+    background-color: var(--redCEG);
     border-radius: 60px;
     border: none;
     padding: .5em;
-    color: var(--white);
+    color: var(--whiteCEG);
     cursor: pointer;
-}
-table{
-    margin: auto;
-    border-spacing: 0;
-    border-collapse: collapse;
 }
 thead{
-    background-color: var(--blue);
-    color: var(--white);
+    background-color: var(--blueCEG);
+    color: var(--whiteCEG);
 }
-th, td{
-    border: 1px solid var(--gray);
-    padding: 1em;
-}
-tbody tr:hover{
-    background-color: var(--gray);
-    cursor: pointer;
-}
-/* ---------FOOTER----------- */
-footer{
-    width: 100%;
-    background: var(--blue);
-    color: var(--white);   
-    font-family: var(--text);
-}
-.container-footer-all{
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 40px;
-}
-.container-footer-all-main{
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 10px;
-}
-#titlefooter{
-    color: var(--white);
-}
-.container-body{
-    display: flex;
-    justify-content: space-between;
-}
-.colum1{
-    max-width: 400px;
-    text-align: center;
-}
-iframe{
-    width: 100%;
-    height: 100%;
-}
-.colum2{
-    max-width: 400px;
-}
-.colum2 h1{
-    font-size: 22px;
-}
-footer .row li{
-    display: inline-block;
-    margin: 0 5px;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-}
-footer .row a{
-    display: block;
-    padding: 0 10px;
-    line-height: 40px;
-    font-size: 20px;
-}
-.facebook i,
-.instagram i,
-.twitter i{
-    color: var(--white);
-}
-.colum3{
-    max-width: 400px;
-}
-.colum3 h1{
-    font-size: 22px;
-}
-.row2{
-    margin-top: 20px;
-    display: flex;
-}
-.row2 i{
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    vertical-align: middle;
-}
-.marker{
-    display: flex;
-    align-items: center;
-    vertical-align: middle;
-}
-.row2 label{
-    margin-top: 10px;
-    margin-left: 20px;
-    max-width: 140px;
-    align-items: center;
-    vertical-align: middle;
-}
-.container-footer{
-    width: 100%;  
-    background: var(--azul);
-}
-.footer-bottom{
-    padding-bottom: 40px;
-    text-align: center;
-    color: var(--white);
-    margin: auto 2%;
-}
-.footer-bottom p{
-    float: left;
-    font-size: 14px;
-    word-spacing: 2px;
-}
-.footer-bottom p a{
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 400;
-}
-.footer-menu{
-    float: right;
-}
-
 /* ---------MEDIA QUERIES----------- */
-/* HEADER NAV */
-@media (max-width: 380px) {
-    .navbar .logo a{
-        font-size: 27px;
-    }
-}
 @media (max-width: 768px) {
-    body.disabled{
-        overflow: hidden;
-    }
-    .icon{
-        display: block;
-    }
-    .icon.hide{
-        display: none;
-    }
-    .navbar .menu-list{
-        position: fixed;
-        height: 100vh;
-        width: 100%;
-        max-width: 400px;
-        left: -100%;
-        top: 0px;
-        display: block;
-        padding: 40px 0;
-        text-align: center;
-        background: var(--blue);
-        transition: all 0.3s ease;
-    }
-    .navbar.show .menu-list{
-        left: 0%;
-    }
-    .navbar .menu-list li{
-        margin-top: 45px;
-    }
-    .navbar .menu-list li a{
-        font-size: 23px;
-        margin-left: -100%;
-        transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-    .navbar.show .menu-list li a{
-        margin-left: 0px;
-        font-size: 23px;
-    }
     /*---------------- BOTONES INICIO-------------- */
     .save-buttons{
         display: flex;
@@ -372,51 +81,6 @@ footer .row a{
     .button-action{
         width: 80%;
         padding: .5em;
-        margin: .5em auto;
-    }
-    /*---------------- FORMULARIO-------------- */
-    .body-page-edittut{
-        margin: 2em 10%;
-    }
-    .profile-pic i{
-        width: 50%;
-    }
-    .input-format-contact{
-        grid-column: 1;
-    }
-    form{
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-    form button{
-        width: 50%;
-        margin: auto 20%;
-        padding: .55em;
-    }
-    /*---------------- TABLAS-------------- */
-    table{
-        width: 90%;
-    }
-    .input-view-group input,
-    .search-button{
-        padding: .3em;
-    }
-    th, td{
-        border: 1px solid var(--gray);
-        padding: .2em 0;
-    }
-    /*----------------FOOTER-------------- */
-    .container-body{
-        flex-wrap: wrap;
-    }
-    .colum2{
-        font-size: 90%;
-    }
-    .colum2,
-    .colum3{
-        margin-top: 5rem;
-    }
-    .footer-bottom p{
-        font-size: 10px;
+        margin: .3em auto;
     }
 }
