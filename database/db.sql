@@ -73,7 +73,7 @@ CREATE TABLE tutor(
     parentezco VARCHAR(20) NOT NULL,
     PRIMARY KEY(id_tutor),
     FOREIGN KEY (id_alum) REFERENCES alumno(id_alum) ON DELETE CASCADE,
-    FOREIGN KEY (id_direccion) REFERENCES direccion(id_direccion) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (id_direccion) REFERENCES direccion(id_direccion) ON DELETE CASCADE
 );
 
 CREATE TABLE profesor(
@@ -118,6 +118,7 @@ CREATE TABLE admini(
 
 INSERT alumno VALUES ("1","Alumno","Prueba","Uno","alumno1@gmail.com","2003-03-20","12345a","2021-10-30", "APU2910", "552722470","2");
 
+--ESTO NO LO HE INSERTADO
 INSERT tutor VALUES("1","1","1","Tutor", "Prueba", "Uno", "Padre");
 INSERT direccion VALUES ("1","1","1","1","1");
 INSERT calle VALUES ("1","CallePrueba");
