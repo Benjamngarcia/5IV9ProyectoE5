@@ -1,12 +1,13 @@
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
+const session = require('express-session');
+
 
 //INICALIZANDO EXPRESS
 const app = express();
 
 // IMPORTE RUTAS
-const escuelaRoutes = require('./routes/rutas');
 
 // CONFIGURACIONES
 app.set('port', process.env.PORT || 5000);
@@ -17,14 +18,20 @@ app.set('view engine', '.ejs');
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
+app.use (session({
+    secret:'secret',
+    resave: true,
+    saveUninitialized: true
+}));
 //VARIABLE GLOBAL
 app.use((req, res, next) =>{
     next();
 });
 
 // USO RUTA
-app.use('/', escuelaRoutes);
+app.use(require('./routes'));
+app.use(require('./routes/authentication'));
+app.use('/escuela', require('./routes/escuela'));
 
 // ARCHIVOS ESTÁTICOS
 app.use(express.static(path.join(__dirname, 'public')));

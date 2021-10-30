@@ -1,7 +1,7 @@
-<%- include ('partials/_headerLogin')  %>
+<%- include ('../partials/_headerLogin')  %>
             <div class="form-center">
                 <div class="form-container">
-                    <form onsubmit="return validarLogin();">
+                    <form action="loginalum" method="POST" onsubmit="return validarLogin();">
                         <p class="input-format-contact">
                             <input type="text" placeholder="  Matrícula" name="matricula_alum" id="matricula" required />
                         </p>
@@ -9,7 +9,7 @@
                             <input type="password" placeholder="  Password" name="password_alum" id="password" required />
                         </p>
                         <p class="buttonsubmit">
-                            <button type="submit" class="ingresar" onclick="window.location = 'vistauser.html';">
+                            <button type="submit" class="ingresar">
                                 Ingresar
                             </button>
                         </p>
@@ -19,4 +19,4 @@
                     </p>
                 </div>
             </div>
-<%- include ('partials/_footerLogin')  %>
+<%- include ('../partials/_footerLogin')  %>

@@ -9,13 +9,18 @@ CREATE TABLE alumno(
     apmat_alum VARCHAR(30) NOT NULL,
     correo_alum VARCHAR(30) NOT NULL,
     cumple_alum DATE NOT NULL,
-    pass_alum VARCHAR(16) NOT NULL,
+    pass_alum VARCHAR(100) NOT NULL,
     fecha_ins DATE NOT NULL,
     matricula_alum VARCHAR(11) NOT NULL,
     telefono_alum INT(11) NOT NULL,
     grupo_alum VARCHAR(5) NOT NULL,
     PRIMARY KEY(id_alum)
 );
+ALTER TABLE alumno
+    MODIFY telefono_alum INT(15) NOT NULL;
+
+ALTER TABLE alumno
+    MODIFY telefono_alum VARCHAR(12) NOT NULL;
 
 CREATE TABLE encuesta(
     id_enc INT(4) AUTO_INCREMENT,
@@ -83,7 +88,7 @@ CREATE TABLE profesor(
     appat_prof VARCHAR(30) NOT NULL,
     apmat_prof VARCHAR(30) NOT NULL,
     correo_prof VARCHAR(30) NOT NULL,
-    pass_prof VARCHAR(16) NOT NULL,
+    pass_prof VARCHAR(100) NOT NULL,
     telefono_prof INT(11),
     rfc_prof VARCHAR(16),  
     nss_prof INT(12),
@@ -98,7 +103,7 @@ CREATE TABLE director(
     appat_direc VARCHAR(30) NOT NULL,
     apmat_direc VARCHAR(30) NOT NULL,
     correo_direc VARCHAR(30) NOT NULL,
-    pass_direc VARCHAR(16) NOT NULL,
+    pass_direc VARCHAR(100) NOT NULL,
     telefono_direc INT(11),
     rfc_direc VARCHAR(16),  
     nss_direc INT(16),
@@ -112,13 +117,16 @@ CREATE TABLE admini(
     appat_admin VARCHAR(30) NOT NULL,
     apmat_admin VARCHAR(30) NOT NULL,
     correo_admin VARCHAR(30) NOT NULL,
-    pass_admin VARCHAR(16) NOT NULL,
+    pass_admin VARCHAR(100) NOT NULL,
     PRIMARY KEY(id_admin)
 );
 
-INSERT alumno VALUES ("1","Alumno","Prueba","Uno","alumno1@gmail.com","2003-03-20","12345a","2021-10-30", "APU2910", "552722470","2");
+--INNER JOIN ALUMNO/ENCUESTA
+SELECT * FROM alumno INNER JOIN encuesta ON alumno.id_alum = encuesta.id_alum;
+SELECT * FROM alumno, encuesta WHERE alumno.id_alum = encuesta.id_alum;
 
 --ESTO NO LO HE INSERTADO
+INSERT alumno VALUES ("1","Alumno","Prueba","Uno","alumno1@gmail.com","2003-03-20","12345a","2021-10-30", "APU2910", "552722470","2");
 INSERT tutor VALUES("1","1","1","Tutor", "Prueba", "Uno", "Padre");
 INSERT direccion VALUES ("1","1","1","1","1");
 INSERT calle VALUES ("1","CallePrueba");

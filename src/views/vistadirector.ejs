@@ -24,55 +24,65 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form action="/RegistroAlumno" method="POST">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" id="" placeholder="Nombre">
+                                        <input type="text" class="form-control" name ="nom_alum" id="" placeholder="Nombre">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" id="" placeholder="Apellido paterno">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" id="" placeholder="Apellido materno">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <input type="email" class="form-control" id="" placeholder="Email">
+                                        <input type="text" class="form-control" name ="appat_alum" id="" placeholder="Apellido paterno">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <input type="date" class="form-control" id="">
+                                        <input type="text" class="form-control" name ="apmat_alum" id="" placeholder="Apellido materno">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input type="phone" class="form-control" id="" placeholder="Teléfono">
+                                        <input type="email" class="form-control" name ="correo_alum" id="" placeholder="Email">
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="" placeholder="Grupo">
-                                </div>
-                                <div class="form-group">
-                                    <button type="" class="btn-especial">Generar datos</button>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" id="" placeholder="Matrícula">
+                                        <input type="date" class="form-control" name ="cumple_alum" id="">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" id="" placeholder="Contraseña">
+                                        <input type="phone" class="form-control" name ="telefono_alum" id="" placeholder="Teléfono">
                                     </div>
                                 </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" name="matricula_alum" placeholder="Matrícula">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" name="pass_alum" placeholder="Contraseña">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" name ="grupo_alum" id="" placeholder="Grupo">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="date" class="form-control" name="fecha_ins">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <button type="" class="btn-especial">Generar datos</button>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <button type="submit" class="btn-especial">Registrar</button>
+                                    </div>
+                                </div>                              
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn-especial">Registrar</button>
+                            <button type="submit" class="btn-especial">Registrar</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- REGISTRO ALUMNO -->
+            <!-- REGISTRO PROF -->
             <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -153,14 +163,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>si</td>
-                            <td>si</td>
-                            <td>si</td>
-                            <td>si</td>
-                            <td>si</td>
-                            <td>si</td>
-                        </tr>
+                        <% if (data) { %>
+                            <% for(var i = 0; i < data.length; i++) { %>
+                                <tr>
+                                    <td><%= data[i].grupo_alum %></td>
+                                    <td><%= data[i].matricula_alum %></td>
+                                    <td><%= data[i].nom_alum%></td>
+                                    <td><%= data[i].appat_alum%></td>
+                                    <td><%= data[i].resultado_enc %></td>
+                                    <td>
+                                        <a href="/show/<%= data[i].id_alum %>" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                        <a href="/delete/<%= data[i].id_alum %>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                        <a href="/update/<%= data[i].id_alum %>" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                    </td>
+                                </tr>
+                            <% } %>
+                        <% } %>
                     </tbody>
                 </table>
             </div>
