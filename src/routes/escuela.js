@@ -2,10 +2,12 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../database');
 
+//MOSTRAR TABLA ALUMNOS
 router.get('/VistaDirec', (req, res) => {
-    pool.getConnection((err, conn) =>{
-        pool.query('SELECT * FROM alumno', (err, result) =>{
-            //pool.query('SELECT * FROM alumno, encuesta WHERE alumno.id_alum = encuesta.id_alum;', (err, result) =>{ SUSTITUIR CUANDO HAYA RESULTADOS DE ENCUESTA
+    pool.getConnection(async(err, conn) =>{
+        await pool.query('SELECT * FROM alumno', (err, result) =>{
+            //pool.query('SELECT * FROM alumno, encuesta WHERE alumno.id_alum = encuesta.id_alum;', (err, result) =>{ 
+                //SUSTITUIR CUANDO HAYA RESULTADOS DE ENCUESTA 
             if(err){
                 res.json(err);
             };
@@ -15,6 +17,15 @@ router.get('/VistaDirec', (req, res) => {
         });
     });
 });
+
+//ELIMINAR ALUMNOS
+// router.get('/escuela/VistaDirec/DeleteAlum/:id', async(req, res) =>{
+//     const { id } = req.params;
+//     await pool.query('DELETE FROM alumno WHERE id_alum = ?', [id]);
+//     res.redirect('/escuela/VistaDirec');
+// });
+
+
 
 
 

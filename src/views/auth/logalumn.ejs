@@ -1,12 +1,12 @@
 <%- include ('../partials/_headerLogin')  %>
             <div class="form-center">
                 <div class="form-container">
-                    <form action="loginalum" method="POST" onsubmit="return validarLogin();">
+                    <form action="/IniciarAlum" method="POST" onsubmit="return validarLogin();">
                         <p class="input-format-contact">
                             <input type="text" placeholder="  Matrícula" name="matricula_alum" id="matricula" required />
                         </p>
                         <p class="input-format-contact">
-                            <input type="password" placeholder="  Password" name="password_alum" id="password" required />
+                            <input type="password" placeholder="  Password" name="pass_alum" id="password" required />
                         </p>
                         <p class="buttonsubmit">
                             <button type="submit" class="ingresar">
@@ -15,7 +15,7 @@
                         </p>
                     </form>
                     <p class="needhelp">
-                        ¿Necesitas ayuda? <a href="/index.html/#contact">Contáctanos</a>
+                        ¿Necesitas ayuda? <a href="/#contact">Contáctanos</a>
                     </p>
                 </div>
             </div>
