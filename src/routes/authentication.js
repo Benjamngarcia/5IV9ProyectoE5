@@ -3,6 +3,8 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const pool = require('../database');
 
+const encriptar = require('../lib/bcrypt');
+
 //REGISTRAR ALUMNO
 router.post('/RegistroAlumno', async (req, res) =>{
     const nombre = req.body.nom_alum;
@@ -16,11 +18,9 @@ router.post('/RegistroAlumno', async (req, res) =>{
     const matricula = req.body.matricula_alum;
     const contra = req.body.pass_alum;
 
-    const salt = await bcrypt.genSalt(8);
-    let passwordHaash = await bcrypt.hash(contra, salt);
-    console.log(passwordHaash);
+    let passwordHaash = await encriptar.encryptPassword(contra);
     pool.query('INSERT INTO alumno SET ?', {nom_alum:nombre, appat_alum:appat, apmat_alum:apmat, correo_alum:email, cumple_alum:cumple, telefono_alum:telefono, grupo_alum:grupo,
-    fecha_ins:ins, matricula_alum:matricula, pass_alum:passwordHaash}, async(error,results)=>{
+        fecha_ins:ins, matricula_alum:matricula, pass_alum:passwordHaash}, async(error,results)=>{
         if(error){
             console.log(error);
         }else{
@@ -33,18 +33,18 @@ router.post('/RegistroAlumno', async (req, res) =>{
 router.post('/IniciarAlum', async (req, res) =>{
     const matricula_alum = req.body.matricula_alum;
     const pass_alum = req.body.pass_alum;
-    const salt = await bcrypt.genSalt(8);
-    // let passwordHaash = await bcrypt.hash(pass_alum, salt);
-    // console.log(passwordHaash);
-    if(matricula_alum && pass_alum){
-        pool.query('SELECT * FROM alumno WHERE matricula_alum = "?"', [matricula_alum], async (error, results)=>{
-            if(results.length == 0 || !(await bcrypt.compare(pass_alum, results[0].pass_alum))){
-                res.send('DATOS INCORRECTOS');
-            }else{
-                res.send('LOGIN CORRECTO');
-            }
-        });
-    };
+    const rows = await pool.query('SELECT * FROM alumno WHERE matricula_alum = ?', [matricula_alum]);
+    if (rows.length > 0){
+        const alumno = rows[0];
+        const validPassword = await encriptar.matchPassword(pass_alum, alumno.pass_alum);
+        if (validPassword){
+            res.render('alumno/vistauser');
+        } else{
+            res.send('CONTRASEÑA INCORRECTA');
+        } 
+    } else {
+        res.send('MATRICULA INCORRECTA');
+    }
 });
 
 module.exports = router;
