@@ -1,0 +1,53 @@
+<%if (login === true) {%>
+    <%- include ('../partials/_headerVistaAlum') %>
+        <!-- BODY -->
+        <div class="body-page-edittut">
+            <div class="contact-container" id="contact">
+                <div class="contact-body">
+                    <h3 class="contact-title"><b>DATOS ALUMNO</b></h3>
+                    <form onsubmit="return validarUsuario();">
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Nombre" onkeypress="return SoloLetras(event);"
+                                name="nombre_alumno" id="nombre" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Apellido Paterno" onkeypress="return SoloLetras(event);" name="appat_alumno" id="appat"
+                                required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Apellido Materno" onkeypress="return SoloLetras(event);"
+                                name="apmat_alumno" id="apmat" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="email" placeholder="Correo electrónico" name="email_user" id="email" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Telefono" name="telefono_user" id="telefono" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Matricula" name="matricula_user" id="matricula" required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="text" placeholder="Contraseña" name="contraseña_user" id="contraseña"
+                                required>
+                        </p>
+                        <p class="input-format-contact">
+                            <input type="date" placeholder="Fecha de inscripción" name="inscripcion"
+                                id="inscripcion" required>
+                        </p>
+                        <p class="block">
+                            <input type="text" placeholder="Grupo" name="grupo_user" id="grupo" required>
+                        </p>
+                        <p class="buttonsubmit">
+                            <button type="submit" class="enviar">
+                                GUARDAR CAMBIOS
+                            </button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <%- include ('../partials/_footerCopy') %>
+<%} else {%>
+    <%- include ('../partials/erroracceso') %>
+<%}%>

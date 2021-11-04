@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../database');
 //VISTA ALUMNO---------------------------------
-
+// router.get('/EditarAlumno', (req, res) =>{
+//     res.render('alumno/vistauser_editarusuario')
+// })
 //VISTA DIRECTOR-------------------------------
 //MOSTRAR TABLA ALUMNOS
 router.get('/VistaDirec', (req, res) => {
