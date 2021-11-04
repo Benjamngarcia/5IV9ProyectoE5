@@ -3,7 +3,7 @@ const path = require('path');
 const morgan = require('morgan');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session');
-const flash = require('connect-flash');
+
 
 const { database } = require('./keys');
 
@@ -18,7 +18,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', '.ejs');
 
 // MIDDLEWARES
-app.use(flash());
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -28,10 +27,9 @@ app.use (session({
     saveUninitialized: true,
     store: new MySQLStore(database)
 }));
+
 //VARIABLE GLOBAL
 app.use((req, res, next) =>{
-    app.locals.success = req.flash('success');
-    app.locals.message = req.flash('message');
     next();
 });
 

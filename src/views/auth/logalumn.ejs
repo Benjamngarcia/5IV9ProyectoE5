@@ -1,12 +1,12 @@
 <%- include ('../partials/_headerLogin')  %>
             <div class="form-center">
                 <div class="form-container">
-                    <form action="/IniciarAlum" method="POST" onsubmit="return validarLogin();">
+                    <form action="/IniciarAlum" method="POST" onsubmit="return validarLoginAlum();">
                         <p class="input-format-contact">
                             <input type="text" placeholder="  Matrícula" name="matricula_alum" id="matricula" required />
                         </p>
                         <p class="input-format-contact">
-                            <input type="password" placeholder="  Password" name="pass_alum" id="password" required />
+                            <input type="password" placeholder="  Password" name="pass_alum" id="password"  required/>
                         </p>
                         <p class="buttonsubmit">
                             <button type="submit" class="ingresar">
@@ -19,4 +19,7 @@
                     </p>
                 </div>
             </div>
+            <%if(typeof alert != "undefined"){%>
+                <%- include ('../partials/alertas')  %>
+            <%}%>
 <%- include ('../partials/_footerLogin')  %>

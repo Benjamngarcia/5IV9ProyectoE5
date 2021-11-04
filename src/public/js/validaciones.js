@@ -66,13 +66,13 @@ function validarContacto(){
     }
 }
 
-function validarLogin(){
+function validarLoginAlum(){
     let matricula, email, password, correoElec, letras, passwordChar;
     matricula = document.getElementById('matricula').value;
-    email = document.getElementById('email').value;
+    // email = document.getElementById('email').value;
     password = document.getElementById('password').value;
 
-    correoElec = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    // correoElec = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     letras = /[a-zA-Z0-9]/;
     passwordChar = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/; //Mínimo ocho caracteres, al menos una letra mayúscula, una letra minúscula y un número
 
@@ -88,14 +88,14 @@ function validarLogin(){
         swal('Advertencia','Ingresa el formato correcto de la matrícula.','warning');
         return false;
     }
-    else if (email.length>50){
-        swal('Advertencia','El correo electónico es muy largo.','warning');
-        return false;
-    }
-    else if(!correoElec.test(email)){
-        swal('Advertencia','El correo no es un formato válido, prueba insertar otro.','warning');
-        return false;
-    }
+    // else if (email.length>50){
+    //     swal('Advertencia','El correo electónico es muy largo.','warning');
+    //     return false;
+    // }
+    // else if(!correoElec.test(email)){
+    //     swal('Advertencia','El correo no es un formato válido, prueba insertar otro.','warning');
+    //     return false;
+    // }
     else if (password.length>20){
         swal('Advertencia','La contraseña es muy larga','warning');
         return false;

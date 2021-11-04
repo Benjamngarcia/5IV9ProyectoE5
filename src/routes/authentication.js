@@ -38,12 +38,29 @@ router.post('/IniciarAlum', async (req, res) =>{
         const alumno = rows[0];
         const validPassword = await encriptar.matchPassword(pass_alum, alumno.pass_alum);
         if (validPassword){
+            // req.session.matricula_alum = rows[0].matricula_alum;
             res.render('alumno/vistauser');
         } else{
-            res.send('CONTRASEÑA INCORRECTA');
+            res.render('auth/logalumn',{
+                alert: true,
+                alertTitle: "Contraseña",
+                alertMessage: "La contraseña es incorrecta",
+                alertIcon: "error",
+                showConfirmButton: true,
+                timer: false,
+                ruta: 'LogAlumn'
+            });
         } 
     } else {
-        res.send('MATRICULA INCORRECTA');
+        res.render('auth/logalumn',{
+            alert: true,
+            alertTitle: "Matrícula",
+            alertMessage: "La matrícula es incorrecta",
+            alertIcon: "error",
+            showConfirmButton: true,
+            timer: false,
+            ruta: 'LogAlumn'
+        });
     }
 });
 
