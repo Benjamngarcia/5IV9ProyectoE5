@@ -12,7 +12,6 @@
     --grayCEG: #A0A0A0;
 }
 h3{
-    font-family: var(--title);
     color: var(--blueCEG);
 }
 *{

@@ -1,69 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centro Educativo Gandhi</title>
-    <link rel="icon" href="../img/icon.png">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/vistas.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-</head>
-
-<body>
-    <!-- HEADER / NAVBAR -->
-    <nav class="navbar">
-        <div class="content">
-            <div class="logo"><a href="vistauser.html">Centro Educativo Gandhi</a></div>
-            <ul class="menu-list">
-                <div class="icon cancel-btn">
-                    <i class="fas fa-times"></i>
+<%if (login) {%>
+    <%- include ('../partials/_headerVistaAlum') %>
+        <!-- BODY -->
+        <div class="container-xl">
+            <div class="row mt-3 pt-1 mb-5 pb-5 mx-auto justify-content-center">
+                <div class="col-md-5 col-sm-12 mt-5 pt-5 mb-4 pb-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="text-center">Bienvenido <%= name %></h2>
+                            <h4  class="text-center">Recuerda rellenar tus datos en "Editar tutor"</h4>
+                            <div class="d-grid gap-2 col-8 mx-auto mt-5">
+                                <a href="" type="button" class="btn-link-principal btn-block p-3">DESCARGAR APP</a>
+                                <a href="/escuela/VistaAlumn/Cuestionario" type="button" class="btn-link-principal btn-block p-3">CONTESTAR CUESTIONARIO</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <li><a href="vistauser_editarusuario.html"><i class="fas fa-user"></i> Pedro Parra</a></li>
-                <li><a href="vistauser_editartutor.html">Editar tutor</a></li>
-                <li><a href="cuestionario.html">Responder cuestionario</a></li>
-                <li><a href="/index.html">Cerrar sesión</a></li>
-            </ul>
-            <div class="icon menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
-    <!-- BODY -->
-    <div class="body-page">
-        <div class="user-view">
-            <div class="user-view-center">
-                <h2>Bienvenido Pedro Parra</h2>
-                <h4>Recuerda rellenar tus datos en "Editar tutor"</h4>
-                <div class="botonesuser">
-                    <p><a href="#">DESCARGAR APP</a></p>
-                    <p><a href="cuestionario.html">CONTESTAR CUESTIONARIO</a></p>
+                <div class="col-md-5 col-sm-12 mt-5 pt-5 mb-4 pb-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="text-center">Recuerda que si tú te cuidas, nos cuidamos todos.</h4>
+                            <div class="text-center">
+                                <img src="../img/vistauser.png" width="200" height="200" alt="">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="user-covid-reco">
-            <div class="covid-text">
-                <h2>Recuerda que si tú te cuidas, nos cuidamos todos.</h2>
-            </div>
-            <div class="covid-draw">
-                <img src="../img/vistauser.png" width="200" height="200" alt="">
-            </div>
-        </div>
-    </div>
-    <!-- FOOTER -->
-    <footer>
-
-        <div class="footer-bottom">
-            <p><a href="#">AVISO DE PRIVACIDAD</a></p>
-            <div class="footer-menu">
-                <p>Copyright &copy;2021 <a href="https://benjamngarcia.github.io/DICTAMIGOS/">DICTAMIGOS & ASOCS</a>
-                </p>
-            </div>
-        </div>
-    </footer>
-    <script src="../js/navbar.js"></script>
-</body>
-
-</html>
+    <%- include ('../partials/_footerCopy') %>
+<%} else {%>
+    <h3>NO PUEDES ACCEDER AQUÍ</h3>
+<%}%>

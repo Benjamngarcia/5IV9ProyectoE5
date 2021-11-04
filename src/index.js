@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const session = require('express-session');
-const MySQLStore = require('express-mysql-session');
 
 
 const { database } = require('./keys');
@@ -15,6 +14,7 @@ const app = express();
 // CONFIGURACIONES
 app.set('port', process.env.PORT || 5000);
 app.set('views', path.join(__dirname, 'views'));
+// app.set(path.join(app.get('views'), 'partials'));
 app.set('view engine', '.ejs');
 
 // MIDDLEWARES
@@ -25,7 +25,6 @@ app.use (session({
     secret:'secret',
     resave: true,
     saveUninitialized: true,
-    store: new MySQLStore(database)
 }));
 
 //VARIABLE GLOBAL
