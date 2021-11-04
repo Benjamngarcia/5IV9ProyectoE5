@@ -39,7 +39,9 @@ router.post('/IniciarAlum', async (req, res) =>{
         if (validPassword){
             req.session.loggedin = true;
             req.session.nom_alum = rows[0].nom_alum;
-            // res.redirect('/escuela/VistaAlumn');
+            console.log(req.session.loggedin);
+            console.log(req.session.nom_alum);
+            res.redirect('/escuela/VistaAlumn');
         } else{
             res.render('auth/logalumn',{
                 alert: true,
@@ -47,7 +49,7 @@ router.post('/IniciarAlum', async (req, res) =>{
                 alertMessage: "La contraseña es incorrecta",
                 alertIcon: "error",
                 showConfirmButton: true,
-                timer: false,
+                timer: 1000,
                 ruta: 'LogAlumn'
             });
         } 
@@ -58,27 +60,32 @@ router.post('/IniciarAlum', async (req, res) =>{
             alertMessage: "La matrícula es incorrecta",
             alertIcon: "error",
             showConfirmButton: true,
-            timer: false,
+            timer: 1000,
             ruta: 'LogAlumn'
         });
     }
 });
 
-//AUTENTICACIÓN ALUMNO
+//AUTENTICAR LOGIN DEL ALUMNO PARA EL INGRESO A SU VISTA
 router.get('/escuela/VistaAlumn', (req, res) =>{
     if(req.session.loggedin){
         res.render('alumno/vistauser',{
             login: true,
             name: req.session.nom_alum
         });
-        console.log('Iniciaste sesion');
     } else{
-        res.render('index',{
+        res.render('alumno/vistauser',{
             login: false,
             name: 'Debes iniciar sesión'
         });
-        console.log('Pal carajo');
     }
+})
+
+//CERRAR SESIÓN
+router.get('/logout', (req, res) =>{
+    req.session.destroy(()=>{
+        res.redirect('/');
+    })
 })
 
 module.exports = router;

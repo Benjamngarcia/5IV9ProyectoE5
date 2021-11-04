@@ -2,9 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../database');
 //VISTA ALUMNO---------------------------------
-router.get('/VistaAlumn', (req, res) =>{
-    console.log('Inicio sesion');
-})
+
 //VISTA DIRECTOR-------------------------------
 //MOSTRAR TABLA ALUMNOS
 router.get('/VistaDirec', (req, res) => {
