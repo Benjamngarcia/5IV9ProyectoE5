@@ -120,16 +120,3 @@ CREATE TABLE admini(
     pass_admin VARCHAR(100) NOT NULL,
     PRIMARY KEY(id_admin)
 );
-
---INNER JOIN ALUMNO/ENCUESTA
-SELECT * FROM alumno INNER JOIN encuesta ON alumno.id_alum = encuesta.id_alum;
-SELECT * FROM alumno, encuesta WHERE alumno.id_alum = encuesta.id_alum;
-
---ESTO NO LO HE INSERTADO
-INSERT alumno VALUES ("1","Alumno","Prueba","Uno","alumno1@gmail.com","2003-03-20","12345a","2021-10-30", "APU2910", "552722470","2");
-INSERT tutor VALUES("1","1","1","Tutor", "Prueba", "Uno", "Padre");
-INSERT direccion VALUES ("1","1","1","1","1");
-INSERT calle VALUES ("1","CallePrueba");
-INSERT colonia VALUES ("1","ColoniaPrueba");
-INSERT codigopostal VALUES ("1","CodigopPrueba");
-INSERT alcaldia VALUES ("1","AlcaldiaPrueba");
