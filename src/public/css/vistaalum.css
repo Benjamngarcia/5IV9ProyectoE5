@@ -5,6 +5,7 @@
     border-radius: 60px;
     color: var(--whiteCEG);
     text-align: center;
+    border: none;
 }
 .btn-link-principal:hover{
     text-decoration: none;
@@ -80,61 +81,13 @@ form button:focus{
 }
 /* ------------------------------------CUESTIONARIO COVID------------------------------ */
 /* CUESTIONARIO */
-.quiz-container{
-    height: 100%;
-    margin: 2% 2% auto 2%;
-    font-family: var(--text);
-}
-.quiz-instrucciones{
+#quizinstrucciones{
     background-color: #5d9ff567;
-    padding: 1em;
     border-radius: 10px;
-    margin: 1em auto;
-}
-.quiz-instrucciones h5{
-    font-size: 120%;
-}
-.div-boton{
-    text-align: right;
-}
-.div-boton button{
-    width: 20%;
-    padding: 1em;
-    margin: auto;
-    border: none;
-    background: var(--red);
-    color: var(--white);
-    text-transform: uppercase;
-    border-radius: 60px;
-}
-.div-boton button:hover,
-.div-boton button:focus{
-    cursor:pointer;
-    background-color: #ec3e44;
 }
 .pregunta1 p,
 .pregunta2 p{
     margin: 1em auto;
-}
-/*SPONSORS */
-.sponsor-wrapper{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1em;
-    grid-auto-rows: minmax(100px, auto);
-    text-align:center;
-}
-.sponsor2 {
-    grid-column: 2;
-    grid-row: 1;
-}
-.sponsor3 {
-    grid-column: 3;
-    grid-row: 1;
-}
-.sponsor4 {
-    grid-column: 1;
-    grid-row: 1;
 }
 /* --------------------------QR-------------------- */
 .qr-page{
@@ -215,33 +168,6 @@ form button:focus{
     form button{
         width: 50%;
         margin: auto 25%;
-    }
-/* --------------CUESTIONARIO COVI--------------- */
-/* SPONSOR */
-    .cuestionario-page{
-        padding-top: 1em;
-    }
-    .imgsep{
-        width: calc(100% - 80px);
-    }
-    .sponsor2 {
-        grid-column: 1/5;
-        grid-row: 1;
-    }
-    .sponsor3 {
-        grid-column: 1/5;
-        grid-row: 2;
-    }
-    .sponsor4 {
-        grid-column: 1/5;
-        grid-row: 3;
-    }
-    .div-boton{
-        width: 100%;
-        text-align: center;
-    }
-    .div-boton button{
-        width: 50%;
     }
 /* --------------SHOW QR--------------- */
     .qr-page{

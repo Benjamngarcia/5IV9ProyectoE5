@@ -19,14 +19,13 @@ router.get('/LogDirec', (req, res) => {
 router.get('/LogAdmin', (req, res) => {
     res.render('auth/logadmin');
 });
-
-
+//---------ACCIONES ALUMNO DESDE VISTA DIRECTOR-------------
+//ELIMINAR ALUMNO
 router.get('/DeleteAlum/:id', async(req, res) =>{
     const { id } = req.params;
     await pool.query('DELETE FROM alumno WHERE id_alum = ?', [id]);
     res.redirect('/escuela/VistaDirec');
 });
-
 //EDITAR ALUMNO
 router.get('/EditAlum/:id', async (req,res) =>{
     const { id } = req.params;
@@ -36,25 +35,11 @@ router.get('/EditAlum/:id', async (req,res) =>{
         });
     });
 });
-
 router.post('/EditAlum/:id', async (req,res) =>{
     const { id } = req.params;
     const newInfo = req.body;
     await pool.query('UPDATE alumno set ? WHERE id_alum = ?', [newInfo, id]);
     res.redirect('/escuela/VistaDirec');
 });
-
-// try{
-    //     pool.query('SELECT * FROM alumno WHERE matricula_alum = "?"',[matricula_alum], async (error, results) =>{
-    //         if(results.length == 0||!(await bcrypt.compare(pass_alum, results[0].pass_alum))){
-    //             res.send('DATOS INCORRECTOS');
-    //         } else{
-    //             res.send('LOGIN CORRECTO');
-    //         }
-    //     });
-        
-    // } catch(e){
-    //     console.log(e);
-    // }
 
 module.exports = router;

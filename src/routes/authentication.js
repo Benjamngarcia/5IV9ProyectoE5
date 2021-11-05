@@ -93,6 +93,19 @@ router.get('/escuela/EditarAlumno', (req, res) =>{
         });
     }
 })
+router.get('/escuela/Cuestionario', (req, res) =>{
+    if(req.session.loggedin){
+        res.render('alumno/cuestionario',{
+            login: true,
+            name: req.session.nom_alum
+        });
+    } else{
+        res.render('alumno/cuestionario',{
+            login: false,
+            name: 'Debes iniciar sesión'
+        });
+    }
+})
 
 //CERRAR SESIÓN
 router.get('/logout', (req, res) =>{

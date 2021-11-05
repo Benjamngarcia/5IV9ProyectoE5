@@ -1,4 +1,4 @@
-function SoloLetras(e){
+function SoloLetras(e){ //FUNCIÓN PARA SOLO PERMITIR LA ESCRITURA DE LETRAS
     key = e.keyCode || e.which;
     let teclado = String.fromCharCode(key);
     let letras = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
@@ -15,7 +15,7 @@ function SoloLetras(e){
         return false;
     }
 }
-function SoloNumeros(e){
+function SoloNumeros(e){ //FUNCIÓN PARA SOLO PERMITIR LA ESCRITURA DE NÚMEROS
     key = e.keyCode || e.which;
     let teclado = String.fromCharCode(key);
     let numero = "0123456789"
@@ -31,7 +31,7 @@ function SoloNumeros(e){
         return false;
     }
 }
-function validarContacto(){
+function validarContacto(){ //FUNCIÓN PARA VALIDAR FORMULARIO DE CONTACTO
     let nombres, email, mensaje, correoElec, letras;
     nombres = document.getElementById('nombres').value;
     email = document.getElementById('email').value;
@@ -66,7 +66,7 @@ function validarContacto(){
     }
 }
 
-function validarLoginAlum(){
+function validarLoginAlum(){ //FUNCIÓN PARA VALIDAR LOGIN DEL ALUMNO
     let matricula, email, password, correoElec, letras, passwordChar;
     matricula = document.getElementById('matricula').value;
     // email = document.getElementById('email').value;
@@ -447,4 +447,8 @@ function validarRegistroTeach(){
     //     swal('Advertencia','La contraseña es muy larga','warning');
     //     return false;
     // }
+}
+
+function validarCuestionario(){
+    
 }
