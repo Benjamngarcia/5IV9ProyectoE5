@@ -1,0 +1,25 @@
+<%if (login === true) {%>
+    <%- include ('../partials/_headerVistaAlum') %>
+    <!-- QR -->
+    <div class="container-xl">
+        <div class="col-md-6 col-sm-12 mx-auto mt-3 mb-3 pt-3 pb-1">
+            <div class="row justify-content-center">
+                <h3 class="text-center"><%= name %></h3>
+            </div>
+            <div class="row justify-content-center">
+                <p>10/10/2021</p>
+            </div>
+            <div class="row justify-content-center">
+                <img src="https://www.codigos-qr.com/qr/php/qr_img.php?d=https%3A%2F%2Fbenjamngarcia.github.io%2FProyecto-Catarina%2F&s=8&e=m"
+                    alt="Generador de Códigos QR Codes" />
+            </div>
+            <div class="row justify-content-center">
+                <a href="/" class="btn-link-principal p-2 text-center">REGRESAR A INICIO</a>
+                <button class="botonredondo ml-2"><i class="fas fa-share-alt"></i></button>
+            </div>
+        </div>
+    </div>
+    <%- include ('../partials/_footerCopy') %>
+<%} else {%>
+    <%- include ('../partials/erroracceso') %>
+<%}%>

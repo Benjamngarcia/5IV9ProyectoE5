@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../database');
-//VISTA ALUMNO
+//VISTA ALUMNO--------------------------------
 
 //VISTA DIRECTOR-------------------------------
 //MOSTRAR TABLA ALUMNOS
@@ -19,6 +19,9 @@ router.get('/VistaDirec', (req, res) => {
         });
     });
 });
-
+//VISTA ADMINISTRADOR-------------------------------
+router.get('/VistaAdmin', (req, res) => {
+    res.render('vistaadmin');
+});
 
 module.exports = router;

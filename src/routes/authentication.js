@@ -39,8 +39,7 @@ router.post('/IniciarAlum', async (req, res) =>{
         if (validPassword){
             req.session.loggedin = true;
             req.session.nom_alum = rows[0].nom_alum;
-            console.log(req.session.loggedin);
-            console.log(req.session.nom_alum);
+            req.session.id = rows[0].id_alum;
             res.redirect('/escuela/VistaAlumn');
         } else{
             res.render('auth/logalumn',{
@@ -71,7 +70,8 @@ router.get('/escuela/VistaAlumn', (req, res) =>{
     if(req.session.loggedin){
         res.render('alumno/vistauser',{
             login: true,
-            name: req.session.nom_alum
+            name: req.session.nom_alum,
+            datos: req.session.id
         });
     } else{
         res.render('alumno/vistauser',{
@@ -80,7 +80,7 @@ router.get('/escuela/VistaAlumn', (req, res) =>{
         });
     }
 })
-router.get('/escuela/EditarAlumno', (req, res) =>{
+router.get('/escuela/VistaAlumn/EditarAlumn', async (req, res) =>{
     if(req.session.loggedin){
         res.render('alumno/vistauser_editarusuario',{
             login: true,
@@ -93,7 +93,20 @@ router.get('/escuela/EditarAlumno', (req, res) =>{
         });
     }
 })
-router.get('/escuela/Cuestionario', (req, res) =>{
+router.get('/escuela/VistaAlumn/EditarTutor', (req, res) =>{
+    if(req.session.loggedin){
+        res.render('alumno/vistauser_editartutor',{
+            login: true,
+            name: req.session.nom_alum
+        });
+    } else{
+        res.render('alumno/vistauser_editartutor',{
+            login: false,
+            name: 'Debes iniciar sesión'
+        });
+    }
+})
+router.get('/escuela/VistaAlumn/Cuestionario', (req, res) =>{
     if(req.session.loggedin){
         res.render('alumno/cuestionario',{
             login: true,
@@ -101,6 +114,19 @@ router.get('/escuela/Cuestionario', (req, res) =>{
         });
     } else{
         res.render('alumno/cuestionario',{
+            login: false,
+            name: 'Debes iniciar sesión'
+        });
+    }
+})
+router.get('/escuela/VistaAlumn/Codigo', (req, res) =>{
+    if(req.session.loggedin){
+        res.render('alumno/showqr',{
+            login: true,
+            name: req.session.nom_alum,
+        });
+    } else{
+        res.render('alumno/showqr',{
             login: false,
             name: 'Debes iniciar sesión'
         });

@@ -23,19 +23,20 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+                        <!-- REGISTRO ALUMN -->
                         <div class="modal-body">
                             <form action="/RegistroAlumno" method="POST">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" name ="nom_alum" id="" placeholder="Nombre">
+                                        <input type="text" class="form-control" name ="nom_alum" id="nombre" placeholder="Nombre">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" name ="appat_alum" id="" placeholder="Apellido paterno">
+                                        <input type="text" class="form-control" name ="appat_alum" id="appat" placeholder="Apellido paterno">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" name ="apmat_alum" id="" placeholder="Apellido materno">
+                                        <input type="text" class="form-control" name ="apmat_alum" id="apmat" placeholder="Apellido materno">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <input type="email" class="form-control" name ="correo_alum" id="" placeholder="Email">
@@ -43,7 +44,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <input type="date" class="form-control" name ="cumple_alum" id="">
+                                        <input type="date" class="form-control" name ="cumple_alum" id="date">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <input type="phone" class="form-control" name ="telefono_alum" id="" placeholder="Teléfono">
@@ -242,4 +243,5 @@
             </div>
         </div>
     </div>
+    <script src="/js/generador.js"></script>
     <%- include ('partials/_footerCopy') %>

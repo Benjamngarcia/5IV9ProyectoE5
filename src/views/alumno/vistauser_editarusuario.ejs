@@ -1,49 +1,57 @@
 <%if (login === true) {%>
     <%- include ('../partials/_headerVistaAlum') %>
         <!-- BODY -->
-        <div class="body-page-edittut">
-            <div class="contact-container" id="contact">
-                <div class="contact-body">
-                    <h3 class="contact-title"><b>DATOS ALUMNO</b></h3>
-                    <form onsubmit="return validarUsuario();">
-                        <p class="input-format-contact">
-                            <input type="text" placeholder="Nombre" onkeypress="return SoloLetras(event);"
-                                name="nombre_alumno" id="nombre" required>
-                        </p>
-                        <p class="input-format-contact">
-                            <input type="text" placeholder="Apellido Paterno" onkeypress="return SoloLetras(event);" name="appat_alumno" id="appat"
-                                required>
-                        </p>
-                        <p class="input-format-contact">
-                            <input type="text" placeholder="Apellido Materno" onkeypress="return SoloLetras(event);"
-                                name="apmat_alumno" id="apmat" required>
-                        </p>
-                        <p class="input-format-contact">
-                            <input type="email" placeholder="Correo electrónico" name="email_user" id="email" required>
-                        </p>
-                        <p class="input-format-contact">
-                            <input type="text" placeholder="Telefono" name="telefono_user" id="telefono" required>
-                        </p>
-                        <p class="input-format-contact">
-                            <input type="text" placeholder="Matricula" name="matricula_user" id="matricula" required>
-                        </p>
-                        <p class="input-format-contact">
-                            <input type="text" placeholder="Contraseña" name="contraseña_user" id="contraseña"
-                                required>
-                        </p>
-                        <p class="input-format-contact">
-                            <input type="date" placeholder="Fecha de inscripción" name="inscripcion"
-                                id="inscripcion" required>
-                        </p>
-                        <p class="block">
-                            <input type="text" placeholder="Grupo" name="grupo_user" id="grupo" required>
-                        </p>
-                        <p class="buttonsubmit">
-                            <button type="submit" class="enviar">
-                                GUARDAR CAMBIOS
-                            </button>
-                        </p>
-                    </form>
+        <div class="row m-1 justify-content-center">
+            <div class="col-md-6 col-sm-12" id="contact">
+                <div class="card p-1 mt-5 mb-5">
+                    <div class="card-body">
+                        <h3 class="text-center"><b>DATOS ALUMNO</b></h3>
+                        <form action="/RegistroAlumno" method="POST">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" name ="nom_alum" id="nombre" placeholder="Nombre">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" name ="appat_alum" id="appat" placeholder="Apellido paterno">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" name ="apmat_alum" id="apmat" placeholder="Apellido materno">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="email" class="form-control" name ="correo_alum" id="" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="date" class="form-control" name ="cumple_alum" id="date">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="phone" class="form-control" name ="telefono_alum" id="" placeholder="Teléfono">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" name ="grupo_alum" id="" placeholder="Grupo">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="date" class="form-control" name="fecha_ins">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" name="matricula_alum" placeholder="Matrícula">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" name="pass_alum" placeholder="Contraseña">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 mx-auto">
+                                <button class="btn-link-principal p-3">GUARDAR CAMBIOS</button>
+                            </div>                          
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
