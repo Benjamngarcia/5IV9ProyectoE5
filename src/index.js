@@ -3,13 +3,15 @@ const path = require('path');
 const morgan = require('morgan');
 const session = require('express-session');
 
-
 const { database } = require('./keys');
 
 //INICALIZANDO EXPRESS
 const app = express();
 
 // IMPORTE RUTAS
+const alumnoRoutes = require('./routes/alumno');
+const escuelaRoutes = require('./routes/escuela');
+const authRoutes = require('./routes/authentication');
 
 // CONFIGURACIONES
 app.set('port', process.env.PORT || 5000);
@@ -33,9 +35,12 @@ app.use((req, res, next) =>{
 });
 
 // USO RUTA
-app.use(require('./routes'));
-app.use(require('./routes/authentication'));
-app.use('/escuela', require('./routes/escuela'));
+app.use('/', alumnoRoutes);
+app.use('/escuela', escuelaRoutes);
+app.use('/', authRoutes);
+// app.use(require('./routes'));
+// app.use(require('./routes/authentication'));
+// app.use('/escuela', require('./routes/escuela'));
 
 // ARCHIVOS ESTÁTICOS
 app.use(express.static(path.join(__dirname, 'public')));

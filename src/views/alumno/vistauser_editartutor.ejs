@@ -1,38 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centro Educativo Gandhi</title>
-    <link rel="icon" href="../img/icon.png">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/vistas.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-</head>
-
-<body>
-    <!-- HEADER / NAVBAR -->
-    <nav class="navbar">
-        <div class="content">
-            <div class="logo"><a href="vistauser.html">Centro Educativo Gandhi</a></div>
-            <ul class="menu-list">
-                <div class="icon cancel-btn">
-                    <i class="fas fa-times"></i>
+<%if (login === true) {%>
+    <%- include ('../partials/_headerVistaAlum') %>
+    <!-- BODY -->
+    <div class="row m-2 justify-content-center">
+        <div class="col-md-6 col-sm-12" id="contact">
+            <div class="card p-1 mt-1 mb-1">
+                <div class="card-body">
+                    <h3 class="text-center"><b>DATOS TUTOR</b></h3>
+                    <form action="/EditarAlumn/<%= data.id_alum %>" method="POST">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="nommbre"><i class="fas fa-user"></i> Nombre:</label>
+                                <input type="text" class="form-control" value="<%= data.nom_alum%>" name ="nom_alum" id="nombre" placeholder="Nombre">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="appat"><i class="fas fa-user"></i> Apellido Paterno:</label>
+                                <input type="text" class="form-control" value="<%= data.appat_alum%>" name ="appat_alum" id="appat" placeholder="Apellido paterno">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="apmat"><i class="fas fa-user"></i> Apellido Materno:</label>
+                                <input type="text" class="form-control" value="<%= data.apmat_alum%>" name ="apmat_alum" id="apmat" placeholder="Apellido materno">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="email"><i class="fas fa-at"></i> Coreo electónico:</label>
+                                <input type="email" class="form-control" value="<%= data.correo_alum%>" name ="correo_alum" id="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="grupo"><i class="fas fa-users"></i> Grupo:</label>
+                                <input type="text" class="form-control" value="<%= data.grupo_alum%>" name ="grupo_alum" id="grupo" placeholder="Grupo">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="telefono"><i class="fas fa-phone"></i> Teléfono:</label>
+                                <input type="phone" class="form-control" value="<%= data.telefono_alum%>" name ="telefono_alum" id="telefono" placeholder="Teléfono">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="matricula"><i class="fas fa-id-card-alt"></i> Matrícula:</label>
+                                <input type="text" class="form-control" value="<%= data.matricula_alum%>" name="matricula_alum" id="matricula" placeholder="Matrícula">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="contraseña"><i class="fas fa-key"></i> Contraseña:</label>
+                                <input type="password" class="form-control" value="<%= data.pass_alum%>" name="pass_alum" id="contraseña" placeholder="Contraseña">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 mx-auto">
+                            <button class="btn-link-principal p-2">GUARDAR CAMBIOS</button>
+                        </div>                          
+                    </form>
                 </div>
-                <li><a href="vistauser_editarusuario.html"><i class="fas fa-user"></i> Pedro Parra</a></li>
-                <li><a href="vistauser_editartutor.html">Editar tutor</a></li>
-                <li><a href="cuestionario.html">Responder cuestionario</a></li>
-                <li><a href="/index.html">Cerrar sesión</a></li>
-            </ul>
-            <div class="icon menu-btn">
-                <i class="fas fa-bars"></i>
             </div>
         </div>
-    </nav>
-    <!-- BODY -->
+    </div>
     <div class="body-page-edittut">
         <div class="contact-container" id="contact">
             <div class="contact-body">
@@ -40,7 +62,7 @@
                 <form onsubmit="return validarTutor();">
                     <p class="input-format-contact">
                         <input type="text" placeholder="Nombre" onkeypress="return SoloLetras(event);"
-                            name="nombre_tutor" id="nombre" required>
+                            name="nom_tutor" id="nombre" required>
                     </p>
                     <p class="input-format-contact">
                         <input type="text" placeholder="Apellido Paterno" onkeypress="return SoloLetras(event);" name="appat_tutor" id="appat" required>
@@ -59,7 +81,7 @@
                         <input type="text" placeholder="Alcaldía" name="alcaldia_tutor" id="alcaldia" required>
                     </p>
                     <p class="block">
-                        <input type="text" placeholder="Parentezco" onkeypress="return SoloLetras(event);" name="parentezco_tutor" id="parentezco"
+                        <input type="text" placeholder="Parentezco" onkeypress="return SoloLetras(event);" name="parentezco" id="parentezco"
                             required>
                     </p>
                     <p class="buttonsubmit">
@@ -71,18 +93,7 @@
             </div>
         </div>
     </div>
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-bottom">
-            <p><a href="#">AVISO DE PRIVACIDAD</a></p>
-            <div class="footer-menu">
-                <p>Copyright &copy;2021 <a href="https://benjamngarcia.github.io/DICTAMIGOS/">DICTAMIGOS & ASOCS</a>
-                </p>
-            </div>
-        </div>
-    </footer>
-    <script src="../js/navbar.js"></script>
-    <script src="../js/validaciones.js"></script>
-</body>
-
-</html>
+    <%- include ('../partials/_footerCopy') %>
+<%} else {%>
+    <%- include ('../partials/erroracceso') %>
+<%}%>
