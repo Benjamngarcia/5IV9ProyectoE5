@@ -36,32 +36,3 @@
 /* --------------------------MEDIA QUERIES---------------------------------- */
 /* --------------VISTA USER--------------- */
 /* HEADER NAV */
-@media (max-width: 768px) {
-/* --------------VISTA USER EDITAR TUTOR--------------- */
-/* FORM CONTACT */
-    .contact-container{
-        width: 80%;
-    }
-    form{
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-    .input-format-contact{
-        grid-column: 1;
-    }
-    form .block,
-    form .buttonsubmit{
-        grid-column: 1 / 5;
-    }
-    form input,
-    form textarea{
-    width: 100%;
-    padding: 1em;
-    margin-bottom: .5em;
-    margin-top: .5em;
-    }
-    form button{
-        width: 50%;
-        margin: auto 25%;
-    }
-}

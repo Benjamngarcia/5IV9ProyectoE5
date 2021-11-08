@@ -68,6 +68,46 @@ controller.registroalum = async (req, res) => {
     });
 };
 
+//MOSTRAR FORMULARIO DE LOGIN DE ADMIN
+controller.loginadmin = (req, res) =>{
+    res.render('auth/logadmin')
+};
+//PROCESO DE AUTENTICACIÓN DEL LOGIN DE ALUMNO
+controller.loginadm = async (req, res) => {
+    const correo = req.body.correo_admin;
+    const pass = req.body.pass_admin;
+    const rows = await pool.query('SELECT * FROM admini WHERE correo_admin = ?', [correo]);
+    if (rows.length > 0){
+        const admin = rows[0];
+        const validPassword = await encriptar.matchPassword(pass, admin.pass_admin);
+        if (validPassword){
+            req.session.loggedin = true;
+            req.session.data = rows[0];
+            res.redirect('/escuela/VistaAdmin');
+        } else{
+            res.render('auth/logadmin',{
+                alert: true,
+                alertTitle: "Contraseña",
+                alertMessage: "La contraseña es incorrecta",
+                alertIcon: "error",
+                showConfirmButton: true,
+                timer: 2000,
+                ruta: 'InicioAdmin'
+            });
+        } 
+    } else {
+        res.render('auth/logadmin',{
+            alert: true,
+            alertTitle: "Correo",
+            alertMessage: "El correo es incorrecto",
+            alertIcon: "error",
+            showConfirmButton: true,
+            timer: 2000,
+            ruta: 'InicioAdmin'
+        });
+    }
+};
+
 //CERRAR SESIÓN
 controller.logout = (req, res) =>{
     req.session.destroy(()=>{

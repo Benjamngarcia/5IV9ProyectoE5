@@ -12,15 +12,10 @@ CREATE TABLE alumno(
     pass_alum VARCHAR(100) NOT NULL,
     fecha_ins DATE NOT NULL,
     matricula_alum VARCHAR(11) NOT NULL,
-    telefono_alum INT(11) NOT NULL,
+    telefono_alum INT(13) NOT NULL,
     grupo_alum VARCHAR(5) NOT NULL,
     PRIMARY KEY(id_alum)
 );
-ALTER TABLE alumno
-    MODIFY telefono_alum INT(15) NOT NULL;
-
-ALTER TABLE alumno
-    MODIFY telefono_alum VARCHAR(12) NOT NULL;
 
 CREATE TABLE encuesta(
     id_enc INT(4) AUTO_INCREMENT,
@@ -31,41 +26,19 @@ CREATE TABLE encuesta(
     FOREIGN KEY (id_alum) REFERENCES alumno(id_alum) ON DELETE CASCADE
 );
 
-CREATE TABLE calle(
-    id_calle INT(4) NOT NULL AUTO_INCREMENT,
-    calle VARCHAR(30) NOT NULL,
-    PRIMARY KEY (id_calle)
-);
-
-CREATE TABLE colonia(
-    id_colonia INT(4) NOT NULL AUTO_INCREMENT,
-    colonia VARCHAR(30) NOT NULL,
-    PRIMARY KEY (id_colonia)
-);
-
-CREATE TABLE codigopostal(
-    id_codigop INT(4) NOT NULL AUTO_INCREMENT,
-    codigop VARCHAR(30) NOT NULL,
-    PRIMARY KEY (id_codigop)
-);
-
-CREATE TABLE alcaldia(
-    id_alcaldia INT(4) NOT NULL AUTO_INCREMENT,
-    alcaldia VARCHAR(30) NOT NULL,
-    PRIMARY KEY (id_alcaldia)
-);
-
 CREATE TABLE direccion(
     id_direccion INT(4) NOT NULL AUTO_INCREMENT,
-    id_calle INT(4) NOT NULL,
-    id_colonia INT(4) NOT NULL,
-    id_codigop INT(4) NOT NULL,
-    id_alcaldia INT(4) NOT NULL,
+    id_tutor INT(4),
+    id_prof INT(4),
+    id_direc INT(4)
+    calle VARCHAR(30) NOT NULL,
+    colonia VARCHAR(30) NOT NULL,
+    codigop VARCHAR(30) NOT NULL,
+    alcaldia VARCHAR(30) NOT NULL,
     PRIMARY KEY(id_direccion),
-    FOREIGN KEY (id_calle) REFERENCES calle(id_calle) ON DELETE CASCADE,
-    FOREIGN KEY (id_colonia) REFERENCES colonia(id_colonia) ON DELETE CASCADE,
-    FOREIGN KEY (id_codigop) REFERENCES codigopostal(id_codigop) ON DELETE CASCADE,
-    FOREIGN KEY (id_alcaldia) REFERENCES alcaldia(id_alcaldia) ON DELETE CASCADE
+    FOREIGN KEY (id_tutor) REFERENCES tutor(id_tutor) ON DELETE CASCADE,
+    FOREIGN KEY (id_prof) REFERENCES profesor(id_prof) ON DELETE CASCADE,
+    FOREIGN KEY (id_direc) REFERENCES director(id_direc) ON DELETE CASCADE
 );
 
 CREATE TABLE tutor(
@@ -120,3 +93,5 @@ CREATE TABLE admini(
     pass_admin VARCHAR(100) NOT NULL,
     PRIMARY KEY(id_admin)
 );
+
+INSERT INTO admini VALUES ("1","Benjamín","Pérez","García","bprezg1800@alumno.ipn.mx","$2a$08$7nFpbhVJ4Z49c3Nzo/EC5.Yplq5nNMIgqxO4ok.m0kUsOyZLKMFji");

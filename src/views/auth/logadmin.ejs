@@ -1,12 +1,12 @@
 <%- include ('../partials/_headerLogin')  %>
             <div class="form-center">
                 <div class="form-container">
-                    <form onsubmit="return validarLogin();">
+                    <form action="/IniciarAdmin" method="POST" onsubmit="return validarLogin();">
                         <p class="input-format-contact">
-                            <input type="email" placeholder="  Correo" name="email_admin" id="email" required>
+                            <input type="email" placeholder="  Correo" name="correo_admin" id="email" required>
                         </p>
                         <p class="input-format-contact">
-                            <input type="password" placeholder="  Password" name="password_admin" id="password" required>
+                            <input type="password" placeholder="  Password" name="pass_admin" id="password" required>
                         </p>
                         <p class="buttonsubmit">
                             <button type="submit" class="ingresar" onclick="window.location = 'vistaadmin.html';">
@@ -14,7 +14,10 @@
                             </button>
                         </p>
                     </form>
-                    <p class="needhelp">¿Necesitas ayuda? <a href="/index.html/#contact">Contáctanos</a></p>
+                    <p class="needhelp">¿Necesitas ayuda? <a href="/#contact">Contáctanos</a></p>
                 </div>
             </div>
+            <%if(typeof alert != "undefined"){%>
+                <%- include ('../partials/alertas')  %>
+            <%}%>
 <%- include ('../partials/_footerLogin')  %>            

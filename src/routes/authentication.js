@@ -6,6 +6,9 @@ const authController = require('../controllers/authenticationController');
 router.get('/InicioAlumn', authController.loginalumno);
 router.post('/IniciarAlumno', authController.loginalum);
 router.post('/RegistroAlumno', authController.registroalum);
+
+router.get('/InicioAdmin', authController.loginadmin);
+router.post('/IniciarAdmin', authController.loginadm);
 router.get('/logout', authController.logout);
 
 

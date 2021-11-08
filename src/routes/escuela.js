@@ -4,5 +4,5 @@ const router = express.Router();
 const escuelaController = require('../controllers/escuelaController');
 
 router.get('/VistaDirec', escuelaController.list);
-
+router.get('/VistaAdmin', escuelaController.showPage);
 module.exports = router;

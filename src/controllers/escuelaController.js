@@ -16,8 +16,18 @@ controller.list = (req, res) => {
     });
 };
 //VISTA ADMINISTRADOR-------------------------------
-// controller.get('/VistaAdmin', (req, res) => {
-//     res.render('vistaadmin');
-// });
+controller.showPage = (req, res) => {
+    if(req.session.loggedin){
+        res.render('vistaadmin',{
+            login: true,
+            data: req.session.data
+        });
+    } else{
+        res.render('admin',{
+            login: false,
+            name: 'Debes iniciar sesión'
+        });
+    }
+};
 
 module.exports = controller;
