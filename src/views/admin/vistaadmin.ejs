@@ -1,0 +1,129 @@
+<%if (login===true) {%>
+    <%-include('../partials/_headerAdmin')%>
+        <!-- BODY -->
+        <div class="container-xxl">
+            <div class="col-md-10 col-sm-12 mx-auto mt-4">
+                <div class="row justify-content-center">
+                    <div class="card" id="director">
+                        <!-- EDITAR PERFIL -->
+                        <div class="card-header" id="editar">
+                            <div class="text-center rounded-circle mx-auto p-2">
+                                <i class="fas fa-user-circle text-blueCEG h1"></i>
+                            </div>
+                            <h3 class="text-center"><b>REGISTRAR DIRECTOR</b></h3>
+                        </div>
+                        <div class="card-body">
+                            <form action="/RegistrarDirector" method="POST"onsubmit="">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" name="nom_direc"
+                                            placeholder="Nombre">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" name="appat_direc"
+                                            placeholder="Apellido paterno">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" name="apmat_direc"
+                                            placeholder="Apellido materno">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="phone" class="form-control" id="" name="telefono_direc"
+                                            placeholder="Teléfono">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" name="calle_direc"
+                                            placeholder="Calle">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" name="colonia_direc"
+                                            placeholder="Colonia">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" name="codigop_direc"
+                                            placeholder="Codigo Postal">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" name="alcaldia_direc"
+                                            placeholder="Alcaldia">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" name="rfc_direc"
+                                            placeholder="RFC">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="" name="nss_direc"
+                                            placeholder="NSS">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="email" class="form-control" id="" name="correo_direc"
+                                            placeholder="Correo electrónico">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="password" class="form-control" id="pass_direc"
+                                            name="pass_direc" placeholder="Contraseña">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6 text-center mx-auto">
+                                        <button type="submit" class="btn-especial p-3">REGISTRAR</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- VISUALIZAR PROFESORES -->
+        <h3 class="text-center mt-5" id="teacher">LISTA PROFESORES</h3>
+        <div class="col-md-10 col-sm-12 m-auto">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <td>RFC</td>
+                        <td>Correo</td>
+                        <td>Nombre</td>
+                        <td>Apellido Paterno</td>
+                        <td>Telefono</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (info) { %>
+                        <% for(var i = 0; i < info.length; i++) { %>
+                            <tr>
+                                <td><%= info[i].rfc_direc %></td>
+                                <td><%= info[i].correo_direc %></td>
+                                <td><%= info[i].nom_direc %></td>
+                                <td><%= info[i].appat_direc %></td>
+                                <td><%= info[i].telefono_direc %></td>
+                                <td>
+                                    <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                    <a href="/escuela/DeleteDirec/<%= info[i].id_direc %>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="/escuela/EditDirec/<%= info[i].id_direc %>" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                </td>
+                            </tr>
+                    <% } %>
+                        <% } %>
+                </tbody>
+            </table>
+        </div>
+        <canvas id="oilChart" width="80%" height="20%"></canvas>
+        </div>
+        <script src="../js/graphs.js"></script>
+        <%-include('../partials/_footerCopy')%>
+
+    <%} else {%>
+        <%-include('../partials/erroracceso')%>
+            <%}%>

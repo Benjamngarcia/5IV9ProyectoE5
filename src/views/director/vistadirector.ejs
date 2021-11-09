@@ -1,4 +1,4 @@
-<%- include ('partials/_headerVistaDirec') %>
+<%- include ('../partials/_headerVistaDirec') %>
     <div class="container-xl">
         <!-- BODY -->
         <div class="body-page">
@@ -174,8 +174,8 @@
                                     <td><%= data[i].resultado_enc %></td>
                                     <td>
                                         <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                                        <a href="/DeleteAlum/<%= data[i].id_alum %>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                        <a href="/EditAlum/<%= data[i].id_alum %>" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                        <a href="/DeleteDirec/<%= data[i].id_alum %>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                        <a href="/EditDirec/<%= data[i].id_alum %>" class="btn btn-success"><i class="fas fa-edit"></i></a>
                                     </td>
                                 </tr>
                             <% } %>
@@ -244,4 +244,4 @@
         </div>
     </div>
     <script src="/js/generador.js"></script>
-    <%- include ('partials/_footerCopy') %>
+    <%- include ('../partials/_footerCopy') %>

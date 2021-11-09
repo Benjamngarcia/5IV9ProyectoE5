@@ -68,11 +68,39 @@ controller.registroalum = async (req, res) => {
     });
 };
 
+//REGISTRAR DIRECTOR
+controller.registrodirec = async (req, res) => {
+    const nombre = req.body.nom_direc;
+    const appat = req.body.appat_direc;
+    const apmat = req.body.apmat_direc;
+    const email = req.body.correo_direc;
+    const contra = req.body.pass_direc;
+    const telefono = req.body.telefono_direc;
+    const rfc = req.body.rfc_direc;
+    const nss = req.body.nss_direc;
+    const calle = req.body.calle_direc;
+    const colonia = req.body.colonia_direc;
+    const codigop = req.body.codigop_direc;
+    const alcaldia = req.body.alcaldia_direc;
+
+    let passwordHaash = await encriptar.encryptPassword(contra);
+    pool.query('INSERT INTO director SET ?', {nom_direc:nombre, appat_direc:appat, apmat_direc:apmat, correo_direc:email, telefono_direc:telefono, 
+        rfc_direc:rfc, nss_direc:nss, calle_direc:calle,colonia_direc:colonia,codigop_direc:codigop,alcaldia_direc:alcaldia, pass_direc:passwordHaash}, async(error,results)=>{
+        if(error){
+            console.log(error);
+        }else{
+            res.redirect('/escuela/VistaAdmin');
+        }
+    });
+};
+
+
+
 //MOSTRAR FORMULARIO DE LOGIN DE ADMIN
 controller.loginadmin = (req, res) =>{
     res.render('auth/logadmin')
 };
-//PROCESO DE AUTENTICACIÓN DEL LOGIN DE ALUMNO
+//PROCESO DE AUTENTICACIÓN DEL LOGIN DE ADMIN
 controller.loginadm = async (req, res) => {
     const correo = req.body.correo_admin;
     const pass = req.body.pass_admin;
