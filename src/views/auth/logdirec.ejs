@@ -1,12 +1,12 @@
 <%- include ('../partials/_headerLogin')  %>
             <div class="form-center">
                 <div class="form-container">
-                    <form onsubmit="return validarLogin();">
+                    <form action="/IniciarDirec" method="POST" onsubmit="return validarLogin();">
                         <p class="input-format-contact">
-                            <input type="email" placeholder="  Correo" name="email_direc" id="email" required>
+                            <input type="email" placeholder="  Correo" name="correo_direc" id="email" required>
                         </p>
                         <p class="input-format-contact">
-                            <input type="password" placeholder="  Password" name="password_direc" id="password" required>
+                            <input type="password" placeholder="  Password" name="pass_direc" id="password" required>
                         </p>
                         <p class="buttonsubmit">
                             <button type="submit" class="ingresar" onclick="window.location = 'vistadirector.html';">

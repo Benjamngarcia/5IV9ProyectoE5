@@ -2,16 +2,6 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../database');
 
-
-router.get('/LogTeacher', (req, res) => {
-    res.render('auth/logteacher');
-});
-router.get('/LogDirec', (req, res) => {
-    res.render('auth/logdirec');
-});
-router.get('/LogAdmin', (req, res) => {
-    res.render('auth/logadmin');
-});
 //---------ACCIONES ALUMNO DESDE VISTA DIRECTOR-------------
 //ELIMINAR ALUMNO
 router.get('/DeleteAlum/:id', async(req, res) =>{

@@ -4,16 +4,23 @@ const pool = require('../database');
 //VISTA DIRECTOR-------------------------------
 //MOSTRAR TABLA ALUMNOS
 controller.list = (req, res) => {
-    pool.getConnection((err, conn) => {
-        pool.query('SELECT * FROM alumno', (err, result) => {
-            if (err) {
+    if(req.session.loggedin){
+        pool.query('SELECT * FROM alumno', (err, rows) =>{
+            if (err){
                 res.json(err);
             }
-            res.render('director/vistadirector', {
-                data: result
+            res.render('director/vistadirector',{
+                login: true,
+                data: req.session.data,
+                info: rows
             });
         });
-    });
+    } else{
+        res.render('director/vistadirector',{
+            login: false,
+            name: 'Debes iniciar sesión'
+        });
+    }
 };
 //VISTA ADMINISTRADOR-------------------------------
 controller.showPage = (req, res) => {

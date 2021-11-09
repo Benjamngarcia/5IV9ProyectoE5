@@ -38,9 +38,6 @@ app.use((req, res, next) =>{
 app.use('/', alumnoRoutes);
 app.use('/escuela', escuelaRoutes);
 app.use('/', authRoutes);
-// app.use(require('./routes'));
-// app.use(require('./routes/authentication'));
-// app.use('/escuela', require('./routes/escuela'));
 
 // ARCHIVOS ESTÁTICOS
 app.use(express.static(path.join(__dirname, 'public')));

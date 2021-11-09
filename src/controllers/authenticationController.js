@@ -68,6 +68,47 @@ controller.registroalum = async (req, res) => {
     });
 };
 
+//MOSTRAR FORMULARIO DE LOGIN DE DIRECTOR
+controller.logindirec = (req, res) =>{
+    res.render('auth/logdirec')
+};
+
+//PROCESO DE AUTENTICACIÓN DEL LOGIN DE DIRECTOR
+controller.logindirect = async (req, res) => {
+    const correo_direc = req.body.correo_direc;
+    const pass_direc = req.body.pass_direc;
+    const rows = await pool.query('SELECT * FROM director WHERE correo_direc = ?', [correo_direc]);
+    if (rows.length > 0){
+        const director = rows[0];
+        const validPassword = await encriptar.matchPassword(pass_direc, director.pass_direc);
+        if (validPassword){
+            req.session.loggedin = true;
+            req.session.data = rows[0];
+            res.redirect('/escuela/VistaDirec');
+        } else{
+            res.render('auth/logdirec',{
+                alert: true,
+                alertTitle: "Contraseña",
+                alertMessage: "La contraseña es incorrecta",
+                alertIcon: "error",
+                showConfirmButton: true,
+                timer: 2000,
+                ruta: 'InicioDirec'
+            });
+        } 
+    } else {
+        res.render('auth/logalumn',{
+            alert: true,
+            alertTitle: "Correo",
+            alertMessage: "El correo es incorrecto",
+            alertIcon: "error",
+            showConfirmButton: true,
+            timer: 2000,
+            ruta: 'InicioDirec'
+        });
+    }
+};
+
 //REGISTRAR DIRECTOR
 controller.registrodirec = async (req, res) => {
     const nombre = req.body.nom_direc;
@@ -93,8 +134,6 @@ controller.registrodirec = async (req, res) => {
         }
     });
 };
-
-
 
 //MOSTRAR FORMULARIO DE LOGIN DE ADMIN
 controller.loginadmin = (req, res) =>{
