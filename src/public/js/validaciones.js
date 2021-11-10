@@ -119,28 +119,16 @@ function validarLogin(){ //FUNCIÓN PARA VALIDAR LOGIN DE LOS OTROS 3 USUARIOS
 }
 
 function validarTutor(){
-    let nombre, appat, apmat, calle, colonia, alcaldia, parentezco, rfc, nss, telefono, matricula, email, password, 
+    let nombre, appat, apmat, parentezco 
     correoElec, letras, numeros, passwordChar, calleChar;
     nombre = document.getElementById('nombre').value;
     appat = document.getElementById('appat').value; 
     apmat = document.getElementById('apmat').value; 
-    calle = document.getElementById('calle').value;
-    colonia = document.getElementById('colonia').value;
-    alcaldia = document.getElementById('alcaldia').value;
     parentezco = document.getElementById('parentezco').value;
-    // rfc = document.getElementById('rfc').value;
-    // nss = document.getElementById('nss').value;
-    // telefono = document.getElementById('telefono').value;
-    // matricula = document.getElementById('matricula').value;
-    // email = document.getElementById('email').value;
-    // password = document.getElementById('contraseña').value;
 
     letras = /[a-zA-Z]/;
-    passwordChar = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/; //Mínimo ocho caracteres, al menos una letra mayúscula, una letra minúscula y un número
-    calleChar = /[a-zA-z0-9]/;
 
-    if(nombre==""|| appat===""|| apmat==""|| calle===""|| colonia===""|| alcaldia===""|| parentezco===""|| rfc===""|| nss===""|| telefono===""|| matricula === "" || email ==="" || password ==="" 
-    || nombre==" "|| appat===" "|| apmat==" "|| calle===" "|| colonia===" "|| alcaldia===" "|| parentezco===" "|| rfc===" "|| nss===" "|| telefono===" "|| matricula === " " || email ===" " || password ===" " ){
+    if(nombre==""|| appat===""|| apmat==""|| parentezco==="" || nombre==" "|| appat===" "|| apmat==" "|| parentezco===" "){
         swal('Advertencia','Para registrar es necesario que todos los campos estén llenos','error');
         return false;
     }
@@ -168,30 +156,6 @@ function validarTutor(){
         swal('Advertencia','Ingresa solo letras en el apellido materno.','warning');
         return false;
     }
-    else if(calle.length>30){
-        swal('Advertencia','La calle es demasiado larga','warning');
-        return false;
-    }
-    else if(!calleChar.test(calle)){
-        swal('Advertencia','Ingresa la calle con los caracteres permitidos (Letras/Numeros)','warning');
-        return false;
-    }
-    else if(colonia.length>30){
-        swal('Advertencia','La colonia es demasiado larga','warning');
-        return false;
-    }
-    else if(!calleChar.test(colonia)){
-        swal('Advertencia','Ingresa la colonia con los caracteres permitidos (Letras/Numeros)','warning');
-        return false;
-    }
-    else if(alcaldia.length>30){
-        swal('Advertencia','La alcaldia es demasiado larga','warning');
-        return false;
-    }
-    else if(!calleChar.test(alcaldia)){
-        swal('Advertencia','Ingresa la alcaldia con los caracteres permitidos (Letras/Numeros)','warning');
-        return false;
-    }
     else if(parentezco.length>10){
         swal('Advertencia','El parentezco es demasiado largo','warning');
         return false;
@@ -200,50 +164,6 @@ function validarTutor(){
         swal('Advertencia','Ingresa solo letras en el parentezco.','warning');
         return false;
     }
-    // else if(rfc.length>10){
-    //     swal('Advertencia','El RFC es demasiado largo','warning');
-    //     return false;
-    // }
-    // else if(!calleChar.test(rfc)){
-    //     swal('Advertencia','Ingresa solo caracteres válidos en el RFC.','warning');
-    //     return false;
-    // }
-    // else if(nss.length>10){
-    //     swal('Advertencia','El RFC es demasiado largo','warning');
-    //     return false;
-    // }
-    // else if(!numeros.test(nss)){
-    //     swal('Advertencia','Ingresa solo números en el NSS.','warning');
-    //     return false;
-    // }
-    // else if(telefono.length>10){
-    //     swal('Advertencia','El telefono es demasiado largo','warning');
-    //     return false;
-    // }
-    // else if(!numeros.test(telefono)){
-    //     swal('Advertencia','Ingresa solo números en el telefono.','warning');
-    //     return false;
-    // }
-    // else if(matricula.length>15){
-    //     swal('Advertencia','La matrícula es demasiada larga','warning');
-    //     return false;
-    // }
-    // else if(!calleChar.test(matricula)){
-    //     swal('Advertencia','Ingresa el formato correcto de la matrícula.','warning');
-    //     return false;
-    // }
-    // else if (email.length>50){
-    //     swal('Advertencia','El correo electónico es muy largo.','warning');
-    //     return false;
-    // }
-    // else if(!correoElec.test(email)){
-    //     swal('Advertencia','El correo no es un formato válido, prueba insertar otro.','warning');
-    //     return false;
-    // }
-    // else if (password.length>20){
-    //     swal('Advertencia','La contraseña es muy larga','warning');
-    //     return false;
-    // }
 }
 
 function validarUsuario(){

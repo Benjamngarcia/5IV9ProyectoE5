@@ -17,4 +17,7 @@
                     <p class="needhelp">¿Necesitas ayuda? <a href="/index.html/#contact">Contáctanos</a></p>
                 </div>
             </div>
+            <%if(typeof alert != "undefined"){%>
+                <%- include ('../partials/alertas')  %>
+            <%}%>
 <%- include ('../partials/_footerLogin')  %>

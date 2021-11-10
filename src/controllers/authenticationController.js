@@ -17,7 +17,7 @@ controller.loginalum = async (req, res) => {
         const alumno = rows[0];
         const validPassword = await encriptar.matchPassword(pass_alum, alumno.pass_alum);
         if (validPassword){
-            req.session.loggedin = true;
+            req.session.loggedinAlum = true;
             req.session.data = rows[0];
             res.redirect('/VistaAlumn');
         } else{
@@ -82,7 +82,7 @@ controller.logindirect = async (req, res) => {
         const director = rows[0];
         const validPassword = await encriptar.matchPassword(pass_direc, director.pass_direc);
         if (validPassword){
-            req.session.loggedin = true;
+            req.session.loggedinDirec = true;
             req.session.data = rows[0];
             res.redirect('/escuela/VistaDirec');
         } else{
@@ -148,7 +148,7 @@ controller.loginadm = async (req, res) => {
         const admin = rows[0];
         const validPassword = await encriptar.matchPassword(pass, admin.pass_admin);
         if (validPassword){
-            req.session.loggedin = true;
+            req.session.loggedinAdmin = true;
             req.session.data = rows[0];
             res.redirect('/escuela/VistaAdmin');
         } else{

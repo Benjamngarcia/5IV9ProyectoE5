@@ -7,36 +7,36 @@ controller.showLP = (req, res) => {
 };
 //REDIRECCIONAR A VISTAS DE ALUMNO//
 controller.vistaAlumn = (req, res) => {
-    if(req.session.loggedin){
+    if(req.session.loggedinAlum){
         res.render('alumno/vistauser',{
-            login: true,
+            loginalum: true,
             data: req.session.data
         });
     } else{
         res.render('alumno/vistauser',{
-            login: false,
+            loginalum: false,
             name: 'Debes iniciar sesión'
         });
     }
 };
 controller.editarAlumn = (req, res) => {
-    if(req.session.loggedin){
+    if(req.session.loggedinAlum){
         const { id } = req.params;
         pool.query('SELECT * FROM alumno WHERE id_alum = ?', [id], (err, result) =>{
             res.render('alumno/vistauser_editarusuario',{
-                login: true,
+                loginalum: true,
                 data: req.session.data
             });
         });
     } else{
         res.render('alumno/vistauser_editarusuario',{
-            login: false,
+            loginalum: false,
             name: 'Debes iniciar sesión'
         });
     }
 };
 controller.actualizarAlumn = (req, res) => {
-    if(req.session.loggedin){
+    if(req.session.loggedinAlum){
         const { id } = req.params;
         const newInfo = req.body;
         pool.query('UPDATE alumno set ? WHERE id_alum = ?', [newInfo, id], (err, result) =>{
@@ -47,31 +47,31 @@ controller.actualizarAlumn = (req, res) => {
     }
 };
 controller.editarTutor = (req, res) => {
-    if(req.session.loggedin){
+    if(req.session.loggedinAlum){
         const { id } = req.params;
         pool.query('SELECT * FROM tutor WHERE id_alum = ?', [id], (err, result) =>{
             res.render('alumno/vistauser_editartutor',{
-                login: true,
+                loginalum: true,
                 data: req.session.data
             });
         });
     } else{
         res.render('alumno/vistauser_editartutor',{
-            login: false,
+            loginalum: false,
             name: 'Debes iniciar sesión'
         });
     }
 };
 
 controller.verCuest = (req, res) => {
-    if(req.session.loggedin){
+    if(req.session.loggedinAlum){
         res.render('alumno/cuestionario',{
-            login: true,
+            loginalum: true,
             data: req.session.data
         });
     } else{
         res.render('alumno/cuestionario',{
-            login: false,
+            loginalum: false,
             name: 'Debes iniciar sesión'
         });
     }

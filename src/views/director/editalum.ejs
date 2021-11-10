@@ -1,4 +1,4 @@
-<%if (login===true) {%>
+<%if (logindirec===true) {%>
 <%- include ('../partials/_headerVistaDirec') %>
 <div class="container mt-5 mb-5">
     <div class="row justify-content-center">
@@ -35,7 +35,7 @@
                             <input type="text" class="form-control" name="matricula_alum" value="<%= info.matricula_alum%>" placeholder="Matrícula">
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="text" class="form-control" name="pass_alum" value="<%= info.pass_alum%>" placeholder="Contraseña">
+                            <input type="password" class="form-control" name="pass_alum" value="<%= info.pass_alum%>" placeholder="Contraseña">
                         </div>
                     </div>
                         <button type="submit" class="btn-especial btn-block">Actualizar</button>                            

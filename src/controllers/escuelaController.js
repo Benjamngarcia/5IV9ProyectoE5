@@ -4,20 +4,20 @@ const pool = require('../database');
 //VISTA DIRECTOR-------------------------------
 //MOSTRAR TABLA ALUMNOS
 controller.list = (req, res) => {
-    if(req.session.loggedin){
+    if(req.session.loggedinDirec){
         pool.query('SELECT * FROM alumno', (err, rows) =>{
             if (err){
                 res.json(err);
             }
             res.render('director/vistadirector',{
-                login: true,
+                logindirec: true,
                 data: req.session.data,
                 info: rows
             });
         });
     } else{
         res.render('director/vistadirector',{
-            login: false,
+            logindirec: false,
             name: 'Debes iniciar sesión'
         });
     }
@@ -29,20 +29,20 @@ controller.deleteAlum = (req, res) =>{
 }
 controller.editAlum = (req, res) => {
     const { id } = req.params;
-    if(req.session.loggedin){
+    if(req.session.loggedinDirec){
         pool.query('SELECT * FROM alumno where id_alum = ?',[id], (err, rows) =>{
             if (err){
                 res.json(err);
             }
             res.render('director/editalum',{
-                login: true,
+                logindirec: true,
                 data: req.session.data,
                 info: rows[0]
             });
         });
     } else{
         res.render('director/editalum',{
-            login: false,
+            logindirec: false,
             name: 'Debes iniciar sesión'
         });
     }
@@ -56,20 +56,20 @@ controller.updateAlum = (req, res) =>{
 }
 //VISTA ADMINISTRADOR-------------------------------
 controller.showPage = (req, res) => {
-    if(req.session.loggedin){
+    if(req.session.loggedinAdmin){
         pool.query('SELECT * FROM director', (err, rows) =>{
             if (err){
                 res.json(err);
             }
             res.render('admin/vistaadmin',{
-                login: true,
+                loginadmin: true,
                 data: req.session.data,
                 info: rows
             });
         });
     } else{
         res.render('admin/vistaadmin',{
-            login: false,
+            loginadmin: false,
             name: 'Debes iniciar sesión'
         });
     }
@@ -83,20 +83,20 @@ controller.deleteDirec = (req, res) =>{
 
 controller.showEdit = (req, res) => {
     const { id } = req.params;
-    if(req.session.loggedin){
+    if(req.session.loggedinAdmin){
         pool.query('SELECT * FROM director where id_direc = ?',[id], (err, rows) =>{
             if (err){
                 res.json(err);
             }
             res.render('admin/editdirec',{
-                login: true,
+                loginadmin: true,
                 data: req.session.data,
                 info: rows[0]
             });
         });
     } else{
         res.render('admin/editdirec',{
-            login: false,
+            loginadmin: false,
             name: 'Debes iniciar sesión'
         });
     }
