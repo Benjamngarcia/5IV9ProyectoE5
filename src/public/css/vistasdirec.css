@@ -1,47 +1,20 @@
 /* ---------PÁGINA----------- */
-.body-page{
-    padding-top: 2em;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-}
 /* BOTONES PRINCIPIO */
-.welcome-page{
-    padding: 2em;
-}
-.welcome-page h3{
-    margin-bottom: 2%;
-}
-.save-buttons{
-    padding: 1em;
-}
-.button-action{
-    width: 20%;
-    padding: 1em;
-    margin: auto  3%;
-    border: none;
-    background: var(--redCEG);
-    color: var(--whiteCEG);
-    text-transform: uppercase;
-    border-radius: 60px;
-    text-decoration: none ;
-}
+
 .btn-especial{
     background: var(--redCEG);
     color: var(--whiteCEG);
     border-radius: 60px;
     border: none;
     padding: .3em;
+    margin: 5px 10px;
 }
-.button-action:hover,
-.button-action:focus,
 .btn-especial:hover{
     cursor:pointer;
     background-color: #ec3e44;
     color: var(--whiteCEG);
     text-decoration: none;
 }
-
 
 /* TABLA */
 .view-group{
@@ -77,10 +50,5 @@ thead{
     .save-buttons{
         display: flex;
         flex-direction: column;
-    }
-    .button-action{
-        width: 80%;
-        padding: .5em;
-        margin: .3em auto;
     }
 }

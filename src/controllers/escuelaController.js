@@ -22,6 +22,38 @@ controller.list = (req, res) => {
         });
     }
 };
+controller.deleteAlum = (req, res) =>{
+    const { id } = req.params;
+    pool.query('DELETE FROM alumno WHERE id_alum = ?', [id]);
+    res.redirect('/escuela/VistaDirec');
+}
+controller.editAlum = (req, res) => {
+    const { id } = req.params;
+    if(req.session.loggedin){
+        pool.query('SELECT * FROM alumno where id_alum = ?',[id], (err, rows) =>{
+            if (err){
+                res.json(err);
+            }
+            res.render('director/editalum',{
+                login: true,
+                data: req.session.data,
+                info: rows[0]
+            });
+        });
+    } else{
+        res.render('director/editalum',{
+            login: false,
+            name: 'Debes iniciar sesión'
+        });
+    }
+};
+
+controller.updateAlum = (req, res) =>{
+    const { id } = req.params;
+    const newInfo = req.body;
+    pool.query('UPDATE alumno set ? WHERE id_alum = ?', [newInfo, id]);
+    res.redirect('/escuela/VistaDirec');
+}
 //VISTA ADMINISTRADOR-------------------------------
 controller.showPage = (req, res) => {
     if(req.session.loggedin){

@@ -1,21 +1,17 @@
 <%if (login===true) {%>
     <%- include ('../partials/_headerVistaDirec') %>
-        <div class="container-xl">
+        <div class="container-xl text-center">
             <!-- BODY -->
-            <div class="body-page">
-                <div class="welcome-page">
-                    <h3>BIENVENIDO DIRECTOR</h3>
-                    <a href="" class="button-action">ENVIAR ALERTA</a>
+                <div class="col-md-12 p-4 mt-5">
+                    <h3 class="mb-3">BIENVENIDO DIRECTOR <%= data.appat_direc %></h3>
+                    <a href="" class="btn-especial col-md-12">ENVIAR ALERTA</a>
                 </div>
                 <div class="save-buttons">
-                    <a href="registroalum.html" class="button-action" data-toggle="modal"
-                        data-target="#exampleModalCenter">REGISTRAR ALUMNO</a>
-                    <a href="registroteach.html" class="button-action" data-toggle="modal"
-                    data-target="#exampleModalCenter1">REGISTRAR PROFESOR</a>
+                    <a href="" type="button" class="btn-especial p-2" data-toggle="modal" data-target="#exampleModalCenter">REGISTRAR ALUMNO</a>
+                    <a href="" type="button" class="btn-especial p-2" data-toggle="modal" data-target="#exampleModalCenter1">REGISTRAR PROFESOR</a>
                 </div>
                 <!-- REGISTRO ALUMNO -->
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header" style="background-color: #072f4e;">
@@ -45,10 +41,20 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input type="date" class="form-control" name ="cumple_alum" id="date">
+                                            <input type="text" class="form-control" name ="grupo_alum" id="" placeholder="Grupo">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <input type="phone" class="form-control" name ="telefono_alum" id="" placeholder="Teléfono">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="cumple_alum">Nacimiento:</label>
+                                            <input type="date" class="form-control" name ="cumple_alum" id="date">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="fecha_ins">Fecha Inscripción</label>
+                                            <input type="date" class="form-control" name="fecha_ins">
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -61,18 +67,10 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" name ="grupo_alum" id="" placeholder="Grupo">
+                                            <button type="" class="btn-especial pl-4 pr-4">GENERAR DATOS</button>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <input type="date" class="form-control" name="fecha_ins">
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <button type="" class="btn-especial">Generar datos</button>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <button class="btn-especial">Registrar</button>
+                                            <button class="btn-especial pl-5 pr-5">REGISTRAR</button>
                                         </div>
                                     </div>                              
                                 </form>
@@ -85,8 +83,7 @@
                     </div>
                 </div>
                 <!-- REGISTRO PROF -->
-                <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header" style="background-color: #072f4e;">
@@ -96,7 +93,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form>
+                                <form action="/RegistroProfe" method="POST">
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <input type="text" class="form-control" id="" placeholder="Nombre">
@@ -175,8 +172,8 @@
                                         <td><%= info[i].resultado_enc %></td>
                                         <td>
                                             <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                                            <a href="/DeleteDirec/<%= info[i].id_alum %>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                            <a href="/EditDirec/<%= info[i].id_alum %>" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                            <a href="/escuela/DeleteAlum/<%= info[i].id_alum %>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                            <a href="/escuela/EditAlum/<%= info[i].id_alum %>" class="btn btn-success"><i class="fas fa-edit"></i></a>
                                         </td>
                                     </tr>
                                 <% } %>
@@ -242,7 +239,6 @@
                         </table>
                     </div>
                 </div>
-            </div>
         </div>
         <script src="/js/generador.js"></script>
         <%- include ('../partials/_footerCopy') %>

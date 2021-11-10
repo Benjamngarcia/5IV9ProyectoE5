@@ -84,42 +84,112 @@
                     </div>
                 </div>
             </div>
-        </div>
         <!-- VISUALIZAR PROFESORES -->
-        <h3 class="text-center mt-5" id="teacher">LISTA PROFESORES</h3>
-        <div class="col-md-10 col-sm-12 m-auto">
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <td>RFC</td>
-                        <td>Correo</td>
-                        <td>Nombre</td>
-                        <td>Apellido Paterno</td>
-                        <td>Telefono</td>
-                        <td></td>
-                    </tr>
-                </thead>
-                <tbody>
+            <h3 class="text-center mt-5" id="teacher">DIRECTOR</h3>
+            <div class="col-md-10 col-sm-12 m-auto">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <td>RFC</td>
+                            <td>Nombre</td>
+                            <td>Apellido Paterno</td>
+                            <td>Teléfono</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (info) { %>
+                            <% for(var i = 0; i < info.length; i++) { %>
+                        <tr>
+                            <td><%= info[i].rfc_direc %></td>
+                            <td><%= info[i].nom_direc %></td>
+                            <td><%= info[i].appat_direc %></td>
+                            <td><%= info[i].telefono_direc %></td>
+                            <td>
+                                <a href="" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                <a href="/escuela/DeleteDirec/<%= info[i].id_direc %>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                <a href="/escuela/EditDirec/<%= info[i].id_direc %>" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                            </td>
+                        </tr>
+                        <% } %>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- MODAL SHOW INFO DIREC -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #072f4e;">
+                        <h5 class="modal-title" id="exampleModalLongTitle" style="color: #F5F2F3;">FICHA DE DATOS</h5>
+                        <button type="button" class="close" data-dismiss="modal" style="color: #F5F2F3;" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                     <% if (info) { %>
                         <% for(var i = 0; i < info.length; i++) { %>
-                            <tr>
-                                <td><%= info[i].rfc_direc %></td>
-                                <td><%= info[i].correo_direc %></td>
-                                <td><%= info[i].nom_direc %></td>
-                                <td><%= info[i].appat_direc %></td>
-                                <td><%= info[i].telefono_direc %></td>
-                                <td>
-                                    <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                                    <a href="/escuela/DeleteDirec/<%= info[i].id_direc %>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                    <a href="/escuela/EditDirec/<%= info[i].id_direc %>" class="btn btn-success"><i class="fas fa-edit"></i></a>
-                                </td>
-                            </tr>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="h5">Nombre completo:</label>
+                                    <p><%= info[i].nom_direc %> <%= info[i].appat_direc %> <%= info[i].apmat_direc %></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="h5">Correo Electrónico:</label>
+                                    <p><%= info[i].correo_direc %></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label class="h5">Teléfono: </label>
+                                    <p><%= info[i].telefono_direc%></p>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="h5">RFC: </label>
+                                    <p><%= info[i].rfc_direc%></p>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="h5">NSS: </label>
+                                    <p><%= info[i].nss_direc%></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <h3>DIRECCIÓN.</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="h5">Calle: </label>
+                                    <p><%= info[i].calle_direc%></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="h5">Código Postal: </label>
+                                    <p><%= info[i].codigop_direc%></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="h5">Colonia: </label>
+                                    <p><%= info[i].colonia_direc%></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="h5">Alcaldía: </label>
+                                    <p><%= info[i].alcaldia_direc%></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <% } %>
                         <% } %>
-                </tbody>
-            </table>
-        </div>
-        <canvas id="oilChart" width="80%" height="20%"></canvas>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn-especial">Aceptar</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <script src="../js/graphs.js"></script>
         <%-include('../partials/_footerCopy')%>
