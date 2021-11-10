@@ -1,14 +1,14 @@
 {
   "name": "5IV9ProyectoE5",
   "version": "1.0.0",
-  "description": "",
+  "description": "Gestión de entrada de alumnos",
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon index"
+    "dev": "nodemon src/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Dictamigos & Asocs",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
