@@ -32,24 +32,24 @@ function SoloNumeros(e){ //FUNCIÓN PARA SOLO PERMITIR LA ESCRITURA DE NÚMEROS
     }
 }
 function validarContacto(){ //FUNCIÓN PARA VALIDAR FORMULARIO DE CONTACTO
-    let nombres, email, mensaje, correoElec, letras;
-    nombres = document.getElementById('nombres').value;
+    let asunto, email, mensaje, correoElec, letras;
+    asunto = document.getElementById('asunto').value;
     email = document.getElementById('email').value;
     mensaje = document.getElementById('mensaje').value;
 
     correoElec = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     letras = /[a-zA-Z]/;
 
-    if(nombres === "" || email ==="" || mensaje ==="" || nombres === " " || email ===" " || mensaje ===" " ){
+    if(asunto === "" || email ==="" || mensaje ==="" || asunto === " " || email ===" " || mensaje ===" " ){
         swal('Advertencia','Para enviar el mensaje es necesario que todos los campos estén llenos','error');
         return false;
     }
-    else if(nombres.length>30){
-        swal('Advertencia','El nombre es demasiado largo','warning');
+    else if(asunto.length>30){
+        swal('Advertencia','El asunto es demasiado largo','warning');
         return false;
     }
-    else if(!letras.test(nombres)){
-        swal('Advertencia','Ingresa unicamente letras en el nombre.','warning');
+    else if(!letras.test(asunto)){
+        swal('Advertencia','Ingresa unicamente letras en el asunto.','warning');
         return false;
     }
     else if (email.length>50){
@@ -67,16 +67,14 @@ function validarContacto(){ //FUNCIÓN PARA VALIDAR FORMULARIO DE CONTACTO
 }
 
 function validarLoginAlum(){ //FUNCIÓN PARA VALIDAR LOGIN DEL ALUMNO
-    let matricula, email, password, correoElec, letras, passwordChar;
+    let matricula, password, letras, passwordChar;
     matricula = document.getElementById('matricula').value;
-    // email = document.getElementById('email').value;
     password = document.getElementById('password').value;
 
-    // correoElec = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     letras = /[a-zA-Z0-9]/;
     passwordChar = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/; //Mínimo ocho caracteres, al menos una letra mayúscula, una letra minúscula y un número
 
-    if(matricula === "" || email ==="" || password ==="" || matricula === " " || email ===" " || password ===" " ){
+    if(matricula === "" || password ==="" || matricula === " " || password ===" " ){
         swal('Advertencia','Para iniciar sesión es necesario que todos los campos estén llenos','error');
         return false;
     }
@@ -88,14 +86,32 @@ function validarLoginAlum(){ //FUNCIÓN PARA VALIDAR LOGIN DEL ALUMNO
         swal('Advertencia','Ingresa el formato correcto de la matrícula.','warning');
         return false;
     }
-    // else if (email.length>50){
-    //     swal('Advertencia','El correo electónico es muy largo.','warning');
-    //     return false;
-    // }
-    // else if(!correoElec.test(email)){
-    //     swal('Advertencia','El correo no es un formato válido, prueba insertar otro.','warning');
-    //     return false;
-    // }
+    else if (password.length>20){
+        swal('Advertencia','La contraseña es muy larga','warning');
+        return false;
+    }
+}
+
+function validarLogin(){ //FUNCIÓN PARA VALIDAR LOGIN DE LOS OTROS 3 USUARIOS
+    let email, password, correoElec, passwordChar;
+    email = document.getElementById('email').value;
+    password = document.getElementById('password').value;
+
+    correoElec = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    passwordChar = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/; //Mínimo ocho caracteres, al menos una letra mayúscula, una letra minúscula y un número
+
+    if(email === "" || password ==="" || email === " " || password ===" " ){
+        swal('Advertencia','Para iniciar sesión es necesario que todos los campos estén llenos','error');
+        return false;
+    }
+    else if(email.length>30){
+        swal('Advertencia','El correo es demasiado largo','warning');
+        return false;
+    }
+    else if(!correoElec.test(email)){
+        swal('Advertencia','Ingresa el formato correcto del correo','warning');
+        return false;
+    }
     else if (password.length>20){
         swal('Advertencia','La contraseña es muy larga','warning');
         return false;

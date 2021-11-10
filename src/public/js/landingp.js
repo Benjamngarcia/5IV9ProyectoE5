@@ -18,7 +18,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 //SCROLL REVEAL//
-window.sr = ScrollReveal({ reset: true });
+window.sr = ScrollReveal({ reset: false });
 
 sr.reveal('.navbar', {
     origin: 'bottom',

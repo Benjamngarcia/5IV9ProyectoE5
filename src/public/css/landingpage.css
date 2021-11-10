@@ -191,8 +191,8 @@
     width: 100%;
 }
 .contact-container{
-    background-color:rgba(0, 0, 0, .5);
-    width: 98.5vw;
+    background-color:rgba(0, 0, 0, .7);
+    width: auto;
     height: 100%;
     padding: 4% 10%;
 }
@@ -201,10 +201,10 @@ form .forma-control{
     padding: .5em;
     margin: .5em auto;
     border: none;
-    background-color: rgba(255, 255, 255, .3);
+    background-color: rgba(214, 208, 208, 0.445);
     outline: none;
     color:var(--white);
-    border-radius: 15px;
+    border-radius: 5px;
 }
 form textarea{
     min-width: 100%;
@@ -216,8 +216,8 @@ form .btn{
     padding: 1em;
     margin: auto;
     border: none;
-    background: var(--red);
-    color: var(--white);
+    background: var(--redCEG);
+    color: var(--whiteCEG);
     border-radius: 60px;
 }
 form .btn:hover,
