@@ -1,35 +1,37 @@
-<%if (loginalum === true) {%>
-    <%- include ('../partials/_headerVistaAlum') %>
+<%if (logindirec === true) {%>
+    <%- include ('../partials/_headerVistaDirec') %>
     <!-- BODY -->
     <div class="row m-2 justify-content-center">
-        <div class="col-md-6 col-sm-12" id="contact">
-            <div class="card p-1 mt-1 mb-1">
+        <div class="col-md-6 col-sm-12 mt-5 mb-5 pb-5 pt-5" id="contact">
+            <div class="card p-2 mt-2 mb-2">
                 <div class="card-body">
                     <h3 class="text-center"><b>DATOS TUTOR</b></h3>
-                    <form action="/EditarTutor/<%= data.id_alum %>" method="POST" onsubmit="return validarTutor();">
+                    <form action="/RegistrarTutor/<%= data.id_alum %>" method="POST" onsubmit="return validarTutor();">
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="nommbre"><i class="fas fa-user"></i> Alumno No.:</label>
+                                <input type="text" class="form-control" name ="nom_tutor" value="<%= info.id_alum%>" id="nombre" placeholder="Nombre" readonly>
+                            </div>
+                        </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="nommbre"><i class="fas fa-user"></i> Nombre:</label>
                                 <input type="text" class="form-control" name ="nom_tutor" id="nombre" placeholder="Nombre">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="appat"><i class="fas fa-user"></i> Apellido Paterno:</label>
                                 <input type="text" class="form-control" name ="appat_tutor" id="appat" placeholder="Apellido paterno">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="apmat"><i class="fas fa-user"></i> Apellido Materno:</label>
                                 <input type="text" class="form-control" name ="apmat_tutor" id="apmat" placeholder="Apellido materno">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="apmat"><i class="fas fa-child"></i> Parentezco:</label>
                                 <input type="text" class="form-control" name ="parentezco" id="parentezco" placeholder="Parentezco">
                             </div>
                         </div>
                         <div class="form-row justify-content-center">
                             <div class="form-group col-md-4 text-center">
-                                <button class="btn-link-principal p-2">GUARDAR CAMBIOS</button>
+                                <button class="btn-link-principal p-2">GUARDAR TUTOR</button>
                             </div>                          
                         </div>
                     </form>

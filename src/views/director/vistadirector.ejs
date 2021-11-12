@@ -171,7 +171,8 @@
                                         <td><%= info[i].appat_alum%></td>
                                         <td><%= info[i].resultado_enc %></td>
                                         <td>
-                                            <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                            <a href="" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                            <a href="/escuela/RegistrarTutor/<%= info[i].id_alum%>" class="btn btn-warning text-white"><i class="fas fa-child"></i></a>
                                             <a href="/escuela/DeleteAlum/<%= info[i].id_alum %>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                                             <a href="/escuela/EditAlum/<%= info[i].id_alum %>" class="btn btn-success"><i class="fas fa-edit"></i></a>
                                         </td>
@@ -180,64 +181,6 @@
                             <% } %>
                         </tbody>
                     </table>
-                </div>
-                <!-- VISUALIZAR PROFESORES -->
-                <h3 class="text-center mt-5" id="teacher">LISTA PROFESORES</h3>
-                <div class="col-md-10 col-sm-12 m-auto">
-                    <table class="table table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <td>RFC</td>
-                                <td>Correo</td>
-                                <td>Nombre</td>
-                                <td>Apellido Paterno</td>
-                                <td>Telefono</td>
-                                <td></td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>si</td>
-                                <td>si</td>
-                                <td>si</td>
-                                <td>si</td>
-                                <td>si</td>
-                                <td>si</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- POR TUTOR -->
-                <h3 class="text-center mt-5" id="parent">VER TUTORES</h3>
-                <div class="">
-                    <p class="input-view-group">
-                        <input type="text" placeholder="Nombre hijo" name="hijo" id="hijo" required>
-                        <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
-                    </p>
-                    <div class="col-md-10 col-sm-12 m-auto">
-                        <table class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <td>Nombre</td>
-                                    <td>Apellido</td>
-                                    <td>Hijo</td>
-                                    <td>Apellido Hijo</td>
-                                    <td>Teléfono</td>
-                                    <td></td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>si</td>
-                                    <td>si</td>
-                                    <td>si</td>
-                                    <td>si</td>
-                                    <td>si</td>
-                                    <td>si</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
         </div>
         <script src="/js/generador.js"></script>

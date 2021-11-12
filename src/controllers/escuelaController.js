@@ -54,6 +54,77 @@ controller.updateAlum = (req, res) =>{
     pool.query('UPDATE alumno set ? WHERE id_alum = ?', [newInfo, id]);
     res.redirect('/escuela/VistaDirec');
 }
+
+controller.listTut = (req, res) => {
+    if(req.session.loggedinDirec){
+        pool.query('SELECT * FROM tutor', (err, rows) =>{
+            if (err){
+                res.json(err);
+            }
+            res.render('director/listtut',{
+                logindirec: true,
+                data: req.session.data,
+                info: rows
+            });
+        });
+    } else{
+        res.render('director/listtut',{
+            logindirec: false,
+            name: 'Debes iniciar sesión'
+        });
+    }
+};
+
+controller.addTut = (req, res) => {
+    const { id } = req.params;
+    if(req.session.loggedinDirec){
+        pool.query('SELECT * FROM alumno where id_alum = ?',[id], (err, rows) =>{
+            if (err){
+                res.json(err);
+            }
+            res.render('director/registrartut',{
+                logindirec: true,
+                data: req.session.data,
+                info: rows[0]
+            });
+        });
+    } else{
+        res.render('director/registrartut',{
+            logindirec: false,
+            name: 'Debes iniciar sesión'
+        });
+    }
+};
+
+// controller.addTutor = (req, res) => {
+//     const tutor = req.body;
+//     console.log(req.body)
+//     const query = pool.query('INSERT INTO tutor set ?', tutor, (err, customer) => {
+//         console.log(customer)
+//         console.log(err)
+//         res.redirect('/');
+//       })
+//   };
+
+controller.listProf = (req, res) => {
+    if(req.session.loggedinDirec){
+        pool.query('SELECT * FROM profesor', (err, rows) =>{
+            if (err){
+                res.json(err);
+            }
+            res.render('director/listprof',{
+                logindirec: true,
+                data: req.session.data,
+                info: rows
+            });
+        });
+    } else{
+        res.render('director/listprof',{
+            logindirec: false,
+            name: 'Debes iniciar sesión'
+        });
+    }
+};
 //VISTA ADMINISTRADOR-------------------------------
 controller.showPage = (req, res) => {
     if(req.session.loggedinAdmin){

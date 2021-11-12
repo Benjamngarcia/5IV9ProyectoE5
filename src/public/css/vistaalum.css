@@ -1,21 +1,4 @@
-/* -------------------------------------------------VISTA USER-------------------------------------- */
-/* --------VISTA USUARIO PRINCIPAL----------- */
-.btn-link-principal{
-    background-color: var(--redCEG);
-    border-radius: 60px;
-    color: var(--whiteCEG);
-    text-align: center;
-    border: none;
-}
-.btn-link-principal:hover{
-    text-decoration: none;
-    color: var(--whiteCEG);
-    background-color: #ec3e44;
-}
-/* ------------------------------------EDITAR TUTOR/ALUMNO------------------------------ */
-
-/* ------------------------------------CUESTIONARIO COVID------------------------------ */
-/* CUESTIONARIO */
+/* ------CUESTIONARIO COVID----- */
 #quizinstrucciones{
     background-color: #5d9ff567;
     border-radius: 10px;
@@ -24,7 +7,7 @@
 .pregunta2 p{
     margin: 1em auto;
 }
-/* --------------------------QR-------------------- */
+/* -------QR-------- */
 .botonredondo{
     width: 50px;
     height: 50px;
@@ -33,6 +16,3 @@
     color: var(--whiteCEG);
     border-radius: 50%;
 }
-/* --------------------------MEDIA QUERIES---------------------------------- */
-/* --------------VISTA USER--------------- */
-/* HEADER NAV */

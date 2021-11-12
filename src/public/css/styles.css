@@ -23,6 +23,16 @@ h3{
 body{
     background-color: var(--whiteCEG);
 }
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    background-color: var(--whiteCEG);
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--blueCEG);
+    border-radius: 60px;
+}
 /* NAVBAR TOGGLE BUTTON */
 #navbar-toggle-menu{
     background-color: transparent;
@@ -33,4 +43,17 @@ body{
 }
 #navbar-toggle-menu:focus{
     outline: none;
+}
+/* BUTTONS */
+.btn-link-principal{
+    background-color: var(--redCEG);
+    border-radius: 60px;
+    color: var(--whiteCEG);
+    text-align: center;
+    border: none;
+}
+.btn-link-principal:hover{
+    text-decoration: none;
+    color: var(--whiteCEG);
+    background-color: #ec3e44;
 }
