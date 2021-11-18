@@ -10,7 +10,9 @@ router.post('/EditAlum/:id', escuelaController.updateAlum);
 router.get('/VerTutores', escuelaController.listTut);
 router.get('/VerProf', escuelaController.listProf);
 router.get('/RegistrarTutor/:id', escuelaController.addTut);
-// router.post('/RegistrarTutor/:id', escuelaController.addTutor);
+router.post('/RegistrarTutor/:id', escuelaController.addTutor);
+// router.get('/DirecTutor/:id', escuelaController.Direcc);
+router.get('/DeleteTut/:id', escuelaController.deleteTutor);
 //ADMIN
 router.get('/VistaAdmin', escuelaController.showPage);
 router.get('/DeleteDirec/:id', escuelaController.deleteDirec);

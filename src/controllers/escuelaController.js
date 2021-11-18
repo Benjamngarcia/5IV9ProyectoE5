@@ -57,7 +57,7 @@ controller.updateAlum = (req, res) =>{
 
 controller.listTut = (req, res) => {
     if(req.session.loggedinDirec){
-        pool.query('SELECT * FROM tutor', (err, rows) =>{
+        pool.query('SELECT * FROM alumno INNER JOIN tutor ON alumno.id_alum = tutor.id_alum', (err, rows) =>{
             if (err){
                 res.json(err);
             }
@@ -96,15 +96,44 @@ controller.addTut = (req, res) => {
     }
 };
 
-// controller.addTutor = (req, res) => {
-//     const tutor = req.body;
-//     console.log(req.body)
-//     const query = pool.query('INSERT INTO tutor set ?', tutor, (err, customer) => {
-//         console.log(customer)
-//         console.log(err)
-//         res.redirect('/');
-//       })
-//   };
+controller.addTutor = (req, res) => {
+    let { id } = req.params;
+    const nombre = req.body.nom_tutor;
+    const appat = req.body.appat_tutor;
+    const apmat = req.body.apmat_tutor;
+    const paren = req.body.parentezco;
+
+    const calle = req.body.calle;
+    const colonia = req.body.colonia;
+    const codigop = req.body.codigop;
+    const alcaldia = req.body.alcaldia;
+    console.log(req.body)
+        pool.query('INSERT INTO tutor set ?',{id_alum: id, nom_tutor:nombre, appat_tutor: appat, apmat_tutor: apmat, parentezco: paren} , (err, succ) => {
+        if (err){
+            console.log(err)
+        } else{
+            console.log(succ)
+        }
+        pool.query('INSERT INTO direccionAlum set ?', {id_alum: id, calle: calle, colonia: colonia, codigop: codigop, alcaldia: alcaldia}, (error, exito) =>{
+            if (error){
+                console.log(error)
+            } else{
+                console.log(exito)
+            }  
+            res.redirect('/escuela/VistaDirec');
+        })
+    })
+};
+
+controller.deleteTutor = (req, res) =>{
+    const { id } = req.params;
+    pool.query('DELETE FROM tutor WHERE id_tutor = ?', [id]);
+    res.redirect('/escuela/VerTutores');
+}
+
+
+
+
 
 controller.listProf = (req, res) => {
     if(req.session.loggedinDirec){
