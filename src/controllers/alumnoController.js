@@ -90,4 +90,38 @@ controller.vistaAlumn = (req, res) => {
         });
     }
 };
+
+controller.redirCuest = (req, res) => {
+    const dataCuest = req.body.EncBool;
+    const { id }  = req.params;
+    nochis = 2;
+    if (req.session.loggedinAlum) {
+        pool.query('INSERT INTO encuesta set ?', {id_alum:id,resultado_enc:dataCuest}, (err, results) => {
+            console.log(results);
+            const buenas = JSON.stringify(dataCuest);
+            nochis = buenas;
+            if (nochis == '"0"') {
+                res.render('alumno/showqr', {
+                    loginalum: true,
+                    data: req.session.data
+                });
+            } else if (nochis == '"1"') {
+                res.render('alumno/redirect', {
+                    loginalum: true,
+                    data: req.session.data
+                });
+            } else {
+                res.render('alumno/cuestionario', {
+                    loginalum: true,
+                    data: req.session.data
+                });
+            }
+        })
+    } else {
+        res.render('alumno/cuestionario', {
+            loginalum: false,
+            name: 'Debes iniciar sesión'
+        });
+    }
+};
 module.exports = controller;
