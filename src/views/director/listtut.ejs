@@ -24,16 +24,15 @@
                             <% if (info) { %>
                                 <% for(var i=0; i < info.length; i++) { %>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td><%= info[i].nom_tutor%></td>
+                                        <td><%= info[i].appat_tutor%></td>
+                                        <td><%= info[i].nom_alum%></td>
+                                        <td><%= info[i].appat_alum%></td>
+                                        <td><%= info[i].telefono_alum%></td>
                                         <td>
-                                            <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                                            <a href="/escuela/DeleteAlum/<%= info[i].id_alum %>"
+                                            <a href="/escuela/DeleteTut/<%= info[i].id_tutor %>"
                                                 class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                            <a href="/escuela/EditAlum/<%= info[i].id_alum %>"
+                                            <a href="/escuela/EditTut/<%= info[i].id_tutor %>"
                                                 class="btn btn-success"><i class="fas fa-edit"></i></a>
                                         </td>
                                     </tr>
@@ -46,5 +45,5 @@
         </div>
         <%- include ('../partials/_footerCopy') %>
             <%} else {%>
-                <%-include('.. /partials/erroracceso')%>
+                <%-include('../partials/erroracceso')%>
                     <%}%>

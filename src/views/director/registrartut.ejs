@@ -6,13 +6,7 @@
             <div class="card p-2 mt-2 mb-2">
                 <div class="card-body">
                     <h3 class="text-center"><b>DATOS TUTOR</b></h3>
-                    <form action="/RegistrarTutor/<%= data.id_alum %>" method="POST" onsubmit="return validarTutor();">
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label for="nommbre"><i class="fas fa-user"></i> Alumno No.:</label>
-                                <input type="text" class="form-control" name ="nom_tutor" value="<%= info.id_alum%>" id="nombre" placeholder="Nombre" readonly>
-                            </div>
-                        </div>
+                    <form action="/escuela/RegistrarTutor/<%= info.id_alum%>" method="POST" onsubmit="return validarTutor();">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <input type="text" class="form-control" name ="nom_tutor" id="nombre" placeholder="Nombre">
@@ -27,6 +21,22 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <input type="text" class="form-control" name ="parentezco" id="parentezco" placeholder="Parentezco">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name ="calle" id="calle" placeholder="Calle">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name ="colonia" id="colonia" placeholder="Colonia">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name ="codigop" id="codigop" placeholder="Código postal">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name ="alcaldia" id="alcaldia" placeholder="Alcaldía">
                             </div>
                         </div>
                         <div class="form-row justify-content-center">

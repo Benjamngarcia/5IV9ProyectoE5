@@ -24,10 +24,10 @@ body{
     background-color: var(--whiteCEG);
 }
 ::-webkit-scrollbar{
-    width: 10px;
+    width: 5px;
 }
 ::-webkit-scrollbar-track{
-    background-color: var(--whiteCEG);
+    background-color: #a0a0a09c;
 }
 ::-webkit-scrollbar-thumb{
     background-color: var(--blueCEG);

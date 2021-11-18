@@ -34,18 +34,18 @@ CREATE TABLE tutor(
     apmat_tutor VARCHAR(30) NOT NULL,
     parentezco VARCHAR(20) NOT NULL,
     PRIMARY KEY(id_tutor),
-    FOREIGN KEY (id_alum) REFERENCES alumno(id_alum) ON DELETE CASCADE
+    FOREIGN KEY (id_alum) REFERENCES alumno(id_alum) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE direccionTutor(
+CREATE TABLE direccionAlum(
     id_direccion INT(4) NOT NULL AUTO_INCREMENT,
-    id_tutor INT(4),
+    id_alum INT(4),
     calle VARCHAR(30) NOT NULL,
     colonia VARCHAR(30) NOT NULL,
     codigop VARCHAR(30) NOT NULL,
     alcaldia VARCHAR(30) NOT NULL,
     PRIMARY KEY(id_direccion),
-    FOREIGN KEY (id_tutor) REFERENCES tutor(id_tutor) ON DELETE CASCADE
+    FOREIGN KEY (id_alum) REFERENCES alumno(id_alum) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE profesor(
