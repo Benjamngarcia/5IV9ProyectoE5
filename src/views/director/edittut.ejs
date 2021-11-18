@@ -1,0 +1,38 @@
+<%if (logindirec===true) {%>
+    <%- include ('../partials/_headerVistaDirec') %>
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 m-5 pt-5 pb-3 card">
+                <div class="card-body p-5 mt-3">
+                    <h3 class="text-center"><b>EDITAR DATOS TUTOR</b></h3>
+                    <form action="/escuela/EditTut/<%= info.id_tutor%>" method="POST" onsubmit="return validarTutor();">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name ="nom_tutor" id="nombre" value="<%= info.nom_tutor%>">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name ="appat_tutor" id="appat" placeholder="Apellido paterno" value="<%= info.appat_tutor%>">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name ="apmat_tutor" id="apmat" placeholder="Apellido materno" value="<%= info.apmat_tutor%>">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name ="parentezco" id="parentezco" placeholder="Parentezco" value="<%=info.parentezco%>">
+                            </div>
+                        </div>
+                        <div class="form-row justify-content-center">
+                            <div class="form-group col-md-4 text-center">
+                                <button class="btn-link-principal p-2">EDITAR TUTOR</button>
+                            </div>                          
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include ('../partials/_footerCopy') %>
+    <%} else {%>
+        <%-include('../partials/erroracceso')%>
+        <%}%>

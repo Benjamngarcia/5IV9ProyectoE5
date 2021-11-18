@@ -131,6 +131,34 @@ controller.deleteTutor = (req, res) =>{
     res.redirect('/escuela/VerTutores');
 }
 
+controller.editTutor = (req, res) => {
+    const { id } = req.params;
+    if(req.session.loggedinDirec){
+        pool.query('SELECT * FROM tutor where id_tutor = ?',[id], (err, rows) =>{
+            if (err){
+                res.json(err);
+            }
+            res.render('director/edittut',{
+                logindirec: true,
+                data: req.session.data,
+                info: rows[0]
+            });
+        });
+    } else{
+        res.render('director/edittut',{
+            logindirec: false,
+            name: 'Debes iniciar sesión'
+        });
+    }
+};
+
+controller.updateTutor = (req, res) =>{
+    const { id } = req.params;
+    const newInfo = req.body;
+    pool.query('UPDATE tutor set ? WHERE id_tutor = ?', [newInfo, id]);
+    res.redirect('/escuela/VistaDirec');
+}
+
 
 
 
