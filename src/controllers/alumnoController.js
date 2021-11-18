@@ -97,7 +97,7 @@ controller.redirCuest = (req, res) => {
                     data: req.session.data
                 });
             } else if (nochis == '"1"') {
-                res.render('alumno/vistauser', {
+                res.render('alumno/redirect', {
                     loginalum: true,
                     data: req.session.data
                 });
