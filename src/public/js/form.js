@@ -9,7 +9,7 @@ function sumar(){
             totalSumado = totalSumado + parseInt(valor[0],10);
         }
     }
-    if(totalSumado < 4){
+    if(totalSumado < 7){
         si = 0;
     }else{
         si = 1;

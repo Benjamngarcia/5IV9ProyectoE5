@@ -84,22 +84,19 @@ controller.verCuest = (req, res) => {
 };
 controller.redirCuest = (req, res) => {
     const dataCuest = req.body.EncBool;
-    const dataAlum = req.params;
-    console.log(dataCuest);
+    const { id }  = req.params;
     nochis = 2;
     if (req.session.loggedinAlum) {
-        pool.query('INSERT INTO encuesta set ?', {id_alum:dataAlum,resultado_enc:dataCuest}, (err, results) => {
-
+        pool.query('INSERT INTO encuesta set ?', {id_alum:id,resultado_enc:dataCuest}, (err, results) => {
             console.log(results);
             const buenas = JSON.stringify(dataCuest);
             nochis = buenas;
-            console.log(nochis);
-            if (nochis == '0') {
+            if (nochis == '"0"') {
                 res.render('alumno/showqr', {
                     loginalum: true,
                     data: req.session.data
                 });
-            } else if (nochis == '1') {
+            } else if (nochis == '"1"') {
                 res.render('alumno/vistauser', {
                     loginalum: true,
                     data: req.session.data
