@@ -101,8 +101,6 @@ controller.redirCuest = (req, res) => {
                     loginalum: true,
                     data: req.session.data
                 });
-                
-
             } else {
                 res.render('alumno/cuestionario', {
                     loginalum: true,
