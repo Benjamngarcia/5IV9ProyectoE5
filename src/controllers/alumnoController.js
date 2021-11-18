@@ -70,27 +70,49 @@ controller.editarTutor = (req, res) => {
 };
 
 controller.verCuest = (req, res) => {
-    const dataC = req.body;
-    console.log(req.body);
+    if(req.session.loggedinAlum){
+        res.render('alumno/cuestionario',{
+            loginalum: true,
+            data: req.session.data
+        });
+    } else{
+        res.render('alumno/cuestionario',{
+            loginalum: false,
+            name: 'Debes iniciar sesión'
+        });
+    }
+};
+controller.redirCuest = (req, res) => {
+    const dataCuest = req.body.EncBool;
+    const dataAlum = req.params;
+    console.log(dataCuest);
     nochis = 2;
     if (req.session.loggedinAlum) {
-            const query = pool.query('INSERT INTO encuesta set ?', [data], (err, encuesta) => {
-                
-                console.log(encuesta);
-                const buenas = JSON.stringify(dataC);
-                nochis = buenas;
-                console.log(nochis);
-                if (nochis == '{"EncBool":"0"}') {
-                    res.render('alumno/showqr');
-                }
-                else if (nochis == '{"EncBool":"1"}') {
-                    res.render('alumno/vistauser');
+        pool.query('INSERT INTO encuesta set ?', {id_alum:dataAlum,resultado_enc:dataCuest}, (err, results) => {
 
-                }
-                else {
-                    res.render('alumno/cuestionario');
-                }
-            })
+            console.log(results);
+            const buenas = JSON.stringify(dataCuest);
+            nochis = buenas;
+            console.log(nochis);
+            if (nochis == '0') {
+                res.render('alumno/showqr', {
+                    loginalum: true,
+                    data: req.session.data
+                });
+            } else if (nochis == '1') {
+                res.render('alumno/vistauser', {
+                    loginalum: true,
+                    data: req.session.data
+                });
+                
+
+            } else {
+                res.render('alumno/cuestionario', {
+                    loginalum: true,
+                    data: req.session.data
+                });
+            }
+        })
     } else {
         res.render('alumno/cuestionario', {
             loginalum: false,
@@ -98,14 +120,4 @@ controller.verCuest = (req, res) => {
         });
     }
 };
-controller.redirCuest = (req, res) => {
-    if (req.session.loggedinAlumn) {
-
-    } else {
-        res.render('alumno/cuestionario', {
-            loginalum: false,
-            name: 'Debes iniciar sesión'
-        });
-    }
-}
 module.exports = controller;

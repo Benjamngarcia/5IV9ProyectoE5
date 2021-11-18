@@ -56,7 +56,7 @@
             </div>
     </form>
     <div class="row">
-        <form action="/redir" method="post">
+        <form action="/redir/<%= data.id_alum %>" method="post">
             <input type="hidden" id="bool" name="EncBool" value="0">
             <button type="submit" class="btn-link-principal p-3 ml-auto">
                 ENVIAR RESPUESTA
