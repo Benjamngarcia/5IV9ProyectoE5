@@ -1,90 +1,96 @@
 <%if (loginalum === true) {%>
     <%- include ('../partials/_headerVistaAlum') %>
     <!-- CUESTIONARIO COVI -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-sm-12 mt-4 p-3" id="quizinstrucciones">
-                    <h5>Instrucciones:</h5>
-                    <p>Marca las opciones correctas de acuerdo a tu caso.</p>
-                    <p>Verifica las respuestas, estas no podrán ser enviadas de nuevo el día de hoy.</p>
-                </div>
-            </div>
-            <form id="formulario" name="formulario">
-                <div class="quiz-preguntas">
-                    <div class="pregunta1">
-                        <p>¿Tú o tu hijo han estado en contacto con algún paciente confirmado de COVID-19 en los últimos 15
-                            días?</p>
-                        <p>
-                            <input type="checkbox" id="si" name="si" value="si">
-                            <label for="si"> Sí</label>
-                        </p>
-                        <p>
-                            <input type="checkbox" id="no" name="no" value="no">
-                            <label for="no">No</label><br><br>
-                        </p>
-                    </div>
-                    <div class="pregunta2">
-                        <p>¿Tú o tu hijo han presentado alguno de los siguientes síntomas?</p>
-                        <p>
-                            <input type="checkbox" id="dolordecabeza" name="dolordecabeza" value="dolordecabeza">
-                            <label for="dolordecabeza"> Dolor de cabeza.</label>
-                        </p>
-                        <p>
-                            <input type="checkbox" id="tos" name="tos" value="tos">
-                            <label for="tos">Tos</label>
-                        </p>
-                        <p>
-                            <input type="checkbox" id="fiebre" name="fiebre" value="fiebre">
-                            <label for="fiebre"> FIebre</label>
-                        </p>
-                        <p>
-                            <input type="checkbox" id="difrespirar" name="difrespirar" value="difrespirar">
-                            <label for="difrespirar">Dificultad para respirar</label>
-                        </p>
-                        <p>
-                            <input type="checkbox" id="nosentidos" name="nosentidos" value="nosentidos">
-                            <label for="nosentidos"> Pérdida del sentido del olfato o del gusto</label>
-                        </p>
-                        <p>
-                            <input type="checkbox" id="escurrinasal" name="escurrinasal" value="escurrinasal">
-                            <label for="escurrinasal">Escurrimiento nasal</label>
-                        </p>
-                        <p>
-                            <input type="checkbox" id="diarrea" name="diarrea" value="diarrea">
-                            <label for="diarrea"> Diarrea.</label>
-                        </p>
-                    </div>
-                </form>
-                    <div class="row">
-                        <form action="/redir/<%= data.id_alum %>" method="post">
-                            <input type="hidden" id="bool" name="EncBool" value="0">
-                        <button type="submit" class="btn-link-principal p-3 ml-auto">
-                            ENVIAR RESPUESTA
-                        </button>
-                        </form>
-                    </div>
-                </div>
-        </div>
-        <!-- SPONSORS -->
-        <div class="sponsors-container col-12">
-            <div class="row text-center">
-                <div class="col-12 col-sm-4">
-                    <img src="/img/pat1.png" alt="Escuela" class="sponsor">
-                </div>
-                <div class="col-12 col-sm-4">
-                    <img src="/img/pat2.png" alt="Gobierno CDMX" class="sponsor">
-                </div>
-                <div class="col-12 col-sm-4">
-                    <img src="/img/pat3.png" alt="SEP" class="sponsor">
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-sm-12 mt-4 p-3" id="quizinstrucciones">
+                <h5>Instrucciones:</h5>
+                <p>Marca las opciones correctas de acuerdo a tu caso.</p>
+                <p>Verifica las respuestas, estas no podrán ser enviadas de nuevo el día de hoy.</p>
             </div>
         </div>
+        <form id="formulario" name="formulario">
+            <div class="quiz-preguntas">
+                <div class="pregunta1">
+                    <p>¿Tú o tu hijo han estado en contacto con algún paciente confirmado de COVID-19 en los últimos 15
+                        días?</p>
+                    <p>
+                        <input type="radio" id="form" name="radio" value="4"  onclick="sumar()">
+                        <label for="4"> Sí</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="form" name="radio" value="0"  onclick="sumar()">
+                        <label for="0">No</label><br><br>
+                    </p>
+                </div>
+                <div class="pregunta2">
+                    <p>¿Tú o tu hijo han presentado alguno de los siguientes síntomas?</p>
+                    <p>
+                        <input type="checkbox" id="dolordecabeza" name="form" value="3"  onclick="sumar()">
+                        <label for="dolordecabeza"> Dolor de cabeza.</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="tos" name="form" value="3" onclick="sumar()">
+                        <label for="tos">Tos</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="fiebre" name="form" value="3" onclick="sumar()">
+                        <label for="fiebre"> FIebre</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="difrespirar" name="form" value="2" onclick="sumar()">
+                        <label for="difrespirar">Dificultad para respirar</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="nosentidos" name="form" value="2" onclick="sumar()">
+                        <label for="nosentidos"> Pérdida del sentido del olfato o del gusto</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="escurrinasal" name="form" value="1" onclick="sumar()">
+                        <label for="escurrinasal">Escurrimiento nasal</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="diarrea" name="form" value="1" onclick="sumar()">
+                        <label for="diarrea"> Diarrea.</label>
+                    </p>
+                </div>
+        </form>
+        <div class="row">
+            <form action="/redir/<%= data.id_alum %>" method="post">
+                <input type="hidden" id="bool" name="EncBool" value="0">
+                <button type="submit" class="btn-link-principal p-3 ml-auto">
+                    ENVIAR RESPUESTA
+                </button>
+            </form>
+        </div>
+    </div>
+    </div>
+    <!-- SPONSORS -->
+    <div class="sponsors-container col-12">
+        <div class="row text-center">
+            <div class="col-12 col-sm-4">
+                <img src="/img/pat1.png" alt="Escuela" class="sponsor">
+            </div>
+            <div class="col-12 col-sm-4">
+                <img src="/img/pat2.png" alt="Gobierno CDMX" class="sponsor">
+            </div>
+            <div class="col-12 col-sm-4">
+                <img src="/img/pat3.png" alt="SEP" class="sponsor">
+            </div>
+        </div>
+    </div>
     <script src="/js/validaciones.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="/js/form.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
     <%- include ('../partials/_footerBig') %>
-<%} else {%>
+    <%} else {%>
     <%- include ('../partials/erroracceso') %>
-<%}%>
+    <%}%>
