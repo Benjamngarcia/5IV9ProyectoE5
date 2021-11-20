@@ -5,6 +5,9 @@ Sistema para gestionar la entrada de alumnos en el Jardín de niños "Centro Edu
 - npm v. 6.14.13 o superiores.
 ## Comenzar 🚀
 ```
-hola
+git clone https://github.com/Benjamngarcia/5IV9ProyectoE5.git
+cd/5IV9ProyectoE5
+npm install
+npm start
 ```
 
