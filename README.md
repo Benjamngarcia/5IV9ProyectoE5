@@ -16,7 +16,7 @@ http://localhost:5000/
 ```
 ## Construido con 🛠️
 La realización de este proyecto fue posible mediante el uso de distintas tecnologías como lo son:
-- Node -Entorno de ejecución de JavaScript usado. 
+- [Node](https://nodejs.org/es/) -Entorno de ejecución de JavaScript usado. 
 - npm
 - MySQL
 - EJS
