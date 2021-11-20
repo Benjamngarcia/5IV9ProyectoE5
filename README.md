@@ -10,4 +10,8 @@ cd/5IV9ProyectoE5
 npm install
 npm start
 ```
+Abrir en el navegador.
+```
+http://localhost:5000/
+```
 
