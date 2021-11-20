@@ -14,8 +14,8 @@ Abrir en el navegador para ver el proyecto funcionando:
 http://localhost:5000/
 ## Construido con 🛠️
 La realización de este proyecto fue posible mediante el uso de distintas tecnologías como lo son:
-- [Node.js](https://nodejs.org/es/) -Entorno de ejecución de JavaScript usado. 
 - [npm](https://www.npmjs.com/) -Gestor de paquetes por defecto de Node.js.
+- [Node.js](https://nodejs.org/es/) -Entorno de ejecución de JavaScript usado. 
 - [MySQL](https://www.mysql.com/) -Gestor de bases de datos relacionales.
 - [EJS](https://ejs.co/) -Motor de visualización de plantillas de JavaScript. 
 - [Express](https://expressjs.com/es/) -Framework web de Node.js.
