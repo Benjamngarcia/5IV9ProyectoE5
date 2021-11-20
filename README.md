@@ -10,8 +10,8 @@ cd/5IV9ProyectoE5
 npm install
 npm start
 ```
-Abrir en el navegador para ver el proyecto funcionando.
-(http://localhost:5000/)
+Abrir en el navegador para ver el proyecto funcionando: 
+http://localhost:5000/
 ## Construido con 🛠️
 La realización de este proyecto fue posible mediante el uso de distintas tecnologías como lo son:
 - [Node.js](https://nodejs.org/es/) -Entorno de ejecución de JavaScript usado. 
@@ -21,7 +21,7 @@ La realización de este proyecto fue posible mediante el uso de distintas tecnol
 - [Express](https://expressjs.com/es/) -Framework web de Node.js.
 - [Bootstrap](https://getbootstrap.com/) -Framework CSS
 ## Despliegue 📦
-El proyecto es desplegado con Heroku y ClearDB para la base de datos, lo puedes encontrar funcionando en: [https://centroeducatiivogandhi.herokuapp.com/](https://centroeducatiivogandhi.herokuapp.com/)
+El proyecto es desplegado con Heroku y ClearDB para la base de datos, lo puedes encontrar funcionando en: https://centroeducatiivogandhi.herokuapp.com/
 ## Autores ✒️
 La existencia de este proyecto se debe a "DICTAMIGOS & ASOCS." que se encuentra conformado por:
 - Alberto Montero Molina [Ver en GitHub](https://github.com/albertomonterom)
