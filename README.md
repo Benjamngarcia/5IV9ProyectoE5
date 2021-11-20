@@ -21,4 +21,13 @@ La realización de este proyecto fue posible mediante el uso de distintas tecnol
 - [MySQL](https://www.mysql.com/) -Gestor de bases de datos relacionales.
 - [EJS](https://ejs.co/) -Motor de visualización de plantillas de JavaScript. 
 - [Express](https://expressjs.com/es/) -Framework web de Node.js.
+- [Bootstrap](https://getbootstrap.com/) -Framework CSS
+
+## Autores ✒️
+La existencia de este proyecto se debe a "DICTAMIGOS & ASOCS." que se encuentra conformado por:
+- Alberto Montero Molina [Ver en GitHub](https://github.com/albertomonterom)
+- Alejandro Arias Jiménez [Ver en GitHub](https://github.com/AriasCookie)
+- Benjamín Arturo Pérez García [Ver en GitHub](https://github.com/Benjamngarcia)
+- Eduardo Alberto Sánchez Romero [Ver en GitHub](https://github.com/EduardoAlberto001)
+- Fernanda Trujillo Rodríguez [Ver en GitHub](https://github.com/TrujilloFernanda)
 
