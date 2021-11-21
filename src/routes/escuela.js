@@ -14,6 +14,11 @@ router.post('/RegistrarTutor/:id', escuelaController.addTutor);
 router.get('/DeleteTut/:id', escuelaController.deleteTutor);
 router.get('/EditTut/:id', escuelaController.editTutor);
 router.post('/EditTut/:id', escuelaController.updateTutor);
+router.get('/VerInfo/:matricula', escuelaController.mostrarInfo);
+router.get('/DeleteProf/:id', escuelaController.deleteProf);
+
+//PROFESOR
+router.get('/VistaProfesor', escuelaController.viewProf);
 //ADMIN
 router.get('/VistaAdmin', escuelaController.showPage);
 router.get('/DeleteDirec/:id', escuelaController.deleteDirec);

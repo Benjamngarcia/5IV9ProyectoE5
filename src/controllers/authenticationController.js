@@ -135,6 +135,74 @@ controller.registrodirec = async (req, res) => {
     });
 };
 
+
+//MOSTRAR FORMULARIO DE LOGIN DE PROFESOR
+controller.loginprofe = (req, res) =>{
+    res.render('auth/logteacher')
+};
+
+//PROCESO DE AUTENTICACIÓN DEL LOGIN DE PROFESOR
+controller.loginprof = async (req, res) => {
+    const correo_prof = req.body.correo_prof;
+    const pass_prof = req.body.pass_prof;
+    const rows = await pool.query('SELECT * FROM profesor WHERE correo_prof = ?', [correo_prof]);
+    if (rows.length > 0){
+        const profe = rows[0];
+        const validPassword = await encriptar.matchPassword(pass_prof, profe.pass_prof);
+        if (validPassword){
+            req.session.loggedinProf = true;
+            req.session.data = rows[0];
+            res.redirect('/escuela/VistaProfesor');
+        } else{
+            res.render('auth/logteacher',{
+                alert: true,
+                alertTitle: "Contraseña",
+                alertMessage: "La contraseña es incorrecta",
+                alertIcon: "error",
+                showConfirmButton: true,
+                timer: 2000,
+                ruta: 'InicioDirec'
+            });
+        } 
+    } else {
+        res.render('auth/logteacher',{
+            alert: true,
+            alertTitle: "Correo",
+            alertMessage: "El correo es incorrecto",
+            alertIcon: "error",
+            showConfirmButton: true,
+            timer: 2000,
+            ruta: 'InicioDirec'
+        });
+    }
+};
+
+//REGISTRAR PROFESOR
+controller.registroprof = async (req, res) => {
+    const nombre = req.body.nom_prof;
+    const appat = req.body.appat_prof;
+    const apmat = req.body.apmat_prof;
+    const email = req.body.correo_prof;
+    const contra = req.body.pass_prof;
+    const telefono = req.body.telefono_prof;
+    const rfc = req.body.rfc_prof;
+    const nss = req.body.nss_prof;
+    const calle = req.body.calle_prof;
+    const colonia = req.body.colonia_prof;
+    const codigop = req.body.codigop_prof;
+    const alcaldia = req.body.alcaldia_prof;
+
+    let passwordHaash = await encriptar.encryptPassword(contra);
+    pool.query('INSERT INTO profesor SET ?', {nom_prof:nombre, appat_prof:appat, apmat_prof:apmat, correo_prof:email, telefono_prof:telefono, 
+        rfc_prof:rfc, nss_prof:nss, calle_prof:calle,colonia_prof:colonia,codigop_prof:codigop,alcaldia_prof:alcaldia, pass_prof:passwordHaash}, async(error,results)=>{
+        if(error){
+            console.log(error);
+        }else{
+            res.redirect('/escuela/VistaDirec');
+        }
+    });
+};
+
 //MOSTRAR FORMULARIO DE LOGIN DE ADMIN
 controller.loginadmin = (req, res) =>{
     res.render('auth/logadmin')

@@ -5,7 +5,8 @@ const pool = require('../database');
 //MOSTRAR TABLA ALUMNOS
 controller.list = (req, res) => {
     if(req.session.loggedinDirec){
-        pool.query('SELECT * FROM alumno', (err, rows) =>{
+        // pool.query('SELECT * FROM alumno', (err, rows) =>{
+            pool.query('SELECT * FROM alumno INNER JOIN encuesta ON alumno.id_alum = encuesta.id_alum', (err, rows) =>{
             if (err){
                 res.json(err);
             }
@@ -157,12 +158,29 @@ controller.updateTutor = (req, res) =>{
     const newInfo = req.body;
     pool.query('UPDATE tutor set ? WHERE id_tutor = ?', [newInfo, id]);
     res.redirect('/escuela/VistaDirec');
-}
+};
 
-
-
-
-
+controller.mostrarInfo = async(req, res) => {
+    let { matricula }  = req.params;
+    if (req.session.loggedinDirec){
+        await pool.query('SELECT * FROM alumno INNER JOIN tutor ON alumno.id_alum = tutor.id_alum INNER JOIN direccionAlum ON direccionAlum.id_alum = alumno.id_alum WHERE matricula_alum = ?',[matricula], (err, rows) =>{
+            if (err){
+                res.json(err);
+            }
+            res.render('director/mostrarinfo',{
+                logindirec: true,
+                data: req.session.data,
+                info: rows
+            });
+            console.log(rows);
+        });
+    } else{
+        res.render('director/mostrarinfo',{
+            logindirec: false,
+            name: 'Debes iniciar sesión'
+        });
+    }
+};
 controller.listProf = (req, res) => {
     if(req.session.loggedinDirec){
         pool.query('SELECT * FROM profesor', (err, rows) =>{
@@ -182,6 +200,34 @@ controller.listProf = (req, res) => {
         });
     }
 };
+controller.deleteProf = (req, res) =>{
+    const { id } = req.params;
+    pool.query('DELETE FROM profesor WHERE id_prof = ?', [id]);
+    res.redirect('/escuela/VistaDirec');
+}
+
+//VISTA PROFESOR-------------------------------
+
+controller.viewProf = (req, res) => {
+    if(req.session.loggedinProf){
+        pool.query('SELECT * FROM alumno INNER JOIN encuesta ON alumno.id_alum = encuesta.id_alum', (err, rows) =>{
+            if (err){
+                res.json(err);
+            }
+            res.render('profesor/vistaprofe',{
+                loginprof: true,
+                data: req.session.data,
+                info: rows
+            });
+        });
+    } else{
+        res.render('profesor/vistaprofe',{
+            loginprof: false,
+            name: 'Debes iniciar sesión'
+        });
+    }
+};
+
 //VISTA ADMINISTRADOR-------------------------------
 controller.showPage = (req, res) => {
     if(req.session.loggedinAdmin){
