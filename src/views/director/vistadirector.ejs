@@ -77,7 +77,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button class="btn-especial">Aceptar</button>
+                                <button class="btn btn-success">Aceptar</button>
                             </div>
                         </div>
                     </div>
@@ -93,52 +93,77 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="/RegistroProfe" method="POST">
+                                <form action="/RegistroProf" method="POST" onsubmit="">
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" id="" placeholder="Nombre">
+                                            <input type="text" class="form-control" id="" name="nom_prof"
+                                                placeholder="Nombre">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" id="" placeholder="Apellido paterno">
+                                            <input type="text" class="form-control" id="" name="appat_prof"
+                                                placeholder="Apellido paterno">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" id="" placeholder="Apellido materno">
+                                            <input type="text" class="form-control" id="" name="apmat_prof"
+                                                placeholder="Apellido materno">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" id="" placeholder="Dirección">
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <input type="phone" class="form-control" id="" placeholder="Teléfono">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <input type="email" class="form-control" id="" placeholder="Correo electrónico">
+                                            <input type="phone" class="form-control" id="" name="telefono_prof"
+                                                placeholder="Teléfono">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" id="" placeholder="RFC">
+                                            <input type="text" class="form-control" id="" name="calle_prof"
+                                                placeholder="Calle">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" id="" placeholder="NSS">
+                                            <input type="text" class="form-control" id="" name="colonia_prof"
+                                                placeholder="Colonia">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input type="date" class="form-control" id="">
+                                            <input type="text" class="form-control" id="" name="codigop_prof"
+                                                placeholder="Codigo Postal">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <input type="password" class="form-control" id="" placeholder="Contraseña">
+                                            <input type="text" class="form-control" id="" name="alcaldia_prof"
+                                                placeholder="Alcaldia">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <input type="text" class="form-control" id="" name="rfc_prof"
+                                                placeholder="RFC">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input type="text" class="form-control" id="" name="nss_prof"
+                                                placeholder="NSS">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <input type="email" class="form-control" id="" name="correo_prof"
+                                                placeholder="Correo electrónico">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input type="password" class="form-control" id="pass_prof"
+                                                name="pass_prof" placeholder="Contraseña">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6 text-center mx-auto">
+                                            <button type="submit" class="btn-especial p-2">REGISTRAR</button>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn-especial">Registrar</button>
+                                <button type="button" class="btn btn-success">Aceptar</button>
                             </div>
                         </div>
                     </div>
@@ -171,7 +196,7 @@
                                         <td><%= info[i].appat_alum%></td>
                                         <td><%= info[i].resultado_enc %></td>
                                         <td>
-                                            <a href="" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                            <a href="/escuela/VerInfo/<%= info[i].matricula_alum%>" class="btn btn-info"><i class="fas fa-eye"></i></a>
                                             <a href="/escuela/RegistrarTutor/<%= info[i].id_alum%>" class="btn btn-warning text-white"><i class="fas fa-child"></i></a>
                                             <a href="/escuela/DeleteAlum/<%= info[i].id_alum %>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                                             <a href="/escuela/EditAlum/<%= info[i].id_alum %>" class="btn btn-success"><i class="fas fa-edit"></i></a>

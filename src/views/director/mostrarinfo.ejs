@@ -1,0 +1,57 @@
+<%if (logindirec===true) {%>
+    <%- include ('../partials/_headerVistaDirec') %>
+<div class="row mt-5 mb-5 p-3 pb-5 pt-4 mx-auto">
+    <% if (info) { %>
+        <% for(var i = 0; i < info.length; i++) { %>
+        <div class="col-md-6 col-sm-12 mt-4 mb-4 p-2">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h3>INFORMACIÓN ALUMNO</h3>
+                </div>
+                <!-- PENDIENTE CAMBIAR FORMATO DE FECHA -->
+                <div class="card-body">
+                    <b>Nombre Completo: </b> <%= info[i].nom_alum%> <%= info[i].appat_alum%> <%= info[i].apmat_alum%>
+                    <br>
+                    <b>Matrícula: </b><%= info[i].matricula_alum%>
+                    <br>
+                    <b>Fecha de Nacimiento: </b><%=info[i].cumple_alum%>
+                    <br>
+                    <b>Fecha de Inscripción: </b><%=info[i].fecha_ins%>
+                    <br>
+                    <b>Matricula: </b><%=info[i].matricula_alum%>
+                    <br>
+                    <b>Grupo: </b><%=info[i].grupo_alum%>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 mt-4 mb-4 p-2">
+            <div class="card">
+                <div class="card-header">
+                    <h3>INFORMACIÓN TUTOR</h3>
+                </div>
+                <div class="card-body">
+                    <b>Nombre Completo: </b> <%= info[i].nom_tutor%> <%= info[i].appat_tutor%> <%= info[i].apmat_tutor%>
+                    <br>
+                    <b>Teléfono: </b><%= info[i].telefono_alum%>
+                    <br>
+                    <b>Correo electrónico: </b><%=info[i].correo_alum%>
+                    <br>
+                    <b>Parentezco: </b><%= info[i].parentezco%>
+                    <h4>Dirección: </h4>
+                    <b>Calle: </b><%=info[i].calle%>
+                    <br>
+                    <b>Colonia: </b><%=info[i].colonia%>
+                    <br>
+                    <b>Código Postal: </b><%=info[i].codigop%>
+                    <br>
+                    <b>Alcaldía: </b><%=info[i].alcaldia%>
+                </div>
+            </div>
+        </div>
+        <% } %>
+            <% } %>
+</div>
+    <%- include ('../partials/_footerCopy') %>
+    <%} else {%>
+        <%-include('../partials/erroracceso')%>
+        <%}%>
