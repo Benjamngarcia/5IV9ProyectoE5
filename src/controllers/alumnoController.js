@@ -7,56 +7,62 @@ controller.showLP = (req, res) => {
 };
 //REDIRECCIONAR A VISTAS DE ALUMNO//
 controller.vistaAlumn = (req, res) => {
-    if(req.session.loggedinAlum){
-        res.render('alumno/vistauser',{
+    if (req.session.loggedinAlum) {
+        res.render('alumno/vistauser', {
             loginalum: true,
             data: req.session.data
         });
-    } else{
-        res.render('alumno/vistauser',{
+    } else {
+        res.render('alumno/vistauser', {
             loginalum: false,
             name: 'Debes iniciar sesión'
         });
     }
 };
 controller.editarAlumn = (req, res) => {
-    if(req.session.loggedinAlum){
-        const { id } = req.params;
-        pool.query('SELECT * FROM alumno WHERE id_alum = ?', [id], (err, result) =>{
-            res.render('alumno/vistauser_editarusuario',{
+    if (req.session.loggedinAlum) {
+        const {
+            id
+        } = req.params;
+        pool.query('SELECT * FROM alumno WHERE id_alum = ?', [id], (err, result) => {
+            res.render('alumno/vistauser_editarusuario', {
                 loginalum: true,
                 data: req.session.data
             });
         });
-    } else{
-        res.render('alumno/vistauser_editarusuario',{
+    } else {
+        res.render('alumno/vistauser_editarusuario', {
             loginalum: false,
             name: 'Debes iniciar sesión'
         });
     }
 };
 controller.actualizarAlumn = (req, res) => {
-    if(req.session.loggedinAlum){
-        const { id } = req.params;
+    if (req.session.loggedinAlum) {
+        const {
+            id
+        } = req.params;
         const newInfo = req.body;
-        pool.query('UPDATE alumno set ? WHERE id_alum = ?', [newInfo, id], (err, result) =>{
+        pool.query('UPDATE alumno set ? WHERE id_alum = ?', [newInfo, id], (err, result) => {
             res.redirect('/VistaAlumn');
         });
-    } else{
+    } else {
         res.redirect('/VistaAlumn');
     }
 };
 controller.editarTutor = (req, res) => {
-    if(req.session.loggedinAlum){
-        const { id } = req.params;
-        pool.query('SELECT * FROM tutor WHERE id_alum = ?', [id], (err, result) =>{
-            res.render('alumno/vistauser_editartutor',{
+    if (req.session.loggedinAlum) {
+        const {
+            id
+        } = req.params;
+        pool.query('SELECT * FROM tutor WHERE id_alum = ?', [id], (err, result) => {
+            res.render('alumno/vistauser_editartutor', {
                 loginalum: true,
                 data: req.session.data
             });
         });
-    } else{
-        res.render('alumno/vistauser_editartutor',{
+    } else {
+        res.render('alumno/vistauser_editartutor', {
             loginalum: false,
             name: 'Debes iniciar sesión'
         });
@@ -64,13 +70,13 @@ controller.editarTutor = (req, res) => {
 };
 
 controller.verCuest = (req, res) => {
-    if(req.session.loggedinAlum){
-        res.render('alumno/cuestionario',{
+    if (req.session.loggedinAlum) {
+        res.render('alumno/cuestionario', {
             loginalum: true,
             data: req.session.data
         });
-    } else{
-        res.render('alumno/cuestionario',{
+    } else {
+        res.render('alumno/cuestionario', {
             loginalum: false,
             name: 'Debes iniciar sesión'
         });
@@ -78,13 +84,13 @@ controller.verCuest = (req, res) => {
 };
 
 controller.vistaAlumn = (req, res) => {
-    if(req.session.loggedinAlum){
-        res.render('alumno/vistauser',{
+    if (req.session.loggedinAlum) {
+        res.render('alumno/vistauser', {
             loginalum: true,
             data: req.session.data
         });
-    } else{
-        res.render('alumno/vistauser',{
+    } else {
+        res.render('alumno/vistauser', {
             loginalum: false,
             name: 'Debes iniciar sesión'
         });
@@ -93,18 +99,24 @@ controller.vistaAlumn = (req, res) => {
 
 controller.redirCuest = (req, res) => {
     const dataCuest = req.body.EncBool;
-    const { id }  = req.params;
-    nochis = 2;
+    const {
+        id
+    } = req.params;
+    const linkCuest = req.body.link;
     if (req.session.loggedinAlum) {
-        pool.query('INSERT INTO encuesta set ?', {id_alum:id,resultado_enc:dataCuest}, (err, results) => {
-            const buenas = JSON.stringify(dataCuest);
-            nochis = buenas;
-            if (nochis == '"0"') {
+        pool.query('INSERT INTO encuesta set ?', {
+            id_alum: id,
+            resultado_enc: dataCuest
+        }, (err, results) => {
+            if (JSON.stringify(dataCuest) == '"0"') {
+                console.log('//////');
+                console.log(JSON.stringify(linkCuest));
+                console.log('//////');
                 res.render('alumno/showqr', {
                     loginalum: true,
                     data: req.session.data
                 });
-            } else if (nochis == '"1"') {
+            } else if (JSON.stringify(dataCuest) == '"1"') {
                 res.render('alumno/redirect', {
                     loginalum: true,
                     data: req.session.data
