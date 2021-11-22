@@ -97,7 +97,6 @@ controller.redirCuest = (req, res) => {
     nochis = 2;
     if (req.session.loggedinAlum) {
         pool.query('INSERT INTO encuesta set ?', {id_alum:id,resultado_enc:dataCuest}, (err, results) => {
-            console.log(results);
             const buenas = JSON.stringify(dataCuest);
             nochis = buenas;
             if (nochis == '"0"') {
