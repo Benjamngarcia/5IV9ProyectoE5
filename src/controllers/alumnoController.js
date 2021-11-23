@@ -23,9 +23,7 @@ controller.vistaAlumn = (req, res) => {
 };
 controller.editarAlumn = (req, res) => {
     if (req.session.loggedinAlum) {
-        const {
-            id
-        } = req.params;
+        const { id } = req.params;
         pool.query('SELECT * FROM alumno WHERE id_alum = ?', [id], (err, result) => {
             res.render('alumno/vistauser_editarusuario', {
                 loginalum: true,
@@ -41,9 +39,7 @@ controller.editarAlumn = (req, res) => {
 };
 controller.actualizarAlumn = (req, res) => {
     if (req.session.loggedinAlum) {
-        const {
-            id
-        } = req.params;
+        const { id } = req.params;
         const newInfo = req.body;
         pool.query('UPDATE alumno set ? WHERE id_alum = ?', [newInfo, id], (err, result) => {
             res.redirect('/VistaAlumn');
@@ -54,20 +50,32 @@ controller.actualizarAlumn = (req, res) => {
 };
 controller.editarTutor = (req, res) => {
     if (req.session.loggedinAlum) {
-        const {
-            id
-        } = req.params;
+        const { id } = req.params;
         pool.query('SELECT * FROM tutor WHERE id_alum = ?', [id], (err, result) => {
             res.render('alumno/vistauser_editartutor', {
                 loginalum: true,
-                data: req.session.data
+                data: req.session.data,
+                info: result
             });
+            console.log(result)
         });
     } else {
         res.render('alumno/vistauser_editartutor', {
             loginalum: false,
             name: 'Debes iniciar sesión'
         });
+    }
+};
+
+controller.actualizarTutor = (req, res) => {
+    if (req.session.loggedinAlum) {
+        const { id } = req.params;
+        const newInfo = req.body;
+        pool.query('UPDATE tutor set ? WHERE id_alum = ?', [newInfo, id], (err, result) => {
+            res.redirect('/VistaAlumn');
+        });
+    } else {
+        res.redirect('/VistaAlumn');
     }
 };
 
@@ -107,8 +115,8 @@ controller.verRest = (req, res) => {
     const { matricula } = req.params;
     console.log(req.params);
     pool.query('SELECT *,MAX(id_enc) FROM encuesta INNER JOIN alumno ON encuesta.id_alum = alumno.id_alum WHERE matricula_alum = ?', [matricula], (err, result) => {
-    if (req.session.loggedinAlum) {
-            if (err){
+        if (req.session.loggedinAlum) {
+            if (err) {
                 res.json(err);
             }
             console.log(result.fecha_enc);
@@ -118,16 +126,16 @@ controller.verRest = (req, res) => {
                 info: result
             });
             console.log(result);
-    } else {
-        console.log(result.fecha_enc);
-        res.render('alumno/resultadosenc', {
-            loginalum: true,
-            data: req.session.data,
-            info: result
-        });
-    }
-    console.log(result);
-});
+        } else {
+            console.log(result.fecha_enc);
+            res.render('alumno/resultadosenc', {
+                loginalum: true,
+                data: req.session.data,
+                info: result
+            });
+        }
+        console.log(result);
+    });
 };
 
 controller.vistaAlumn = (req, res) => {
@@ -159,7 +167,7 @@ controller.redirCuest = (req, res) => {
                 console.log('//////');
                 console.log(JSON.stringify(linkCuest));
                 console.log('//////');
-                qrcode.toDataURL(linkCuest, (error, src) =>{
+                qrcode.toDataURL(linkCuest, (error, src) => {
                     if (error) res.send('Algo mal');
                     res.render('alumno/showqr', {
                         loginalum: true,

@@ -1,38 +1,42 @@
 <%if (loginalum === true) {%>
     <%- include ('../partials/_headerVistaAlum') %>
     <!-- BODY -->
-    <div class="row m-2 justify-content-center">
-        <div class="col-md-6 col-sm-12" id="contact">
+    <div class="row m-2 justify-content-center mb-5 mt-2">
+        <div class="col-md-6 col-sm-12 p-5 mt-4 mb-4" id="contact">
             <div class="card p-1 mt-1 mb-1">
                 <div class="card-body">
                     <h3 class="text-center"><b>DATOS TUTOR</b></h3>
+                    <% if (info) { %>
+                        <% for(var i = 0; i < info.length; i++) { %>
                     <form action="/EditarTutor/<%= data.id_alum %>" method="POST" onsubmit="return validarTutor();">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="nommbre"><i class="fas fa-user"></i> Nombre:</label>
-                                <input type="text" class="form-control" name ="nom_tutor" id="nombre" placeholder="Nombre">
+                                <input type="text" class="form-control" name ="nom_tutor" id="nombre" placeholder="Nombre" value="<%= info[i].nom_tutor%>">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="appat"><i class="fas fa-user"></i> Apellido Paterno:</label>
-                                <input type="text" class="form-control" name ="appat_tutor" id="appat" placeholder="Apellido paterno">
+                                <input type="text" class="form-control" name ="appat_tutor" id="appat" placeholder="Apellido paterno" value="<%= info[i].appat_tutor%>">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="apmat"><i class="fas fa-user"></i> Apellido Materno:</label>
-                                <input type="text" class="form-control" name ="apmat_tutor" id="apmat" placeholder="Apellido materno">
+                                <input type="text" class="form-control" name ="apmat_tutor" id="apmat" placeholder="Apellido materno" value="<%= info[i].apmat_tutor%>">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="apmat"><i class="fas fa-child"></i> Parentezco:</label>
-                                <input type="text" class="form-control" name ="parentezco" id="parentezco" placeholder="Parentezco">
+                                <input type="text" class="form-control" name ="parentezco" id="parentezco" placeholder="Parentezco" value="<%=info[i].parentezco%>">
                             </div>
                         </div>
                         <div class="form-row justify-content-center">
                             <div class="form-group col-md-4 text-center">
-                                <button class="btn-link-principal p-2">GUARDAR CAMBIOS</button>
+                                <button class="btn-link-principal p-2">EDITAR DATOS</button>
                             </div>                          
                         </div>
                     </form>
+                    <% } %>
+                    <% } %>
                 </div>
             </div>
         </div>
