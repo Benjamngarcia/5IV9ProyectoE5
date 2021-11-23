@@ -11,4 +11,5 @@ router.get('/EditarTutor/:id', alumnoController.editarTutor);
 // router.post('/EditarTutor/:id', alumnoController.editarTutor);
 router.get('/Cuestionario/:id', alumnoController.verCuest);
 router.post('/redir/:id', alumnoController.redirCuest);
+// router.get('/Cuestionario/Resultados/:id')
 module.exports = router;

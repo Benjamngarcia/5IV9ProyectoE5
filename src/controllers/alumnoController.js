@@ -1,5 +1,6 @@
 const controller = {};
 const pool = require('../database');
+const qrcode = require('qrcode');
 
 //CARGAR PÁGINA EN LANDING PAGE
 controller.showLP = (req, res) => {
@@ -112,10 +113,14 @@ controller.redirCuest = (req, res) => {
                 console.log('//////');
                 console.log(JSON.stringify(linkCuest));
                 console.log('//////');
-                res.render('alumno/showqr', {
-                    loginalum: true,
-                    data: req.session.data
-                });
+                qrcode.toDataURL(linkCuest, (error, src) =>{
+                    if (error) res.send('Algo mal');
+                    res.render('alumno/showqr', {
+                        loginalum: true,
+                        data: req.session.data,
+                        qr_code: src
+                    });
+                })
             } else if (JSON.stringify(dataCuest) == '"1"') {
                 res.render('alumno/redirect', {
                     loginalum: true,

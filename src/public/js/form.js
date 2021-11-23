@@ -33,18 +33,10 @@ function validar() {
     }
 }
 
-function dia() {
-    diah = hoy.getDate();
-    mes = hoy.getMonth() + 1;
-    anio = hoy.getFullYear();
-    document.getElementById('day').value = diah + '-' + mes + '-' + anio;
-}
-
 function generate() {
     var loc = window.location;
     var pathName = loc.pathname.substring(0, loc.pathname.lastIndexOf('/') + 1);
     document.getElementById('link').value = 
     loc.href.substring(0, loc.href.length - ((loc.pathname + loc.search + loc.hash).length - pathName.length)) + 
-    document.getElementById('day').value + '/' + 
-    document.getElementById('user').value;
+    'Resultados/' + document.getElementById('user').value;
 }
