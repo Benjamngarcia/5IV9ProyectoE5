@@ -126,12 +126,6 @@ controller.addTutor = (req, res) => {
     })
 };
 
-controller.deleteTutor = (req, res) =>{
-    const { id } = req.params;
-    pool.query('DELETE FROM tutor WHERE id_tutor = ?', [id]);
-    res.redirect('/escuela/VerTutores');
-}
-
 controller.editTutor = (req, res) => {
     const { id } = req.params;
     if(req.session.loggedinDirec){
@@ -163,16 +157,23 @@ controller.updateTutor = (req, res) =>{
 controller.mostrarInfo = async(req, res) => {
     let { matricula }  = req.params;
     if (req.session.loggedinDirec){
-        await pool.query('SELECT * FROM alumno INNER JOIN tutor ON alumno.id_alum = tutor.id_alum INNER JOIN direccionAlum ON direccionAlum.id_alum = alumno.id_alum WHERE matricula_alum = ?',[matricula], (err, rows) =>{
+            await pool.query('SELECT * FROM alumno INNER JOIN tutor ON alumno.id_alum = tutor.id_alum INNER JOIN direccionAlum ON direccionAlum.id_alum = alumno.id_alum WHERE matricula_alum = ?',[matricula], (err, rows) =>{
             if (err){
                 res.json(err);
+            }
+        pool.query('SELECT * FROM alumno INNER JOIN encuesta ON alumno.id_alum = encuesta.id_alum  WHERE matricula_alum = ?;',[matricula], (error, datos) =>{
+            if (error){
+                res.json(error);
             }
             res.render('director/mostrarinfo',{
                 logindirec: true,
                 data: req.session.data,
-                info: rows
+                info: rows,
+                historial: datos
+        });
             });
-            console.log(rows);
+            // console.log(rows); objeto dentro de array
+            // console.log(req.session.data) objeto
         });
     } else{
         res.render('director/mostrarinfo',{

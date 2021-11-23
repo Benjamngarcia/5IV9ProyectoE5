@@ -1,6 +1,6 @@
 <%if (logindirec===true) {%>
     <%- include ('../partials/_headerVistaDirec') %>
-<div class="row mt-5 mb-5 p-3 pb-5 pt-4 mx-auto">
+<div class="row mt-5 p-3 pt-4 mx-auto">
     <% if (info) { %>
         <% for(var i = 0; i < info.length; i++) { %>
         <div class="col-md-6 col-sm-12 mt-4 mb-4 p-2">
@@ -49,8 +49,37 @@
             </div>
         </div>
         <% } %>
-            <% } %>
+        <% } %>
 </div>
+<div class="row justify-content-center mx-auto">
+    <div class="col-md-8 col-sm-12">
+        <h3 class="text-center mt-5" id="alumn">HISTORIAL DE ENCUESTAS</h3>
+                <div class="col-md-10 col-sm-12 m-auto">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <td>Nombre</td>
+                                <td>Apellido</td>
+                                <td>Encuesta</td>
+                                <td>Fecha</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (historial) { %>
+                                <% for(var i = 0; i < historial.length; i++) { %>
+                                    <tr>
+                                        <td><%= historial[i].nom_alum%></td>
+                                        <td><%= historial[i].appat_alum%></td>
+                                        <td><%= historial[i].resultado_enc %></td>
+                                        <td><%= historial[i].fecha_enc %></td>
+                                    </tr>
+                                <% } %>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     <%- include ('../partials/_footerCopy') %>
     <%} else {%>
         <%-include('../partials/erroracceso')%>
