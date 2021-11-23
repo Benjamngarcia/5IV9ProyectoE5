@@ -17,7 +17,9 @@ const authRoutes = require('./routes/authentication');
 app.set('port', process.env.PORT || 5000);
 app.set('views', path.join(__dirname, 'views'));
 // app.set(path.join(app.get('views'), 'partials'));
-app.set('view engine', '.ejs');
+app.set('view engine', '.ejs', {
+    helpers: require('./lib/timestamp')
+});
 
 // MIDDLEWARES
 app.use(morgan('dev'));

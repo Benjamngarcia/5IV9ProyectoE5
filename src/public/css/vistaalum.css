@@ -16,3 +16,22 @@
     color: var(--whiteCEG);
     border-radius: 50%;
 }
+.check-icon{
+    background-color: #77dd77;
+    width: 15%;
+    height: 50%;
+    border-radius: 50%;
+}
+.check-icon i{
+    font-size: 298%;
+}
+@media screen and (max-width: 968px) {
+    .check-icon{
+        width: 25%;
+    }
+}
+@media screen and (max-width: 470px) {
+    .check-icon{
+        width: 30%;
+    }
+}

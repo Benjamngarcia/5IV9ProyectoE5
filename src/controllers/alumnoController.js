@@ -1,6 +1,7 @@
 const controller = {};
 const pool = require('../database');
 const qrcode = require('qrcode');
+const tiempo = require('../lib/timestamp');
 
 //CARGAR PÁGINA EN LANDING PAGE
 controller.showLP = (req, res) => {
@@ -82,6 +83,33 @@ controller.verCuest = (req, res) => {
             name: 'Debes iniciar sesión'
         });
     }
+};
+
+controller.verRest = (req, res) => {
+    const { matricula } = req.params;
+    console.log(req.params);
+    pool.query('SELECT *,MAX(id_enc) FROM encuesta INNER JOIN alumno ON encuesta.id_alum = alumno.id_alum WHERE matricula_alum = ?', [matricula], (err, result) => {
+    if (req.session.loggedinAlum) {
+            if (err){
+                res.json(err);
+            }
+            console.log(result.fecha_enc);
+            res.render('alumno/resultadosenc', {
+                loginalum: true,
+                data: req.session.data,
+                info: result
+            });
+            console.log(result);
+    } else {
+        console.log(result.fecha_enc);
+        res.render('alumno/resultadosenc', {
+            loginalum: true,
+            data: req.session.data,
+            info: result
+        });
+    }
+    console.log(result);
+});
 };
 
 controller.vistaAlumn = (req, res) => {
