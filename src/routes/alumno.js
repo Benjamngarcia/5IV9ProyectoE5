@@ -10,5 +10,6 @@ router.post('/EditarAlumn/:id', alumnoController.actualizarAlumn);
 router.get('/EditarTutor/:id', alumnoController.editarTutor);
 // router.post('/EditarTutor/:id', alumnoController.editarTutor);
 router.get('/Cuestionario/:id', alumnoController.verCuest);
+router.get('/Cuestionario/Resultados/:matricula', alumnoController.verRest);
 router.post('/redir/:id', alumnoController.redirCuest);
 module.exports = router;
