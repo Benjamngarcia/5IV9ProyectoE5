@@ -83,6 +83,24 @@ controller.verCuest = (req, res) => {
         });
     }
 };
+controller.verRest = (req, res) => {
+    if (req.session.loggedinAlum) {
+        const { matricula } = req.params;
+        pool.query('SELECT MAX(id_enc) FROM encuesta INNER JOIN alumno ON encuesta.id_alum = alumno.id_alum WHERE matricula_alum = ?', [matricula], (err, result) => {
+            res.render('alumno/resultadosenc', {
+                loginalum: true,
+                data: req.session.data,
+                info: result
+            });
+        });
+    } else {
+        res.render('alumno/resultadosenc', {
+            loginalum: true,
+            data: req.session.data,
+            info: result
+        });
+    }
+};
 
 controller.vistaAlumn = (req, res) => {
     if (req.session.loggedinAlum) {
