@@ -2,12 +2,15 @@
     <%- include ('../partials/_headerVistaDirec') %>
         <div class="container-xl text-center">
             <!-- BODY -->
-                <div class="col-md-12 p-4 mt-5">
-                    <h3 class="mb-3">BIENVENIDO DIRECTOR <%= data.appat_direc %></h3>
-                    <form action="/escuela/EnviarCorreo" method="POST">
-                        <!-- <a href="" class="btn-especial col-md-12">ENVIAR ALERTA</a> -->
-                        <button class="btn-especial col-md-12">ENVIAR ALERTA</button>
-                    </form>
+                <div class="row mx-auto justify-content-center">
+                    <div class="col-md-6 col-sm-12 p-4 mt-5">
+                        <h3 class="mb-3">BIENVENIDO DIRECTOR <%= data.appat_direc %></h3>
+                        <form action="/escuela/EnviarCorreo" id="enviarcorreo" class="w-100" method="POST">
+                            <div class="save-buttons">
+                                <a type="button" onclick="document.getElementById('enviarcorreo').submit()" class="btn-especial p-2 text-light">ENVIAR ALERTA</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <div class="save-buttons">
                     <a href="" type="button" class="btn-especial p-2" data-toggle="modal" data-target="#exampleModalCenter">REGISTRAR ALUMNO</a>
