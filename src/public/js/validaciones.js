@@ -344,8 +344,8 @@ function validarRegistroTeach(){
     colonia = document.getElementById('colonia').value;
     alcaldia = document.getElementById('alcaldia').value;
     codigop = document.getElementById('codigop').value;
-    rfc = document.getElementById('rfc').value;
-    nss = document.getElementById('nss').value;
+    rfc = document.getElementById('rfc_prof').value;
+    nss = document.getElementById('nss_prof').value;
     email = document.getElementById('emailprof').value;
     password = document.getElementById('pass_prof').value;
 
@@ -355,8 +355,8 @@ function validarRegistroTeach(){
     passwordChar = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/; //Mínimo ocho caracteres, al menos una letra mayúscula, una letra minúscula y un número
     calleChar = /[a-zA-z0-9]/;
 
-    if(nombre==""|| appat===""|| apmat==""|| calle===""|| colonia===""|| alcaldia===""||codigop === ""|| rfc===""|| nss===""|| telefono===""|| matricula === "" || email ==="" || password ==="" 
-    || nombre==" "|| appat===" "|| apmat==" "|| calle===" "|| colonia===" "|| alcaldia===" "||codigop ===" "|| rfc===" "|| nss===" "|| telefono===" "|| matricula === " " || email ===" " || password ===" " ){
+    if(nombre==""|| appat===""|| apmat==""|| calle===""|| colonia===""|| alcaldia===""||codigop === ""|| rfc===""|| nss===""|| telefono==="" || email ==="" || password ==="" 
+    || nombre==" "|| appat===" "|| apmat==" "|| calle===" "|| colonia===" "|| alcaldia===" "||codigop ===" "|| rfc===" "|| nss===" "|| telefono===" " || email ===" " || password ===" " ){
         swal('Advertencia','Para registrar es necesario que todos los campos estén llenos','error');
         return false;
     }
@@ -430,14 +430,6 @@ function validarRegistroTeach(){
     }
     else if(!numeros.test(telefono)){
         swal('Advertencia','Ingresa solo números en el telefono.','warning');
-        return false;
-    }
-    else if(matricula.length>15){
-        swal('Advertencia','La matrícula es demasiada larga','warning');
-        return false;
-    }
-    else if(!calleChar.test(matricula)){
-        swal('Advertencia','Ingresa el formato correcto de la matrícula.','warning');
         return false;
     }
     else if (email.length>50){
