@@ -304,31 +304,29 @@ controller.viewProf = (req, res) => {
 };
 
 //VISTA ADMINISTRADOR-------------------------------
-controller.showPage = async(req, res) => {
-    if (req.session.loggedinAdmin){
-        await pool.query('SELECT * FROM director', (err, rows) =>{   
-        if (err){
-            res.json(err);
-        }
-    pool.query('SELECT * FROM encuesta', (error, datos) =>{
-        if (error){
-            res.json(error);
-        }
-        res.render('admin/vistaadmin',{
-            loginadmin: true,
-            data: req.session.data,
-            info: rows,
-            encuesta: datos
-    });
+controller.showPage = (req, res) => {
+    if(req.session.loggedinAdmin){
+        pool.query('SELECT * FROM director', (err, rows) =>{
+            if (err){
+                res.json(err);
+            }
+            res.render('admin/vistaadmin',{
+                loginadmin: true,
+                data: req.session.data,
+                info: rows
+            });
         });
-    });
-} else{
-    res.render('admin/vistaadmin',{
-        loginadmin: false,
-        name: 'Debes iniciar sesión'
-    });
+    } else{
+        res.render('admin/vistaadmin',{
+            loginadmin: false,
+            name: 'Debes iniciar sesión'
+        });
     }
 };
+
+controller.graficasconsultas = async(req, res) =>{
+    await pool.query('SELECT * FROM encuesta');
+}
 
 controller.deleteDirec = (req, res) =>{
     const { id } = req.params;
