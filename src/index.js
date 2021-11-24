@@ -3,8 +3,6 @@ const path = require('path');
 const morgan = require('morgan');
 const session = require('express-session');
 
-const { database } = require('./keys');
-
 //INICALIZANDO EXPRESS
 const app = express();
 
