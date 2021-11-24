@@ -7,8 +7,8 @@ const tz = require('moment-timezone');
 //MOSTRAR TABLA ALUMNOS
 controller.list = (req, res) => {
     if(req.session.loggedinDirec){
-            // pool.query('SELECT * FROM encuesta c INNER JOIN (SELECT id_alum, MAX(id_enc) max_time FROM encuesta GROUP BY id_alum) AS t ON c.id_enc=t.max_time AND c.id_alum=t.id_alum INNER JOIN alumno a ON c.id_alum = a.id_alum', (err, rows) =>{
-                pool.query('SELECT * FROM alumno', (err, rows) =>{
+            pool.query('SELECT * FROM encuesta c INNER JOIN (SELECT id_alum, MAX(id_enc) max_time FROM encuesta GROUP BY id_alum) AS t ON c.id_enc=t.max_time AND c.id_alum=t.id_alum INNER JOIN alumno a ON c.id_alum = a.id_alum', (err, rows) =>{
+                // pool.query('SELECT * FROM alumno', (err, rows) =>{
             if (err){
                 res.json(err);
             }
