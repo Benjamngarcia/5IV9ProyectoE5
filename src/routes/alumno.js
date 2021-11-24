@@ -4,6 +4,7 @@ const router = express.Router();
 const alumnoController = require('../controllers/alumnoController');
 
 router.get('/', alumnoController.showLP);
+router.post('/EnviarCorreo', alumnoController.enviarCorreo);
 router.get('/VistaAlumn', alumnoController.vistaAlumn);
 router.get('/EditarAlumn/:id', alumnoController.editarAlumn);
 router.post('/EditarAlumn/:id', alumnoController.actualizarAlumn);

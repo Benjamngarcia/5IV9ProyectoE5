@@ -4,10 +4,37 @@ const qrcode = require('qrcode');
 const moment = require('moment'); 
 const tz = require('moment-timezone');
 require('moment/locale/es');
+const nodemailer = require('nodemailer');
 
 //CARGAR PÁGINA EN LANDING PAGE
 controller.showLP = (req, res) => {
     res.render('index');
+};
+controller.enviarCorreo = (req, res) =>{
+    let datosContacto = req.body;
+        var transporter = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            port: 465,
+            secure: true,
+            auth: {
+                user: "centroeducativogandhi1@gmail.com",
+                pass: "mhwmsesnhfxunpaq",
+            }
+        });
+        var mailOptions = {
+            from: datosContacto.email,
+            to: 'centroeducativogandhi1@gmail.com',
+            subject: datosContacto.asunto,
+            text: datosContacto.mensaje
+        }
+        transporter.sendMail(mailOptions, (error, inf)=>{
+            if(error){
+                res.status(500).send(error.message);
+            } else {
+                console.log("Email enviado correctamente")
+                res.redirect("/")
+            }
+        })
 };
 //REDIRECCIONAR A VISTAS DE ALUMNO//
 controller.vistaAlumn = (req, res) => {
