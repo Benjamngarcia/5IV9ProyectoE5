@@ -319,28 +319,13 @@ controller.showPage = async(req, res) => {
         arrayRes.forEach(function(numero){
             repetidos[numero]=(repetidos[numero]||0)+1;
         });
-        // let arrayStr = repetidos.toString();
-        // var datoschidos = [arrayStr]
-        // let m1 = repetidos.splice(0,(repetidos.length/2));
-        // console.log(m1);
-        // let m2 = repetidos.splice(0,repetidos.length);
-        // console.log(m2);
-        // let arrayStr1 = m1.toString();
-        // let arrayStr2 = m2.toString();
-        // if (error){
-        //     res.json(error);
-        // }
         res.render('admin/vistaadmin',{
             loginadmin: true,
             data: req.session.data,
             info: rows,
-            // encuesta: [arrayStr1, arrayStr2]
             encuesta: repetidos
     });
-    console.log(datosenc.length);
     console.log(repetidos);
-    // console.log(arrayStr);
-    // console.log(datoschidos);
         });
     });
 } else{

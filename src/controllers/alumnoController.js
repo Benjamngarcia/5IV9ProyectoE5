@@ -163,9 +163,7 @@ controller.vistaAlumn = (req, res) => {
 
 controller.redirCuest = (req, res) => {
     const dataCuest = req.body.EncBool;
-    const {
-        id
-    } = req.params;
+    const { id } = req.params;
     const linkCuest = req.body.link;
     if (req.session.loggedinAlum) {
         pool.query('INSERT INTO encuesta set ?', {
@@ -190,7 +188,14 @@ controller.redirCuest = (req, res) => {
             } else {
                 res.render('alumno/cuestionario', {
                     loginalum: true,
-                    data: req.session.data
+                    data: req.session.data,
+                    alert: true,
+                    alertTitle: "Error",
+                    alertMessage: "Lo sentimos, ocurrió un error mientras guardábamos tu respuesta.",
+                    alertIcon: "error",
+                    showConfirmButton: true,
+                    timer: 2000,
+                    ruta: 'VistaAlumn'
                 });
             }
         })
