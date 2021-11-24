@@ -4,7 +4,10 @@
             <!-- BODY -->
                 <div class="col-md-12 p-4 mt-5">
                     <h3 class="mb-3">BIENVENIDO DIRECTOR <%= data.appat_direc %></h3>
-                    <a href="" class="btn-especial col-md-12">ENVIAR ALERTA</a>
+                    <form action="/escuela/EnviarCorreo" method="POST">
+                        <!-- <a href="" class="btn-especial col-md-12">ENVIAR ALERTA</a> -->
+                        <button class="btn-especial col-md-12">ENVIAR ALERTA</button>
+                    </form>
                 </div>
                 <div class="save-buttons">
                     <a href="" type="button" class="btn-especial p-2" data-toggle="modal" data-target="#exampleModalCenter">REGISTRAR ALUMNO</a>
@@ -22,54 +25,68 @@
                             </div>
                             <!-- REGISTRO ALUMN -->
                             <div class="modal-body">
-                                <form action="/RegistroAlumno" method="POST" onsubmit="return validarAlum();">
+                                <form action="/RegistroAlumno" method="POST">
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" name ="nom_alum" id="nombre" placeholder="Nombre">
+                                            <input type="text" class="form-control" name="nom_alum" id="nom_alum"
+                                                placeholder="Nombre">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" name ="appat_alum" id="appat" placeholder="Apellido paterno">
+                                            <input type="text" class="form-control" name="appat_alum" id="appat_alum"
+                                                placeholder="Apellido paterno">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" name ="apmat_alum" id="apmat" placeholder="Apellido materno">
+                                            <input type="text" class="form-control" name="apmat_alum" id="apmat_alum"
+                                                placeholder="Apellido materno">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <input type="email" class="form-control" name ="correo_alum" id="email" placeholder="Email">
+                                            <input type="email" class="form-control" name="correo_alum" id="email"
+                                                placeholder="Email">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" name ="grupo_alum" id="grupo" placeholder="Grupo">
+                                            <input type="text" class="form-control" name="grupo_alum" id="grupo_alum"
+                                                placeholder="Grupo">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <input type="phone" class="form-control" name ="telefono_alum" id="telefono" placeholder="Teléfono">
+                                            <input type="phone" class="form-control" name="telefono_alum" id="telefono_alum"
+                                                placeholder="Teléfono">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="cumple_alum">Nacimiento:</label>
-                                            <input type="date" class="form-control" name ="cumple_alum" id="date">
+                                            <input type="date" class="form-control" name="cumple_alum" id="cumple_alum">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="fecha_ins">Fecha Inscripción</label>
-                                            <input type="date" class="form-control" name="fecha_ins">
+                                            <input type="date" class="form-control" name="fecha_ins" id="fecha_ins">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6 text-center mx-auto">
+                                            <button type="button" class="btn-especial p-2" onclick="generate()">GENERAR
+                                                DATOS</button>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" name="matricula_alum" id="matricula" placeholder="Matrícula">
+                                            <input type="text" class="form-control" name="matricula_alum" id="matricula_alum"
+                                                placeholder="Matrícula" readonly>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" name="pass_alum" id="contraseña" placeholder="Contraseña">
+                                            <input type="text" class="form-control" name="pass_alum" id="pass_alum"
+                                                placeholder="Contraseña" readonly>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6 text-center mx-auto">
                                             <button type="submit" class="btn-especial p-2">REGISTRAR</button>
                                         </div>
-                                    </div>                            
+                                    </div>
                                 </form>
                             </div>
                             <div class="modal-footer">

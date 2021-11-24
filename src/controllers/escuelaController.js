@@ -2,6 +2,7 @@ const controller = {};
 const pool = require('../database');
 const moment = require('moment');
 const tz = require('moment-timezone');
+const nodemailer = require('nodemailer');
 
 //VISTA DIRECTOR-------------------------------
 //MOSTRAR TABLA ALUMNOS
@@ -246,6 +247,38 @@ controller.updateTutor = (req, res) =>{
     const newInfo = req.body;
     pool.query('UPDATE profesor set ? WHERE id_prof = ?', [newInfo, id]);
     res.redirect('/escuela/VistaDirec');
+};
+
+controller.enviarcorreo = (req, res) =>{
+    pool.query('SELECT correo_alum FROM alumno', (err, rows) =>{
+        var correos = rows.map(function(a){
+            return a.correo_alum;
+        });
+        var transporter = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            port: 465,
+            secure: true,
+            auth: {
+                user: "centroeducativogandhi1@gmail.com",
+                pass: "mhwmsesnhfxunpaq",
+            }
+        });
+        var mailOptions = {
+            from: '"Centro Educativo Gandhi" <centroeducativogandhi1@gmail.com>',
+            to: correos,
+            subject: "Aviso Salud Gandhi",
+            text: "Detectamos que hay un posible caso de covid dentro de nuestra institución; recomendamos extremar precauciones en caso de enviar a tu hijo al plantel."
+        }
+        console.log(correos);
+        transporter.sendMail(mailOptions, (error, inf)=>{
+            if(error){
+                res.status(500).send(error.message);
+            } else {
+                console.log("Email enviado correctamente")
+                res.redirect("/escuela/VistaDirec")
+            }
+        })
+    }); 
 };
 
 //VISTA PROFESOR-------------------------------
