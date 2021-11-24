@@ -20,7 +20,7 @@ CREATE TABLE alumno(
 CREATE TABLE encuesta(
     id_enc INT(4) AUTO_INCREMENT,
     id_alum INT(4),
-    fecha_enc TIMESTAMP NOT NULL,
+    fecha_enc TIMESTAMP NOT NULL DEFAULT current_timestamp,
     resultado_enc BOOLEAN NOT NULL,
     PRIMARY KEY (id_enc),
     FOREIGN KEY (id_alum) REFERENCES alumno(id_alum) ON DELETE CASCADE

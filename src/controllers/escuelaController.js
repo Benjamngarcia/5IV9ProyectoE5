@@ -1,6 +1,7 @@
 const controller = {};
 const pool = require('../database');
 const moment = require('moment');
+const tz = require('moment-timezone');
 
 //VISTA DIRECTOR-------------------------------
 //MOSTRAR TABLA ALUMNOS
@@ -155,7 +156,7 @@ controller.updateTutor = (req, res) =>{
 };
 
 function formatDate(date) {
-    return moment(date).format('DD-MM-YYYY');
+    return moment(date).tz('America/Mexico_City').format('DD-MM-YYYY');
 }
 
 controller.mostrarInfo = async(req, res) => {
@@ -239,12 +240,12 @@ controller.editProf = (req, res) => {
     }
 };
 
-// controller.updateTutor = (req, res) =>{
-//     const { id } = req.params;
-//     const newInfo = req.body;
-//     pool.query('UPDATE tutor set ? WHERE id_tutor = ?', [newInfo, id]);
-//     res.redirect('/escuela/VistaDirec');
-// };
+controller.updateTutor = (req, res) =>{
+    const { id } = req.params;
+    const newInfo = req.body;
+    pool.query('UPDATE profesor set ? WHERE id_prof = ?', [newInfo, id]);
+    res.redirect('/escuela/VistaDirec');
+};
 
 //VISTA PROFESOR-------------------------------
 

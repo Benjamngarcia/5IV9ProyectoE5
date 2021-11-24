@@ -1,76 +1,74 @@
 <%if (logindirec===true) {%>
     <%- include ('../partials/_headerVistaDirec') %>
-    <% if (info) { %>
-        <% for(var i=0; i < info.length; i++) { %>
-    <form action="/RegistroProf" method="POST" onsubmit="return validarRegistroTeach();">
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="nombre" name="nom_prof"
-                    placeholder="Nombre">
-            </div>
-            <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="appat" name="appat_prof"
-                    placeholder="Apellido paterno">
+    <div class="row justify-content-center mx-auto mt-5 mb-5">
+        <div class="col-md-8 col-sm-12 mt-5 mb-5">
+            <div class="card">
+                <form action="/escuela/EditTut/<%=info.id_prof%>" method="POST" onsubmit="return validarRegistroTeach();">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" id="nombre" name="nom_prof" value="<%=info.nom_prof%>"
+                                placeholder="Nombre">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" id="appat" name="appat_prof" value="<%=info.appat_prof%>"
+                                placeholder="Apellido paterno">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" id="apmat" name="apmat_prof" value="<%=info.apmat_prof%>"
+                                placeholder="Apellido materno">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="phone" class="form-control" id="telefono" name="telefono_prof" value="<%=info.telefono_prof%>"
+                                placeholder="Teléfono">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" id="calle" name="calle_prof" value="<%= info.calle_prof%>"
+                                placeholder="Calle">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" id="colonia" name="colonia_prof" value="<%= info.colonia_prof%>"
+                                placeholder="Colonia">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" id="codigop" name="codigop_prof" value="<%= info.codigop_prof%>"
+                                placeholder="Codigo Postal">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" id="alcaldia" name="alcaldia_prof" value="<%= info.alcaldia_prof%>"
+                                placeholder="Alcaldia">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" id="rfc" name="rfc_prof" value="<%= info.rfc_prof%>"
+                                placeholder="RFC">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" id="nss" name="nss_prof" value="<%= info.nss_prof%>"
+                                placeholder="NSS">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <input type="email" class="form-control" id="emailprof" name="correo_prof" value="<%= info.correo_prof%>"
+                                placeholder="Correo electrónico">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6 text-center mx-auto">
+                            <button type="submit" class="btn-especial p-2">ACTUALIZAR DATOS</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="apmat" name="apmat_prof"
-                    placeholder="Apellido materno">
-            </div>
-            <div class="form-group col-md-6">
-                <input type="phone" class="form-control" id="telefono" name="telefono_prof"
-                    placeholder="Teléfono">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="calle" name="calle_prof"
-                    placeholder="Calle">
-            </div>
-            <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="colonia" name="colonia_prof"
-                    placeholder="Colonia">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="codigop" name="codigop_prof"
-                    placeholder="Codigo Postal">
-            </div>
-            <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="alcaldia" name="alcaldia_prof"
-                    placeholder="Alcaldia">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="rfc" name="rfc_prof"
-                    placeholder="RFC">
-            </div>
-            <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="nss" name="nss_prof"
-                    placeholder="NSS">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <input type="email" class="form-control" id="emailprof" name="correo_prof"
-                    placeholder="Correo electrónico">
-            </div>
-            <div class="form-group col-md-6">
-                <input type="password" class="form-control" id="pass_prof"
-                    name="pass_prof" placeholder="Contraseña">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6 text-center mx-auto">
-                <button type="submit" class="btn-especial p-2">REGISTRAR</button>
-            </div>
-        </div>
-    </form>
-    <% } %>
-    <% } %>
+    </div>
 
     <%- include ('../partials/_footerCopy') %>
             <%} else {%>

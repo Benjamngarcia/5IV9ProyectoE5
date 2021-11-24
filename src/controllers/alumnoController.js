@@ -1,7 +1,9 @@
 const controller = {};
 const pool = require('../database');
 const qrcode = require('qrcode');
-const tiempo = require('../lib/timestamp');
+const moment = require('moment'); 
+const tz = require('moment-timezone');
+require('moment/locale/es');
 
 //CARGAR PÁGINA EN LANDING PAGE
 controller.showLP = (req, res) => {
@@ -110,11 +112,18 @@ controller.verRest = (req, res) => {
         });
     }
 };
+function formatDate(date) {    
+    return moment(date).tz('Pacific/Funafuti').format('[a las: ]hh:mm a');
+}
 
 controller.verRest = (req, res) => {
     const { matricula } = req.params;
     console.log(req.params);
-    pool.query('SELECT *,MAX(id_enc) FROM encuesta INNER JOIN alumno ON encuesta.id_alum = alumno.id_alum WHERE matricula_alum = ?', [matricula], (err, result) => {
+    pool.query('SELECT * FROM encuesta c INNER JOIN (SELECT id_alum, MAX(id_enc) max_time FROM encuesta GROUP BY id_alum) AS t ON c.id_enc=t.max_time AND c.id_alum=t.id_alum INNER JOIN alumno a ON c.id_alum = a.id_alum WHERE matricula_alum = ?', [matricula], (err, result) => {
+        result = result.map(resul => ({
+            ...resul,
+            fecha_enc: formatDate(resul.fecha_enc)
+        })); 
         if (req.session.loggedinAlum) {
             if (err) {
                 res.json(err);
@@ -164,9 +173,6 @@ controller.redirCuest = (req, res) => {
             resultado_enc: dataCuest
         }, (err, results) => {
             if (JSON.stringify(dataCuest) == '"0"') {
-                console.log('//////');
-                console.log(JSON.stringify(linkCuest));
-                console.log('//////');
                 qrcode.toDataURL(linkCuest, (error, src) => {
                     if (error) res.send('Algo mal');
                     res.render('alumno/showqr', {

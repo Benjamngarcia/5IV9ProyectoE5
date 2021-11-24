@@ -13,6 +13,7 @@ router.get('/EditProf/:id', escuelaController.editProf);
 router.get('/RegistrarTutor/:id', escuelaController.addTut);
 router.post('/RegistrarTutor/:id', escuelaController.addTutor);
 router.get('/EditTut/:id', escuelaController.editTutor);
+router.get('/EditTut/:id', escuelaController.updateTutor);
 router.post('/EditTut/:id', escuelaController.updateTutor);
 router.get('/VerInfo/:matricula', escuelaController.mostrarInfo);
 router.get('/DeleteProf/:id', escuelaController.deleteProf);
