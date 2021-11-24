@@ -17,6 +17,9 @@ CREATE TABLE alumno(
     PRIMARY KEY(id_alum)
 );
 
+ALTER TABLE alumno
+    MODIFY id_alum INT(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
+
 CREATE TABLE encuesta(
     id_enc INT(4) AUTO_INCREMENT,
     id_alum INT(4),
@@ -25,6 +28,9 @@ CREATE TABLE encuesta(
     PRIMARY KEY (id_enc),
     FOREIGN KEY (id_alum) REFERENCES alumno(id_alum) ON DELETE CASCADE
 );
+
+ALTER TABLE encuesta
+    MODIFY id_enc INT(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
 
 CREATE TABLE tutor(
     id_tutor INT(4) NOT NULL AUTO_INCREMENT,
@@ -37,6 +43,9 @@ CREATE TABLE tutor(
     FOREIGN KEY (id_alum) REFERENCES alumno(id_alum) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+ALTER TABLE tutor
+    MODIFY id_tutor INT(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
+
 CREATE TABLE direccionAlum(
     id_direccion INT(4) NOT NULL AUTO_INCREMENT,
     id_alum INT(4),
@@ -47,6 +56,9 @@ CREATE TABLE direccionAlum(
     PRIMARY KEY(id_direccion),
     FOREIGN KEY (id_alum) REFERENCES alumno(id_alum) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+ALTER TABLE direccionAlum
+    MODIFY id_direccion INT(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
 
 CREATE TABLE profesor(
     id_prof INT(4) NOT NULL AUTO_INCREMENT,
@@ -65,6 +77,9 @@ CREATE TABLE profesor(
     PRIMARY KEY(id_prof)
 );
 
+ALTER TABLE profesor
+    MODIFY id_prof INT(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
+
 CREATE TABLE director(
     id_direc INT(4) NOT NULL AUTO_INCREMENT,
     nom_direc VARCHAR(30) NOT NULL,
@@ -81,6 +96,9 @@ CREATE TABLE director(
     alcaldia_direc VARCHAR(30) NOT NULL,
     PRIMARY KEY(id_direc)
 );
+
+ALTER TABLE director
+    MODIFY id_direc INT(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
 
 CREATE TABLE admini(
     id_admin INT(4) NOT NULL AUTO_INCREMENT,
