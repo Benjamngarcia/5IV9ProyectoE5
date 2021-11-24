@@ -1,5 +1,10 @@
 # PROYECTO AULA DICTAMIGOS & ASOCS.
 Este proyecto es un sistema para gestionar la entrada de alumnos en el Jardín de niños "Centro Educativo Gandhi" dando respuesta a un cuestionario de síntomas de SARS-COV-2, lo cual genera un código QR personalizado en base a las respuestas para ver si permite o no el acceso al plantel; todo esto para reducir el riesgo de que ingrese un niño infectado al colegio en el modelo de clases híbrido recién implementado en la Ciudad de México.
+## Pendientes
+- Gráficas con chart.js
+- Nodemailer
+- Generador de contraseñas
+- Zona horaria heroku
 ## Requisitos de instalación 📋
 - Node v. 14.17.1 o superiores.
 - npm v. 6.14.13 o superiores.
