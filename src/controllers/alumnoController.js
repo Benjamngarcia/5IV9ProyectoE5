@@ -113,7 +113,9 @@ controller.verRest = (req, res) => {
     }
 };
 function formatDate(date) {    
-    return moment(date).tz('America/Mexico_City').format('[a las: ]hh:mm a');
+    // return moment(date).tz('America/Mexico_City').format('[a las: ]hh:mm a');
+    // moment().startOf('hour').fromNow();
+    return moment(date).tz('America/Mexico_City').calendar();
 }
 
 controller.verRest = (req, res) => {
