@@ -25,7 +25,6 @@ function sumar() {
 function validar() {
     radios = document.formulario['radio'];
     totalChecks = obj.length;
-    totalSumado = 0;
     for (i = 0; i < totalChecks; i++) {
         if (radios[i].checked == true) {
             button.disabled = false;
