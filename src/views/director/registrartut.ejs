@@ -6,37 +6,37 @@
             <div class="card p-2 mt-2 mb-2">
                 <div class="card-body">
                     <h3 class="text-center"><b>DATOS TUTOR</b></h3>
-                    <form action="/escuela/RegistrarTutor/<%= info.id_alum%>" method="POST" onsubmit="return validarTutor();">
+                    <form action="/escuela/RegistrarTutor/<%= info.id_alum%>" method="POST" onsubmit="return validarTutorDir();" required>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name ="nom_tutor" id="nombre" placeholder="Nombre">
+                                <input type="text" class="form-control" name ="nom_tutor" onkeypress="return SoloLetras(event);" id="nombre" placeholder="Nombre" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name ="appat_tutor" id="appat" placeholder="Apellido paterno">
+                                <input type="text" class="form-control" name ="appat_tutor" id="appat" onkeypress="return SoloLetras(event);" placeholder="Apellido paterno" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name ="apmat_tutor" id="apmat" placeholder="Apellido materno">
+                                <input type="text" class="form-control" name ="apmat_tutor" id="apmat" onkeypress="return SoloLetras(event);" placeholder="Apellido materno" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name ="parentezco" id="parentezco" placeholder="Parentezco">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name ="calle" id="calle" placeholder="Calle">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name ="colonia" id="colonia" placeholder="Colonia">
+                                <input type="text" class="form-control" name ="parentezco" id="parentezco" onkeypress="return SoloLetras(event);" placeholder="Parentezco" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name ="codigop" id="codigop" placeholder="Código postal">
+                                <input type="text" class="form-control" name ="calle" id="calle" placeholder="Calle" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name ="alcaldia" id="alcaldia" placeholder="Alcaldía">
+                                <input type="text" class="form-control" name ="colonia" id="colonia" placeholder="Colonia" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name ="codigop" id="codigop" placeholder="Código postal" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name ="alcaldia" id="alcaldia" placeholder="Alcaldía" required>
                             </div>
                         </div>
                         <div class="form-row justify-content-center">

@@ -9,6 +9,7 @@ router.get('/EditAlum/:id', escuelaController.editAlum);
 router.post('/EditAlum/:id', escuelaController.updateAlum);
 router.get('/VerTutores', escuelaController.listTut);
 router.get('/VerProf', escuelaController.listProf);
+router.get('/EditProf/:id', escuelaController.editProf);
 router.get('/RegistrarTutor/:id', escuelaController.addTut);
 router.post('/RegistrarTutor/:id', escuelaController.addTutor);
 router.get('/EditTut/:id', escuelaController.editTutor);

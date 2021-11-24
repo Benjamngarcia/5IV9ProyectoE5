@@ -22,7 +22,7 @@
                             </div>
                             <!-- REGISTRO ALUMN -->
                             <div class="modal-body">
-                                <form action="/RegistroAlumno" method="POST">
+                                <form action="/RegistroAlumno" method="POST" onsubmit="return validarAlum();">
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <input type="text" class="form-control" name ="nom_alum" id="nombre" placeholder="Nombre">
@@ -36,15 +36,15 @@
                                             <input type="text" class="form-control" name ="apmat_alum" id="apmat" placeholder="Apellido materno">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <input type="email" class="form-control" name ="correo_alum" id="" placeholder="Email">
+                                            <input type="email" class="form-control" name ="correo_alum" id="email" placeholder="Email">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" name ="grupo_alum" id="" placeholder="Grupo">
+                                            <input type="text" class="form-control" name ="grupo_alum" id="grupo" placeholder="Grupo">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <input type="phone" class="form-control" name ="telefono_alum" id="" placeholder="Teléfono">
+                                            <input type="phone" class="form-control" name ="telefono_alum" id="telefono" placeholder="Teléfono">
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -59,20 +59,17 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" name="matricula_alum" placeholder="Matrícula">
+                                            <input type="text" class="form-control" name="matricula_alum" id="matricula" placeholder="Matrícula">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" name="pass_alum" placeholder="Contraseña">
+                                            <input type="text" class="form-control" name="pass_alum" id="contraseña" placeholder="Contraseña">
                                         </div>
                                     </div>
                                     <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <button type="" class="btn-especial pl-4 pr-4">GENERAR DATOS</button>
+                                        <div class="form-group col-md-6 text-center mx-auto">
+                                            <button type="submit" class="btn-especial p-2">REGISTRAR</button>
                                         </div>
-                                        <div class="form-group col-md-6">
-                                            <button class="btn-especial pl-5 pr-5">REGISTRAR</button>
-                                        </div>
-                                    </div>                              
+                                    </div>                            
                                 </form>
                             </div>
                             <div class="modal-footer">
@@ -93,60 +90,60 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="/RegistroProf" method="POST" onsubmit="">
+                                <form action="/RegistroProf" method="POST" onsubmit="return validarRegistroTeach();">
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" id="" name="nom_prof"
+                                            <input type="text" class="form-control" id="nombre" name="nom_prof"
                                                 placeholder="Nombre">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" id="" name="appat_prof"
+                                            <input type="text" class="form-control" id="appat" name="appat_prof"
                                                 placeholder="Apellido paterno">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" id="" name="apmat_prof"
+                                            <input type="text" class="form-control" id="apmat" name="apmat_prof"
                                                 placeholder="Apellido materno">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <input type="phone" class="form-control" id="" name="telefono_prof"
+                                            <input type="phone" class="form-control" id="telefono" name="telefono_prof"
                                                 placeholder="Teléfono">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" id="" name="calle_prof"
+                                            <input type="text" class="form-control" id="calle" name="calle_prof"
                                                 placeholder="Calle">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" id="" name="colonia_prof"
+                                            <input type="text" class="form-control" id="colonia" name="colonia_prof"
                                                 placeholder="Colonia">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" id="" name="codigop_prof"
+                                            <input type="text" class="form-control" id="codigop" name="codigop_prof"
                                                 placeholder="Codigo Postal">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" id="" name="alcaldia_prof"
+                                            <input type="text" class="form-control" id="alcaldia" name="alcaldia_prof"
                                                 placeholder="Alcaldia">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" id="" name="rfc_prof"
+                                            <input type="text" class="form-control" id="rfc" name="rfc_prof"
                                                 placeholder="RFC">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" id="" name="nss_prof"
+                                            <input type="text" class="form-control" id="nss" name="nss_prof"
                                                 placeholder="NSS">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input type="email" class="form-control" id="" name="correo_prof"
+                                            <input type="email" class="form-control" id="emailprof" name="correo_prof"
                                                 placeholder="Correo electrónico">
                                         </div>
                                         <div class="form-group col-md-6">

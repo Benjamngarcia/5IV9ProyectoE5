@@ -12,26 +12,26 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="nommbre"><i class="fas fa-user"></i> Nombre:</label>
-                                <input type="text" class="form-control" name ="nom_tutor" id="nombre" placeholder="Nombre" value="<%= info[i].nom_tutor%>">
+                                <input type="text" class="form-control" name ="nom_tutor" id="nombre" placeholder="Nombre" onkeypress="return SoloLetras(event);" value="<%= info[i].nom_tutor%>" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="appat"><i class="fas fa-user"></i> Apellido Paterno:</label>
-                                <input type="text" class="form-control" name ="appat_tutor" id="appat" placeholder="Apellido paterno" value="<%= info[i].appat_tutor%>">
+                                <input type="text" class="form-control" name ="appat_tutor" id="appat" placeholder="Apellido paterno" onkeypress="return SoloLetras(event);" value="<%= info[i].appat_tutor%>" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="apmat"><i class="fas fa-user"></i> Apellido Materno:</label>
-                                <input type="text" class="form-control" name ="apmat_tutor" id="apmat" placeholder="Apellido materno" value="<%= info[i].apmat_tutor%>">
+                                <input type="text" class="form-control" name ="apmat_tutor" id="apmat" placeholder="Apellido materno" onkeypress="return SoloLetras(event);" value="<%= info[i].apmat_tutor%>" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="apmat"><i class="fas fa-child"></i> Parentezco:</label>
-                                <input type="text" class="form-control" name ="parentezco" id="parentezco" placeholder="Parentezco" value="<%=info[i].parentezco%>">
+                                <input type="text" class="form-control" name ="parentezco" id="parentezco" placeholder="Parentezco" onkeypress="return SoloLetras(event);" value="<%=info[i].parentezco%>" required>
                             </div>
                         </div>
                         <div class="form-row justify-content-center">
                             <div class="form-group col-md-4 text-center">
-                                <button class="btn-link-principal p-2">EDITAR DATOS</button>
+                                <button type="submit" class="btn-link-principal p-2">EDITAR DATOS</button>
                             </div>                          
                         </div>
                     </form>

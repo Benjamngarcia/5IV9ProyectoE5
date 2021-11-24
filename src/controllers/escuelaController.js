@@ -1,5 +1,6 @@
 const controller = {};
 const pool = require('../database');
+const moment = require('moment');
 
 //VISTA DIRECTOR-------------------------------
 //MOSTRAR TABLA ALUMNOS
@@ -153,14 +154,27 @@ controller.updateTutor = (req, res) =>{
     res.redirect('/escuela/VistaDirec');
 };
 
+function formatDate(date) {
+    return moment(date).format('DD-MM-YYYY');
+}
+
 controller.mostrarInfo = async(req, res) => {
     let { matricula }  = req.params;
     if (req.session.loggedinDirec){
             await pool.query('SELECT * FROM alumno INNER JOIN tutor ON alumno.id_alum = tutor.id_alum INNER JOIN direccionAlum ON direccionAlum.id_alum = alumno.id_alum WHERE matricula_alum = ?',[matricula], (err, rows) =>{
+                rows = rows.map(row => ({
+                    ...row,
+                    fecha_ins: formatDate(row.fecha_ins),
+                    cumple_alum: formatDate(row.cumple_alum)
+                }));        
             if (err){
                 res.json(err);
             }
         pool.query('SELECT * FROM alumno INNER JOIN encuesta ON alumno.id_alum = encuesta.id_alum  WHERE matricula_alum = ?;',[matricula], (error, datos) =>{
+            datos = datos.map(dato => ({
+                ...dato,
+                fecha_enc: formatDate(dato.fecha_enc)
+            }));   
             if (error){
                 res.json(error);
             }
@@ -203,6 +217,34 @@ controller.deleteProf = (req, res) =>{
     pool.query('DELETE FROM profesor WHERE id_prof = ?', [id]);
     res.redirect('/escuela/VistaDirec');
 }
+
+controller.editProf = (req, res) => {
+    const { id } = req.params;
+    if(req.session.loggedinDirec){
+        pool.query('SELECT * FROM profesor where id_prof = ?',[id], (err, rows) =>{
+            if (err){
+                res.json(err);
+            }
+            res.render('director/editprof',{
+                logindirec: true,
+                data: req.session.data,
+                info: rows[0]
+            });
+        });
+    } else{
+        res.render('director/editprof',{
+            logindirec: false,
+            name: 'Debes iniciar sesión'
+        });
+    }
+};
+
+// controller.updateTutor = (req, res) =>{
+//     const { id } = req.params;
+//     const newInfo = req.body;
+//     pool.query('UPDATE tutor set ? WHERE id_tutor = ?', [newInfo, id]);
+//     res.redirect('/escuela/VistaDirec');
+// };
 
 //VISTA PROFESOR-------------------------------
 

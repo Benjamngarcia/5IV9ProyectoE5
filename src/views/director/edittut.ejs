@@ -8,18 +8,18 @@
                     <form action="/escuela/EditTut/<%= info.id_tutor%>" method="POST" onsubmit="return validarTutor();">
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name ="nom_tutor" id="nombre" value="<%= info.nom_tutor%>">
+                                <input type="text" class="form-control" name ="nom_tutor" id="nombre" onkeypress="return SoloLetras(event);" value="<%= info.nom_tutor%>" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name ="appat_tutor" id="appat" placeholder="Apellido paterno" value="<%= info.appat_tutor%>">
+                                <input type="text" class="form-control" name ="appat_tutor" id="appat" onkeypress="return SoloLetras(event);" placeholder="Apellido paterno" value="<%= info.appat_tutor%>" required> 
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name ="apmat_tutor" id="apmat" placeholder="Apellido materno" value="<%= info.apmat_tutor%>">
+                                <input type="text" class="form-control" name ="apmat_tutor" id="apmat" onkeypress="return SoloLetras(event);" placeholder="Apellido materno" value="<%= info.apmat_tutor%>" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name ="parentezco" id="parentezco" placeholder="Parentezco" value="<%=info.parentezco%>">
+                                <input type="text" class="form-control" name ="parentezco" id="parentezco" onkeypress="return SoloLetras(event);" placeholder="Parentezco" value="<%=info.parentezco%>" required>
                             </div>
                         </div>
                         <div class="form-row justify-content-center">

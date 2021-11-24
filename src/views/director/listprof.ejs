@@ -1,6 +1,5 @@
 <%if (logindirec===true) {%>
     <%- include ('../partials/_headerVistaDirec') %>
-        <!-- POR TUTOR -->
         <div class="container mt-5 pt-3 mb-5">
             <!-- VISUALIZAR PROFESORES -->
             <h3 class="text-center mt-5" id="teacher">LISTA PROFESORES</h3>
@@ -26,7 +25,6 @@
                                     <td><%= info[i].appat_prof%></td>
                                     <td><%= info[i].telefono_prof%></td>
                                     <td>
-                                        <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
                                         <a href="/escuela/DeleteProf/<%= info[i].id_prof %>" class="btn btn-danger"><i
                                                 class="fas fa-trash-alt"></i></a>
                                         <a href="/escuela/EditProf/<%= info[i].id_prof %>" class="btn btn-success"><i
