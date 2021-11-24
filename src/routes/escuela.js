@@ -18,7 +18,6 @@ router.post('/EditTut/:id', escuelaController.updateTutor);
 router.get('/VerInfo/:matricula', escuelaController.mostrarInfo);
 router.get('/DeleteProf/:id', escuelaController.deleteProf);
 router.post('/EnviarCorreo', escuelaController.enviarcorreo);
-router.get('/GraficasConsulta', escuelaController.graficasconsultas);
 
 //PROFESOR
 router.get('/VistaProfesor', escuelaController.viewProf);

@@ -1,4 +1,9 @@
 /* ---------PÁGINA----------- */
+
+#myChart{
+    width: 300px;
+    height: 300px;
+}
 /* BOTONES PRINCIPIO */
 
 .btn-especial{

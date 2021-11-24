@@ -1,0 +1,50 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div>
+        <input type="hidden" name="" id="valorGraf" value="<%=encuesta%>">
+        <canvas id="myChart" width="200px" height="200px"></canvas>
+        <script>
+            var valorGraf = document.getElementById('valorGraf').value;
+            let str = valorGraf;
+            let arr = str.split(' ');
+            console.log(arr);
+            let fin = [];
+            let array = arr;
+                array.forEach(element => {//Para cada valor del array
+                element.split(",").forEach(elm => {//Lo divido en 2 por la coma y para cada uno de los resultados
+                fin.push(parseFloat(elm));//LO meto en el array fin haciéndole un parse a float para evitar comillas
+                });
+            });
+            console.log(fin);
+            // var valorGraf = '[' + document.getElementById('valorGraf').value + ']'
+            // JSON.stringify(document.getElementById('valorGraf'));
+            const ctx = document.getElementById('myChart').getContext('2d');
+            console.log(valorGraf)
+            var myChart = new Chart(ctx, {
+                responsive: true,
+                type: 'pie',
+                data: {
+                    labels: ['Sano', 'Enfermo'],
+                    datasets: [{
+                        label: '% DE SALUD ESCUELA',
+                        data: fin,
+                        backgroundColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(54, 162, 235)'
+                        ],
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        </script>
+    </div>
