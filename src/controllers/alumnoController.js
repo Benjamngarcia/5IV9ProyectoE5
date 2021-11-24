@@ -113,7 +113,7 @@ controller.verRest = (req, res) => {
     }
 };
 function formatDate(date) {    
-    return moment(date).tz('Pacific/Funafuti').format('[a las: ]hh:mm a');
+    return moment(date).tz('America/Mexico_City').format('[a las: ]hh:mm a');
 }
 
 controller.verRest = (req, res) => {
