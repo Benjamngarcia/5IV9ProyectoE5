@@ -178,7 +178,8 @@ controller.redirCuest = (req, res) => {
                     res.render('alumno/showqr', {
                         loginalum: true,
                         data: req.session.data,
-                        qr_code: src
+                        qr_code: src,
+                        link: src
                     });
                 })
             } else if (JSON.stringify(dataCuest) == '"1"') {

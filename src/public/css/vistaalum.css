@@ -14,7 +14,15 @@
     border: none;
     background: var(--redCEG);
     color: var(--whiteCEG);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
+}
+.botonredondo:hover{
+    color: var(--whiteCEG);
+    text-decoration: none;
+    background-color: #ec3e44;
 }
 .check-icon{
     background-color: #77dd77;
