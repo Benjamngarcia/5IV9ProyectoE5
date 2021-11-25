@@ -8,8 +8,16 @@ const nodemailer = require('nodemailer');
 //MOSTRAR TABLA ALUMNOS
 controller.list = (req, res) => {
     if(req.session.loggedinDirec){
-            pool.query('SELECT * FROM encuesta c INNER JOIN (SELECT id_alum, MAX(id_enc) max_time FROM encuesta GROUP BY id_alum) AS t ON c.id_enc=t.max_time AND c.id_alum=t.id_alum INNER JOIN alumno a ON c.id_alum = a.id_alum', (err, rows) =>{
-                // pool.query('SELECT * FROM alumno', (err, rows) =>{
+            pool.query('SELECT * FROM encuesta c INNER JOIN (SELECT id_alum, MAX(id_enc) max_time FROM encuesta GROUP BY id_alum) AS t ON c.id_enc=t.max_time AND c.id_alum=t.id_alum RIGHT JOIN alumno a ON c.id_alum = a.id_alum', (err, rows) =>{
+            let riesgo = 'Riesgoso';
+            let sano = 'Sin riesgo';
+            for( var i = 0; i < rows.length; i++){
+                if(rows[i].resultado_enc === 0){
+                    rows[i].resultado_enc = sano
+                } else{
+                    rows[i].resultado_enc = riesgo
+                }
+            }
             if (err){
                 res.json(err);
             }
@@ -174,6 +182,15 @@ controller.mostrarInfo = async(req, res) => {
                 res.json(err);
             }
         pool.query('SELECT * FROM alumno INNER JOIN encuesta ON alumno.id_alum = encuesta.id_alum  WHERE matricula_alum = ?;',[matricula], (error, datos) =>{
+            let riesgo = 'Riesgoso';
+            let sano = 'Sin riesgo';
+            for( var i = 0; i < datos.length; i++){
+                if(datos[i].resultado_enc === 0){
+                    datos[i].resultado_enc = sano
+                } else{
+                    datos[i].resultado_enc = riesgo
+                }
+            }
             datos = datos.map(dato => ({
                 ...dato,
                 fecha_enc: formatDate(dato.fecha_enc)
@@ -285,7 +302,16 @@ controller.enviarcorreo = (req, res) =>{
 
 controller.viewProf = (req, res) => {
     if(req.session.loggedinProf){
-        pool.query('SELECT * FROM encuesta c INNER JOIN (SELECT id_alum, MAX(id_enc) max_time FROM encuesta GROUP BY id_alum) AS t ON c.id_enc=t.max_time AND c.id_alum=t.id_alum INNER JOIN alumno a ON c.id_alum = a.id_alum', (err, rows) =>{
+        pool.query('SELECT * FROM encuesta c INNER JOIN (SELECT id_alum, MAX(id_enc) max_time FROM encuesta GROUP BY id_alum) AS t ON c.id_enc=t.max_time AND c.id_alum=t.id_alum RIGHT JOIN alumno a ON c.id_alum = a.id_alum', (err, rows) =>{
+            let riesgo = 'Riesgoso';
+            let sano = 'Sin riesgo';
+            for( var i = 0; i < rows.length; i++){
+                if(rows[i].resultado_enc === 0){
+                    rows[i].resultado_enc = sano
+                } else{
+                    rows[i].resultado_enc = riesgo
+                }
+            }
             if (err){
                 res.json(err);
             }
@@ -297,6 +323,51 @@ controller.viewProf = (req, res) => {
         });
     } else{
         res.render('profesor/vistaprofe',{
+            loginprof: false,
+            name: 'Debes iniciar sesión'
+        });
+    }
+};
+
+controller.verInfo = async(req, res) => {
+    let { matricula }  = req.params;
+    if (req.session.loggedinProf){
+            await pool.query('SELECT * FROM alumno INNER JOIN tutor ON alumno.id_alum = tutor.id_alum INNER JOIN direccionAlum ON direccionAlum.id_alum = alumno.id_alum WHERE matricula_alum = ?',[matricula], (err, rows) =>{
+                rows = rows.map(row => ({
+                    ...row,
+                    fecha_ins: formatDate(row.fecha_ins),
+                    cumple_alum: formatDate(row.cumple_alum)
+                }));        
+            if (err){
+                res.json(err);
+            }
+        pool.query('SELECT * FROM alumno INNER JOIN encuesta ON alumno.id_alum = encuesta.id_alum  WHERE matricula_alum = ?;',[matricula], (error, datos) =>{
+            let riesgo = 'Riesgoso';
+            let sano = 'Sin riesgo';
+            for( var i = 0; i < datos.length; i++){
+                if(datos[i].resultado_enc === 0){
+                    datos[i].resultado_enc = sano
+                } else{
+                    datos[i].resultado_enc = riesgo
+                }
+            }
+            datos = datos.map(dato => ({
+                ...dato,
+                fecha_enc: formatDate(dato.fecha_enc)
+            }));   
+            if (error){
+                res.json(error);
+            }
+            res.render('profesor/mostrarinfo',{
+                loginprof: true,
+                data: req.session.data,
+                info: rows,
+                historial: datos
+        });
+            });
+        });
+    } else{
+        res.render('profesor/mostrarinfo',{
             loginprof: false,
             name: 'Debes iniciar sesión'
         });

@@ -21,13 +21,11 @@ router.post('/EnviarCorreo', escuelaController.enviarcorreo);
 
 //PROFESOR
 router.get('/VistaProfesor', escuelaController.viewProf);
+router.get('/MostrarInfo/:matricula', escuelaController.verInfo);
 //ADMIN
 router.get('/VistaAdmin', escuelaController.showPage);
 router.get('/DeleteDirec/:id', escuelaController.deleteDirec);
 router.get('/EditDirec/:id', escuelaController.showEdit);
 router.post('/EditDirec/:id', escuelaController.editDirec);
-
-
-
 
 module.exports = router;

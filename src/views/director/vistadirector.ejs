@@ -201,7 +201,7 @@
                         <tbody>
                             <% if (info) { %>
                                 <% for(var i = 0; i < info.length; i++) { %>
-                                    <tr>
+                                    <tr id="fila_enc">
                                         <td><%= info[i].grupo_alum %></td>
                                         <td><%= info[i].matricula_alum %></td>
                                         <td><%= info[i].nom_alum%></td>
@@ -220,6 +220,7 @@
                     </table>
                 </div>
         </div>
+        <script src="/js/tablas.js"></script>
         <script src="/js/generador.js"></script>
         <%- include ('../partials/_footerCopy') %>
 <%} else {%>
