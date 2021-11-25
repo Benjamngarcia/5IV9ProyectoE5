@@ -14,8 +14,10 @@ controller.list = (req, res) => {
             for( var i = 0; i < rows.length; i++){
                 if(rows[i].resultado_enc === 0){
                     rows[i].resultado_enc = sano
-                } else{
+                } else if (rows[i].resultado_enc === 1){
                     rows[i].resultado_enc = riesgo
+                } else {
+                    rows[i].resultado_enc = ''
                 }
             }
             if (err){
@@ -308,8 +310,10 @@ controller.viewProf = (req, res) => {
             for( var i = 0; i < rows.length; i++){
                 if(rows[i].resultado_enc === 0){
                     rows[i].resultado_enc = sano
-                } else{
+                } else if (rows[i].resultado_enc === 1){
                     rows[i].resultado_enc = riesgo
+                } else {
+                    rows[i].resultado_enc = ''
                 }
             }
             if (err){
