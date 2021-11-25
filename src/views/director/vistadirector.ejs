@@ -2,14 +2,19 @@
     <%- include ('../partials/_headerVistaDirec') %>
         <div class="container-xl text-center">
             <!-- BODY -->
-                <div class="row mx-auto justify-content-center">
+                <div class="row mx-auto justify-content-center mt-3">
                     <div class="col-md-6 col-sm-12 p-4 mt-5">
-                        <h3 class="mb-3">BIENVENIDO DIRECTOR <%= data.appat_direc %></h3>
-                        <form action="/escuela/EnviarCorreo" id="enviarcorreo" class="w-100" method="POST">
-                            <div class="save-buttons">
-                                <a type="button" onclick="document.getElementById('enviarcorreo').submit()" class="btn-especial p-2 text-light">ENVIAR ALERTA</a>
+                        <div class="card pl-3 pr-3 pt-4 pb-4">
+                            <h1 class="text-center">CENTRO EDUCATIVO GANDHI</h1>
+                            <h3 class="mb-3">Bienvenido de nuevo director <%= data.appat_direc %></h3>
+                            <div class="row justify-content-center">
+                                <form action="/escuela/EnviarCorreo" id="enviarcorreo" class="col-md-6" method="POST">
+                                    <div class="save-buttons">
+                                        <a type="button" onclick="document.getElementById('enviarcorreo').submit()" class="btn-especial p-2 text-light w-100">ENVIAR ALERTA</a>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
                 <div class="save-buttons">

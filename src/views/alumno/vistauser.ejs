@@ -3,23 +3,15 @@
         <!-- BODY -->
         <div class="container-xl">
             <div class="row mt-1 pt-1 mb-5 pb-5 mx-auto justify-content-center">
-                <div class="col-md-5 col-sm-12 mt-3 pt-5 mb-4 pb-5">
+                <div class="col-md-8 col-sm-12 mt-2 pt-3 mb-1 pb-1">
                     <div class="card">
                         <div class="card-body">
-                            <h2 class="text-center">Bienvenido <%= data.nom_alum %></h2>
-                            <div class="d-grid gap-2 col-8 mx-auto mt-5">
-                                <a href="" type="button" class="btn-link-principal btn-block p-3">DESCARGAR APP</a>
-                                <a href="/Cuestionario/<%= data.id_alum %>" type="button" class="btn-link-principal btn-block p-3">CONTESTAR CUESTIONARIO</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-5 col-sm-12 mt-3 pt-5 mb-4 pb-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="text-center">Recuerda que si tú te cuidas, nos cuidamos todos.</h4>
                             <div class="text-center">
                                 <img src="../img/vistauser.png" width="200" height="200" alt="">
+                            </div>
+                            <h3 class="text-center">Bienvenido/a de nuevo <%= data.nom_alum %></h3>
+                            <div class="d-grid gap-2 col-8 mx-auto mt-5">
+                                <a href="/Cuestionario/<%= data.id_alum %>" type="button" class="btn-link-principal btn-block p-3">CONTESTAR CUESTIONARIO</a>
                             </div>
                         </div>
                     </div>
