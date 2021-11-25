@@ -25,9 +25,7 @@ controller.vistaAlumn = (req, res) => {
 };
 controller.editarAlumn = (req, res) => {
     if (req.session.loggedinAlum) {
-        const {
-            id
-        } = req.params;
+        const { id  } = req.params;
         pool.query('SELECT * FROM alumno WHERE id_alum = ?', [id], (err, result) => {
             res.render('alumno/vistauser_editarusuario', {
                 loginalum: true,
@@ -43,9 +41,7 @@ controller.editarAlumn = (req, res) => {
 };
 controller.actualizarAlumn = (req, res) => {
     if (req.session.loggedinAlum) {
-        const {
-            id
-        } = req.params;
+        const { id  } = req.params;
         const newInfo = req.body;
         pool.query('UPDATE alumno set ? WHERE id_alum = ?', [newInfo, id], (err, result) => {
             res.redirect('/VistaAlumn');
@@ -56,9 +52,7 @@ controller.actualizarAlumn = (req, res) => {
 };
 controller.editarTutor = (req, res) => {
     if (req.session.loggedinAlum) {
-        const {
-            id
-        } = req.params;
+        const { id  } = req.params;
         pool.query('SELECT * FROM tutor WHERE id_alum = ?', [id], (err, result) => {
             res.render('alumno/vistauser_editartutor', {
                 loginalum: true,
@@ -77,9 +71,7 @@ controller.editarTutor = (req, res) => {
 
 controller.actualizarTutor = (req, res) => {
     if (req.session.loggedinAlum) {
-        const {
-            id
-        } = req.params;
+        const { id  } = req.params;
         const newInfo = req.body;
         pool.query('UPDATE tutor set ? WHERE id_alum = ?', [newInfo, id], (err, result) => {
             res.redirect('/VistaAlumn');
@@ -104,9 +96,7 @@ controller.verCuest = (req, res) => {
 };
 controller.verRest = (req, res) => {
     if (req.session.loggedinAlum) {
-        const {
-            matricula
-        } = req.params;
+        const { matricula   } = req.params;
         pool.query('SELECT MAX(id_enc) FROM encuesta INNER JOIN alumno ON encuesta.id_alum = alumno.id_alum WHERE matricula_alum = ?', [matricula], (err, result) => {
             res.render('alumno/resultadosenc', {
                 loginalum: true,
@@ -128,9 +118,7 @@ function formatDate(date) {
 }
 
 controller.verRest = (req, res) => {
-    const {
-        matricula
-    } = req.params;
+    const { matricula   } = req.params;
     console.log(req.params);
     pool.query('SELECT * FROM encuesta c INNER JOIN (SELECT id_alum, MAX(id_enc) max_time FROM encuesta GROUP BY id_alum) AS t ON c.id_enc=t.max_time AND c.id_alum=t.id_alum INNER JOIN alumno a ON c.id_alum = a.id_alum WHERE matricula_alum = ?', [matricula], (err, result) => {
         result = result.map(resul => ({

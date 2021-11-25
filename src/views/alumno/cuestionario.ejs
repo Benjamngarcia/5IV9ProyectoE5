@@ -59,7 +59,7 @@
             <form action="/redir/<%= data.id_alum %>" method="post">
                 <input type="hidden" id="bool" name="EncBool" value="0">
                 <input type="hidden" id="user" name="user" value="<%= data.matricula_alum %>" >
-                <button type="submit" id="Submit" class="btn-link-principal p-3 ml-auto" onclick="generate()">
+                <button type="submit" id="Submit" class="btn-link-principal p-3 ml-auto" onclick="generate();sumar()">
                     <input type="hidden" id="link" name="link" value=" ">
                     ENVIAR RESPUESTA
                 </button>
