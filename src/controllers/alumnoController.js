@@ -1,7 +1,7 @@
 const controller = {};
 const pool = require('../database');
 const qrcode = require('qrcode');
-const moment = require('moment'); 
+const moment = require('moment');
 const tz = require('moment-timezone');
 require('moment/locale/es');
 
@@ -25,7 +25,9 @@ controller.vistaAlumn = (req, res) => {
 };
 controller.editarAlumn = (req, res) => {
     if (req.session.loggedinAlum) {
-        const { id } = req.params;
+        const {
+            id
+        } = req.params;
         pool.query('SELECT * FROM alumno WHERE id_alum = ?', [id], (err, result) => {
             res.render('alumno/vistauser_editarusuario', {
                 loginalum: true,
@@ -41,7 +43,9 @@ controller.editarAlumn = (req, res) => {
 };
 controller.actualizarAlumn = (req, res) => {
     if (req.session.loggedinAlum) {
-        const { id } = req.params;
+        const {
+            id
+        } = req.params;
         const newInfo = req.body;
         pool.query('UPDATE alumno set ? WHERE id_alum = ?', [newInfo, id], (err, result) => {
             res.redirect('/VistaAlumn');
@@ -52,7 +56,9 @@ controller.actualizarAlumn = (req, res) => {
 };
 controller.editarTutor = (req, res) => {
     if (req.session.loggedinAlum) {
-        const { id } = req.params;
+        const {
+            id
+        } = req.params;
         pool.query('SELECT * FROM tutor WHERE id_alum = ?', [id], (err, result) => {
             res.render('alumno/vistauser_editartutor', {
                 loginalum: true,
@@ -71,7 +77,9 @@ controller.editarTutor = (req, res) => {
 
 controller.actualizarTutor = (req, res) => {
     if (req.session.loggedinAlum) {
-        const { id } = req.params;
+        const {
+            id
+        } = req.params;
         const newInfo = req.body;
         pool.query('UPDATE tutor set ? WHERE id_alum = ?', [newInfo, id], (err, result) => {
             res.redirect('/VistaAlumn');
@@ -96,7 +104,9 @@ controller.verCuest = (req, res) => {
 };
 controller.verRest = (req, res) => {
     if (req.session.loggedinAlum) {
-        const { matricula } = req.params;
+        const {
+            matricula
+        } = req.params;
         pool.query('SELECT MAX(id_enc) FROM encuesta INNER JOIN alumno ON encuesta.id_alum = alumno.id_alum WHERE matricula_alum = ?', [matricula], (err, result) => {
             res.render('alumno/resultadosenc', {
                 loginalum: true,
@@ -112,18 +122,21 @@ controller.verRest = (req, res) => {
         });
     }
 };
-function formatDate(date) {    
+
+function formatDate(date) {
     return moment(date).tz('America/Mexico_City').calendar();
 }
 
 controller.verRest = (req, res) => {
-    const { matricula } = req.params;
+    const {
+        matricula
+    } = req.params;
     console.log(req.params);
     pool.query('SELECT * FROM encuesta c INNER JOIN (SELECT id_alum, MAX(id_enc) max_time FROM encuesta GROUP BY id_alum) AS t ON c.id_enc=t.max_time AND c.id_alum=t.id_alum INNER JOIN alumno a ON c.id_alum = a.id_alum WHERE matricula_alum = ?', [matricula], (err, result) => {
         result = result.map(resul => ({
             ...resul,
             fecha_enc: formatDate(resul.fecha_enc)
-        })); 
+        }));
         if (req.session.loggedinAlum) {
             if (err) {
                 res.json(err);
@@ -163,47 +176,60 @@ controller.vistaAlumn = (req, res) => {
 
 controller.redirCuest = (req, res) => {
     const dataCuest = req.body.EncBool;
-    const { id } = req.params;
+    const {
+        id
+    } = req.params;
+    console.log(JSON.stringify(dataCuest));
     const linkCuest = req.body.link;
     if (req.session.loggedinAlum) {
-        pool.query('INSERT INTO encuesta set ?', {
-            id_alum: id,
-            resultado_enc: dataCuest
-        }, (err, results) => {
-            if (JSON.stringify(dataCuest) == '"0"') {
-                qrcode.toDataURL(linkCuest, (error, src) => {
-                    if (error) res.send('Algo mal');
-                    res.render('alumno/showqr', {
+        if (JSON.stringify(dataCuest) == '"0"' || JSON.stringify(dataCuest) == '"1"') {
+            pool.query('INSERT INTO encuesta set ?', {
+                id_alum: id,
+                resultado_enc: dataCuest
+            }, (err, results) => {
+                if (JSON.stringify(dataCuest) == '"0"') {
+                    qrcode.toDataURL(linkCuest, (error, src) => {
+                        if (error) res.send('Algo mal');
+                        res.render('alumno/showqr', {
+                            loginalum: true,
+                            data: req.session.data,
+                            qr_code: src,
+                            link: src
+                        });
+                    })
+                } else if (JSON.stringify(dataCuest) == '"1"') {
+                    res.render('alumno/redirect', {
+                        loginalum: true,
+                        data: req.session.data
+                    });
+                }
+                if (err) {
+                    res.render('alumno/cuestionario', {
                         loginalum: true,
                         data: req.session.data,
-                        qr_code: src,
-                        link: src
+                        alert: true,
+                        alertTitle: "Error",
+                        alertMessage: "Lo sentimos, ocurrió un error mientras guardábamos tu respuesta.",
+                        alertIcon: "error",
+                        showConfirmButton: true,
+                        timer: 2000,
+                        ruta: 'VistaAlumn'
                     });
-                })
-            } else if (JSON.stringify(dataCuest) == '"1"') {
-                res.render('alumno/redirect', {
-                    loginalum: true,
-                    data: req.session.data
-                });
-            } else {
-                res.render('alumno/cuestionario', {
-                    loginalum: true,
-                    data: req.session.data,
-                    alert: true,
-                    alertTitle: "Error",
-                    alertMessage: "Lo sentimos, ocurrió un error mientras guardábamos tu respuesta.",
-                    alertIcon: "error",
-                    showConfirmButton: true,
-                    timer: 2000,
-                    ruta: 'VistaAlumn'
-                });
-            }
-        })
-    } else {
-        res.render('alumno/cuestionario', {
-            loginalum: false,
-            name: 'Debes iniciar sesión'
-        });
+                }
+            });
+        }else{
+            res.render('alumno/cuestionario', {
+                loginalum: true,
+                data: req.session.data,
+                alert: true,
+                alertTitle: "Error",
+                alertMessage: "Lo sentimos, ocurrió un error mientras guardábamos tu respuesta.",
+                alertIcon: "error",
+                showConfirmButton: true,
+                timer: 2000,
+                ruta: 'VistaAlumn'
+            }); 
+        }
     }
-};
+}
 module.exports = controller;
